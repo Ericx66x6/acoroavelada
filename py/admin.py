@@ -2,7 +2,7 @@ import requests
 import os
 import json
 
-base_url = "http://127.0.0.1:5000"
+base_url = "https://acoroavelada.onrender.com"
 
 
 # ----------------------------
