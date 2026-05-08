@@ -1,0 +1,327 @@
+{
+    "player": "Isabela Braga",
+    "char": "Bella Pietra",
+    "cla": "TOREADOR",
+    "generation": 8,
+    "profilepicture": "/img/example.jpg",
+    "xp": 12,
+    "bloodpotency": 3,
+    "status": {
+        "adamage": 1,
+        "humanity": 3,
+        "hunger": 2,
+        "inspiration": 0,
+        "sdamage": 3,
+        "willpower": 7
+    },
+    "atributes": [
+        {
+            "id": 0,
+            "value": 2
+        },
+        {
+            "id": 1,
+            "value": 3
+        },
+        {
+            "id": 2,
+            "value": 3
+        },
+        {
+            "id": 3,
+            "value": 2
+        },
+        {
+            "id": 4,
+            "value": 4
+        },
+        {
+            "id": 5,
+            "value": 2
+        },
+        {
+            "id": 6,
+            "value": 5
+        },
+        {
+            "id": 7,
+            "value": 1
+        },
+        {
+            "id": 8,
+            "value": 1
+        }
+    ],
+    "knowledges": [
+        {
+            "id": 0,
+            "value": 1
+        },
+        {
+            "id": 1,
+            "value": 2
+        },
+        {
+            "id": 2,
+            "value": 2
+        },
+        {
+            "id": 3,
+            "value": 2
+        },
+        {
+            "id": 4,
+            "value": 2
+        },
+        {
+            "id": 5,
+            "value": 3
+        },
+        {
+            "id": 6,
+            "value": 4
+        },
+        {
+            "id": 7,
+            "value": 2
+        },
+        {
+            "id": 8,
+            "value": 4
+        },
+        {
+            "id": 9,
+            "value": 1
+        },
+        {
+            "id": 10,
+            "value": 3
+        },
+        {
+            "id": 11,
+            "value": 2
+        }
+    ],
+    "expertises": [
+        {
+            "id": 0,
+            "value": 2
+        },
+        {
+            "id": 1,
+            "value": 2
+        },
+        {
+            "id": 2,
+            "value": 2
+        },
+        {
+            "id": 3,
+            "value": 2
+        },
+        {
+            "id": 4,
+            "value": 2
+        },
+        {
+            "id": 5,
+            "value": 3
+        },
+        {
+            "id": 6,
+            "value": 4
+        },
+        {
+            "id": 7,
+            "value": 2
+        },
+        {
+            "id": 8,
+            "value": 4
+        },
+        {
+            "id": 9,
+            "value": 1
+        },
+        {
+            "id": 10,
+            "value": 3
+        },
+        {
+            "id": 11,
+            "value": 2
+        }
+    ],
+    "talents": [
+        {
+            "id": 0,
+            "value": 0
+        },
+        {
+            "id": 1,
+            "value": 4
+        },
+        {
+            "id": 2,
+            "value": 2
+        },
+        {
+            "id": 3,
+            "value": 3
+        },
+        {
+            "id": 4,
+            "value": 2
+        },
+        {
+            "id": 5,
+            "value": 3
+        },
+        {
+            "id": 6,
+            "value": 0
+        },
+        {
+            "id": 7,
+            "value": 2
+        },
+        {
+            "id": 8,
+            "value": 4
+        },
+        {
+            "id": 9,
+            "value": 1
+        },
+        {
+            "id": 10,
+            "value": 0
+        },
+        {
+            "id": 11,
+            "value": 2
+        }
+    ],
+    "disciplines": [
+        {
+            "id": 0,
+            "nivel": 2
+        },
+        {
+            "id": 1,
+            "nivel": 2
+        },
+        {
+            "id": 2,
+            "nivel": 1
+        }
+    ],
+    "rituals": [
+        {
+            "id": 0
+        },
+        {
+            "id": 1
+        }
+    ],
+    "precedents": [
+        {
+            "id": 0,
+            "value": 0
+        },
+        {
+            "id": 1,
+            "value": 2
+        },
+        {
+            "id": 2,
+            "value": 2
+        },
+        {
+            "id": 3,
+            "value": 2
+        },
+        {
+            "id": 4,
+            "value": 2
+        },
+        {
+            "id": 5,
+            "value": 3
+        },
+        {
+            "id": 6,
+            "value": 4
+        },
+        {
+            "id": 7,
+            "value": 2
+        },
+        {
+            "id": 8,
+            "value": 4
+        },
+        {
+            "id": 9,
+            "value": 1
+        }
+    ],
+    "money": 5000,
+    "items": [
+        {
+            "description": "Um fragmento de vitae preservado artificialmente. Impuro, mas útil em emergências.",
+            "id": 0,
+            "name": "Sangue Resfriado em Frasco"
+        },
+        {
+            "description": "Símbolo enfraquecido contra a Besta. Funciona apenas contra mentes instáveis.",
+            "id": 1,
+            "name": "Amuleto de Proteção Menor"
+        }
+    ],
+    "goals": [
+        {
+            "description": "Destruir a camarilla",
+            "id": 0
+        },
+        {
+            "description": "Obter informações com os nosferatu",
+            "id": 1
+        }
+    ],
+    "moralityes": [
+        {
+            "description": "Preservar a própria humanidade acima da fome e dos instintos da Besta.",
+            "id": 0
+        },
+        {
+            "description": "A vida mortal ainda possui valor, evite destruí-la sem necessidade ou justificativa clara.",
+            "id": 1
+        },
+        {
+            "description": "O poder deve ser usado com propósito, não por impulso ou crueldade gratuita.",
+            "id": 2
+        },
+        {
+            "description": "Quando a fome domina, a linha entre monstro e pessoa começa a desaparecer.",
+            "id": 3
+        }
+    ],
+    "notes": [
+        {
+            "description": "description",
+            "id": 0,
+            "title": "name"
+        },
+        {
+            "description": "description",
+            "id": 1,
+            "title": "name"
+        },
+        {
+            "description": "description",
+            "id": 2,
+            "title": "name"
+        }
+    ]
+}

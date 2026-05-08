@@ -1,0 +1,1112 @@
+{
+    "xp_cost": {
+        "bloodpotency": 5,
+        "atributes": 5,
+        "talents": 2,
+        "knowledges": 3,
+        "expertises": 2,
+        "precedents": 3,
+        "disciplines": 5
+    },
+    "disciplines": [
+        {
+            "id": 0,
+            "name": "AUSPÍCIOS",
+            "description": "Amplia os sentidos do vampiro, permitindo perceber auras, emoções e pensamentos, além de revelar ilusões e disfarces.",
+            "nivels": [
+                {
+                    "subname": "SENTIDOS AGUÇADOS",
+                    "nivel": 1,
+                    "description": "(Teste de Atributo + Percepção) Sentidos Aguçados amplia de forma sobrenatural os sentidos do vampiro, aumentando significativamente a clareza e o alcance da visão, audição e olfato. Com isso, ele passa a perceber detalhes que normalmente passariam despercebidos, como odores sutis, estruturas ocultas ou imperfeições físicas no ambiente. O tato e o paladar não são expandidos em alcance, mas tornam-se mais sensíveis, permitindo detectar nuances como substâncias no sangue ou pequenas irregularidades em objetos e superfícies. Em certas situações, pode ocorrer de forma espontânea uma percepção além do comum, manifestando-se como intuições vagas, pressentimentos ou sensações de perigo iminente. Essas percepções não são controláveis. Apesar do aumento perceptivo, o poder também traz vulnerabilidades. Estímulos intensos como luzes fortes, sons altos ou odores agressivos podem causar desconforto significativo, distração ou até efeitos mais severos, como cegueira ou surdez temporária em casos extremos. Em ambientes de escuridão, o vampiro não passa a enxergar normalmente, mas pode atuar se tiver outros sentidos disponíveis, como audição ou olfato. Além disso, a penalidade por agir na escuridão é reduzida, tornando suas ações menos prejudicadas nessas condições."
+                },
+                {
+                    "subname": "PERCEPÇÃO DA AURA",
+                    "nivel": 2,
+                    "description": "(Teste de Raciocínio + Empatia) Percepção da Aura permite ao vampiro enxergar as “auras” psíquicas que emanam de mortais e seres sobrenaturais. Essas auras se manifestam como padrões de cores em constante mudança, que refletem o estado emocional e aspectos ocultos do alvo. Emoções fortes aparecem de forma mais intensa e dominante, enquanto sentimentos sutis, pensamentos ou segredos mais profundos surgem como variações rápidas ou lampejos dentro da aura. Com experiência, o vampiro passa a interpretar essas cores e padrões com maior precisão, obtendo informações relevantes sobre a natureza e o estado emocional de um indivíduo apenas observando sua aura. Além disso, este poder também permite identificar a natureza sobrenatural de seres. Membros apresentam auras mais opacas e “apagadas”, magos exibem brilhos intensos e instáveis, metamorfos possuem auras vibrantes e caóticas, fantasmas surgem com auras fracas e quase apagadas, e criaturas feéricas irradiam padrões semelhantes a arco-íris. O jogador deve realizar um teste de Raciocínio + Empatia, para analisar a aura de um alvo. Cada sucesso obtido revela um nível mais profundo de compreensão. Com mais sucessos, consegue identificar combinações detalhadas de cores e padrões, obtendo uma leitura aprofundada do estado emocional e da própria natureza do alvo."
+                },
+                {
+                    "subname": "TOQUE DO ESPÍRITO",
+                    "nivel": 3,
+                    "description": "(Rouse Check! --> Teste de Raciocínio + Empatia) Toque do Espírito permite ao vampiro ler impressões psíquicas deixadas em objetos por aqueles que os manipularam. Ao longo do tempo, pessoas deixam “rastros espirituais” em itens físicos, variando em intensidade conforme o tempo de posse e a carga emocional envolvida. O vampiro pode acessar esses rastros e obter vislumbres do passado do objeto, como quem o tocou, quando foi usado pela última vez e de que forma foi utilizado. Essas percepções não são claras nem lineares, surgindo como fragmentos de memória ou retrospectos psíquicos. Em geral, as impressões mais recentes são mais fáceis de acessar, enquanto possessões prolongadas ou eventos emocionalmente intensos deixam marcas mais fortes e profundas. Situações carregadas de emoção, como violência, despedidas ou presentes significativos, geram impressões mais vívidas do que interações breves ou casuais. Para ativar o poder, o vampiro deve segurar o objeto e entrar em um leve transe, ficando parcialmente desconectado do ambiente ao seu redor. Durante esse estado, estímulos externos fortes, como barulhos intensos ou impactos físicos, podem interromper a conexão imediatamente. O jogador realiza um teste de Determinação + Empatia, com dificuldade definida pelo Narrador conforme a idade e intensidade das impressões do objeto. Cada sucesso aprofunda a leitura das memórias psíquicas ligadas ao item, indo de informações vagas sobre o último portador até detalhes cada vez mais específicos sobre sua identidade, estado emocional e uso do objeto"
+                },
+                {
+                    "subname": "TELEPATIA",
+                    "nivel": 4,
+                    "description": "(Teste de Inteligência + Persuasão contra a Força de Vontade do alvo) Telepatia permite ao vampiro conectar sua mente à de um mortal próximo, criando um vínculo mental que possibilita comunicação silenciosa ou leitura de pensamentos. Ele pode “ouvir” os pensamentos do alvo como impressões diretas em sua própria mente, percebendo ideias, imagens e intenções sem necessidade de palavras. Com isso, o vampiro pode tanto enviar pensamentos quanto acessar a mente do alvo, explorando desde emoções superficiais até conteúdos mais profundos e escondidos. Quanto mais profunda a leitura, mais difícil e fragmentada ela se torna, podendo envolver memórias enterradas ou segredos bem protegidos. O jogador realiza um teste de Inteligência + Persuasão contra a Força de Vontade do alvo. Um sucesso é suficiente para estabelecer a conexão mental. Cada sucesso adicional representa uma camada mais profunda da mente acessada, permitindo desde pensamentos simples e imediatos até memórias complexas e segredos ocultos, conforme a profundidade desejada. O uso deste poder é mais difícil contra outras criaturas sobrenaturais ou seres mortos-vivos, podendo exigir esforço adicional ou gasto de Força de Vontade para funcionar. A leitura mental não é literal nem estruturada: os pensamentos devem ser interpretados como imagens, sensações e fragmentos de ideias, deixando ao Narrador a liberdade de descrever de forma subjetiva e simbólica, enriquecendo a cena e permitindo interpretações variadas pelo jogador."
+                },
+                {
+                    "subname": "PROJEÇÃO PSÍQUICA",
+                    "nivel": 5,
+                    "description": "(Rouse Check! --> Teste de Determinação + Ocultismo) Projeção Psíquica permite ao vampiro separar sua consciência do corpo físico, assumindo uma forma astral composta puramente de pensamento. Nesse estado, ele se torna imune a dano físico e fadiga, podendo atravessar grandes distâncias com extrema velocidade, alcançando qualquer ponto da Terra enquanto permanecer sob a influência da lua. Durante a projeção, o corpo físico entra em torpor e permanece completamente inconsciente, sem percepção do que ocorre ao seu redor. A forma astral do vampiro permanece conectada ao corpo por um cordão de prata etéreo, que funciona como elo vital entre os dois estados. Se esse cordão for danificado ou rompido, a consciência pode ficar presa no plano astral, um domínio espiritual habitado por entidades e perigos desconhecidos, tornando o retorno ao corpo uma tarefa extremamente difícil e incerta. O uso do poder exige que o jogador gaste um ponto de Força de Vontade e realize um teste de Determinação + Ocultismo. A dificuldade do teste varia conforme a distância e a complexidade da viagem planejada, podendo ir de valores moderados para trajetos conhecidos até dificuldades extremamente altas para locais distantes ou desconhecidos. Cada sucesso indica maior precisão na jornada astral e melhor controle do deslocamento. Durante a projeção, mudanças de rota ou novas viagens exigem novos testes e novos gastos de Força de Vontade, com riscos semelhantes em caso de falha. A forma astral não transporta objetos físicos ou vestimentas, embora possa interagir com certos artefatos existentes no plano espiritual, sem possibilidade de trazê-los de volta ao mundo físico."
+                },
+                {
+                    "subname": "quinto nivel",
+                    "nivel": 6,
+                    "description": "description"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "RAPIDEZ",
+            "description": "Aumenta drasticamente a velocidade do vampiro, permitindo realizar várias ações físicas em um único turno.",
+            "nivels": [
+                {
+                    "subname": "NÍVEL 1",
+                    "nivel": 1,
+                    "description": "(Rouse Check!) Este poder concede ao vampiro uma velocidade sobrenatural, fazendo com que seus movimentos e reflexos superem em muito os limites normais de mortais e até de outros Membros. Sob seu efeito, o vampiro percebe e reage ao mundo com uma fluidez acelerada, enquanto os demais parecem se mover em câmera lenta. Isso permite executar sequências de ações físicas com precisão e velocidade impossíveis em condições normais. Em termos de funcionamento, a ativação exige um teste de Rouse Check no início do turno. Caso ativado com sucesso, o vampiro ganha um número de ações físicas adicionais ao final do seu turno igual ao seu nível em Rapidez. Essas ações são totalmente completas e não sofrem penalidades por múltiplas ações, sendo executadas com sua parada de dados normal. Além disso, o personagem também recebe reações adicionais equivalentes ao seu nível em Rapidez até o fim da rodada, aumentando sua capacidade de defesa e resposta a ataques. As ações concedidas por este poder devem ser exclusivamente físicas, não podendo ser usadas para repetir ou multiplicar efeitos de Disciplinas mentais ou habilidades que não envolvam ação corporal direta. Cada ação adicional é independente e não pode ser subdividida em múltiplas ações menores. Esse poder altera drasticamente o ritmo de combate, permitindo que o vampiro atue várias vezes antes que outros consigam reagir plenamente, tornando-o extremamente perigoso em situações de confronto direto."
+                },
+                {
+                    "subname": "NÍVEL 2",
+                    "nivel": 2,
+                    "description": "(Rouse Check!) Funciona exatamente como o nível anterior de Rapidez, mantendo o mesmo sistema de ativação e regras. A única diferença é que o personagem ganha um número maior de ações físicas adicionais ao final do turno e mais reações adicionais até o fim da rodada, igual ao seu nível nesta Disciplina."
+                },
+                {
+                    "subname": "NÍVEL 3",
+                    "nivel": 3,
+                    "description": "(Rouse Check!) Funciona exatamente como o nível anterior de Rapidez, mantendo o mesmo sistema de ativação e regras. A única diferença é que o personagem ganha um número maior de ações físicas adicionais ao final do turno e mais reações adicionais até o fim da rodada, igual ao seu nível nesta Disciplina."
+                },
+                {
+                    "subname": "NÍVEL 4",
+                    "nivel": 4,
+                    "description": "(Rouse Check!) Funciona exatamente como o nível anterior de Rapidez, mantendo o mesmo sistema de ativação e regras. A única diferença é que o personagem ganha um número maior de ações físicas adicionais ao final do turno e mais reações adicionais até o fim da rodada, igual ao seu nível nesta Disciplina."
+                },
+                {
+                    "subname": "NÍVEL 5",
+                    "nivel": 5,
+                    "description": "(Rouse Check!) Funciona exatamente como o nível anterior de Rapidez, mantendo o mesmo sistema de ativação e regras. A única diferença é que o personagem ganha um número maior de ações físicas adicionais ao final do turno e mais reações adicionais até o fim da rodada, igual ao seu nível nesta Disciplina."
+                },
+                {
+                    "subname": "NÍVEL 6",
+                    "nivel": 5,
+                    "description": "(Rouse Check!) Funciona exatamente como o nível anterior de Rapidez, mantendo o mesmo sistema de ativação e regras. A única diferença é que o personagem ganha um número maior de ações físicas adicionais ao final do turno e mais reações adicionais até o fim da rodada, igual ao seu nível nesta Disciplina."
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "DOMINAÇÃO",
+            "description": "Permite influenciar e controlar a mente de humanos através do contato visual, impondo a própria vontade e forçando obediência a comandos simples ou complexos.",
+            "nivels": [
+                {
+                    "subname": "O COMANDO",
+                    "nivel": 1,
+                    "description": "(Teste de Manipulação + Intimidação contra a força de vontade do alvo) O Comando permite ao vampiro impor uma ordem simples e direta a um alvo através do contato visual e de uma palavra falada com intenção sobrenatural. A vítima é forçada a obedecer imediatamente a instruções de uma única ação clara, como correr, rir, parar ou cair. O comando precisa ser objetivo e sem ambiguidade, caso contrário o efeito pode ser mal executado ou aplicado de forma fraca. Não é possível ordenar ações que causem dano direto e inevitável ao alvo. O comando pode ser disfarçado dentro de uma frase comum, desde que haja contato visual no momento certo e ênfase sobrenatural na palavra-chave. Em situações assim, a ação pode parecer uma coincidência para observadores e até para a própria vítima, a menos que haja familiaridade com poderes sobrenaturais. Em termos de sistema, o jogador realiza um teste de Manipulação + Intimidação contra a Força de Vontade da vítima. O número de sucessos determina a intensidade e duração da ação imposta, podendo fazer com que o alvo repita ou prolongue o comportamento ordenado por mais tempo ou com maior intensidade, conforme a interpretação do Narrador."
+                },
+                {
+                    "subname": "HIPNOTIZAR",
+                    "nivel": 2,
+                    "description": "(Teste de Manipulação + Liderança contra a força de vontade do alvo) Hipnotizar permite ao vampiro implantar sugestões ou pensamentos na mente de um alvo por meio da fala e concentração. A sugestão é inserida no subconsciente da vítima e pode ser ativada imediatamente ou condicionada a um gatilho específico, que fará a ordem se manifestar posteriormente. O uso exige que o alvo compreenda o vampiro e esteja relativamente livre de distrações, enquanto o contato visual é necessário apenas no momento da implantação. As sugestões podem variar de ações simples e diretas até instruções complexas e encadeadas, desde que sejam plausíveis dentro das limitações do alvo. No entanto, cada vítima só pode carregar uma sugestão ativa por vez, sendo possível substituí-la caso uma nova seja implantada com maior eficácia. Em termos de sistema, o jogador realiza um teste de Manipulação + Liderança contra a Força de Vontade do alvo. O número de sucessos determina a profundidade e a eficácia da sugestão: resultados baixos geram resistência a ordens estranhas ou perigosas, resultados médios permitem ações condicionais desde que não coloquem o alvo em risco direto, e resultados altos permitem a imposição de praticamente qualquer comportamento plausível. Nenhuma sugestão pode forçar o alvo a agir contra sua autopreservação de forma direta ou extrema, como causar dano fatal imediato a si mesmo. Caso uma nova sugestão seja implantada, ela substitui a anterior se obtiver mais sucessos; em caso de empate, a mais recente prevalece."
+                },
+                {
+                    "subname": "ORDENAR ESQUECIMENTOS",
+                    "nivel": 3,
+                    "description": "(Rouse Check! --> Teste de Raciocínio + Persuasão) Ordenar Esquecimentos permite ao vampiro manipular, apagar ou reconstruir memórias de um alvo após estabelecer contato visual e conduzir uma forma de interrogatório hipnótico. O vampiro não acessa a mente de forma telepática, mas influencia diretamente o processo de recordação da vítima, extraindo informações e reescrevendo experiências conforme sua vontade. Ele pode remover lembranças específicas, alterar eventos ou até reconstruir períodos inteiros da vida do alvo, dependendo da sua habilidade. Memórias mais simples ou vagas são mais fáceis de apagar ou alterar, enquanto lembranças detalhadas e emocionalmente carregadas tendem a ser mais resistentes e exigem maior esforço. Quanto mais complexa a alteração, mais “natural” ela precisa parecer, caso contrário o subconsciente do alvo pode criar lacunas, inconsistências ou recuperar fragmentos com o tempo. Mesmo memórias alteradas podem ressurgir posteriormente através de gatilhos sensoriais, sonhos ou associações emocionais. Em termos de sistema, o jogador declara a alteração desejada e realiza um teste de Raciocínio + Persuasão contra a Força de Vontade do alvo. Qualquer sucesso já permite iniciar o processo de manipulação, mantendo a vítima em estado de passividade enquanto as mudanças são feitas. O número de sucessos determina a profundidade da alteração possível: com um sucesso, é possível apagar uma memória por curto período; com dois sucessos, remover memórias de forma permanente; com três sucessos, alterar lembranças de forma leve; com quatro sucessos, remover ou reescrever eventos completos; e com cinco ou mais sucessos, reconstruir períodos inteiros da vida do alvo. Para detectar ou restaurar memórias alteradas por este poder, utiliza-se um teste de Raciocínio + Empatia contra a Força de Vontade do vampiro que realizou a alteração. Nesse caso, o sucesso depende de superar o número de sucessos originalmente obtidos na manipulação da memória."
+                },
+                {
+                    "subname": "CONDICIONAMENTO",
+                    "nivel": 4,
+                    "description": "(Teste de Carisma + Liderança) Condicionamento representa um processo prolongado de dominação mental, no qual o vampiro molda gradualmente a mente de um alvo até torná-lo altamente obediente e psicologicamente dependente de sua influência. Com repetidas interações e manipulações, a vítima passa a ser cada vez mais suscetível às ordens do vampiro, enquanto simultaneamente desenvolve resistência contra influências de outros seres sobrenaturais. O resultado é uma transformação profunda da personalidade, reduzindo iniciativa, criatividade e autonomia, até que o alvo se torne um agente quase automático da vontade do vampiro. O processo não é imediato e exige tempo contínuo de influência, geralmente se estendendo por semanas ou meses, dependendo da resistência do alvo e da consistência das interações. Durante esse período, o alvo pode apresentar comportamentos progressivamente mais dóceis e previsíveis, mesmo antes da dominação completa se estabelecer. Em termos de sistema, trata-se de uma ação prolongada. O jogador realiza testes de Carisma + Liderança contra a Força de Vontade permanente do alvo, acumulando sucessos ao longo do tempo. O Narrador define secretamente o total necessário para completar o Condicionamento, normalmente variando entre múltiplos da estabilidade mental do alvo, podendo ser ajustado conforme sua personalidade e resistência. À medida que os sucessos são acumulados, o alvo torna-se progressivamente mais influenciável, reduzindo a dificuldade de novas interações de Dominação. Uma vez concluído o processo, o vampiro exerce controle absoluto enquanto houver comunicação direta, geralmente verbal. O contato visual deixa de ser necessário, e comandos passam a ser seguidos automaticamente, sem necessidade de novos testes na maioria das situações, exceto quando há isolamento completo do alvo em relação ao vampiro."
+                },
+                {
+                    "subname": "POSSESSÃO",
+                    "nivel": 5,
+                    "description": "Este poder permite ao vampiro dominar completamente a mente de um mortal, expulsando sua consciência e assumindo controle total do corpo. Após estabelecer contato visual e vencer a resistência mental da vítima, o vampiro projeta sua própria consciência para dentro do alvo, enquanto o corpo original entra em torpor. Durante a possessão, o mortal permanece apenas parcialmente consciente, percebendo o mundo de forma distorcida e onírica. Enquanto controla o corpo hospedeiro, o vampiro pode agir livremente como se fosse o próprio corpo, mas sua forma original fica indefesa e inconsciente. Qualquer dano sofrido pelo corpo possuído também afeta o vampiro, que pode resistir normalmente. Caso o hospedeiro morra antes da fuga da consciência, o vampiro retorna imediatamente. Em termos de sistema, o jogador gasta 1 ponto de Força de Vontade e realiza um teste de Carisma + Intimidação contra a Força de Vontade do alvo. Se vencer, a possessão é bem-sucedida e o controle é total enquanto durar a conexão. Se falhar, o alvo resiste e a tentativa não surte efeito."
+                },
+                {
+                    "subname": "sexto nivel",
+                    "nivel": 6,
+                    "description": "description"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "FORTITUDE",
+            "description": "Aumenta a resistência física do vampiro a níveis sobrenaturais, tornando-o extremamente difícil de ferir e capaz de suportar danos que seriam fatais para outros.",
+            "nivels": [
+                {
+                    "subname": "NIVEL 1",
+                    "nivel": 1,
+                    "description": "Fortitude representa a resistência sobrenatural do vampiro a danos físicos e sobrenaturais, tornando seu corpo extremamente difícil de ferir ou destruir. O nível de Fortitude é somado ao Vigor do personagem para absorver dano normal (contusivo e letal). Além disso, permite que o vampiro também tente absorver dano agravado, algo normalmente impossível para Membros. Nesse caso, o personagem utiliza diretamente seus pontos em Fortitude como dados de absorção para esse tipo de dano."
+                },
+                {
+                    "subname": "NIVEL 2",
+                    "nivel": 2,
+                    "description": "Funciona exatamente como o nível anterior. O personagem continua somando Fortitude ao Vigor para absorver dano contusivo e letal, e utilizando seus pontos em Fortitude como dados para absorver dano agravado. A única diferença é o aumento do nível da Disciplina, que melhora diretamente sua capacidade de resistência e sobrevivência em combate e contra efeitos sobrenaturais."
+                },
+                {
+                    "subname": "NIVEL 3",
+                    "nivel": 3,
+                    "description": "Funciona exatamente como o nível anterior. O personagem continua somando Fortitude ao Vigor para absorver dano contusivo e letal, e utilizando seus pontos em Fortitude como dados para absorver dano agravado. A única diferença é o aumento do nível da Disciplina, que melhora diretamente sua capacidade de resistência e sobrevivência em combate e contra efeitos sobrenaturais."
+                },
+                {
+                    "subname": "NIVEL 4",
+                    "nivel": 4,
+                    "description": "Funciona exatamente como o nível anterior. O personagem continua somando Fortitude ao Vigor para absorver dano contusivo e letal, e utilizando seus pontos em Fortitude como dados para absorver dano agravado. A única diferença é o aumento do nível da Disciplina, que melhora diretamente sua capacidade de resistência e sobrevivência em combate e contra efeitos sobrenaturais."
+                },
+                {
+                    "subname": "NIVEL 5",
+                    "nivel": 5,
+                    "description": "Funciona exatamente como o nível anterior. O personagem continua somando Fortitude ao Vigor para absorver dano contusivo e letal, e utilizando seus pontos em Fortitude como dados para absorver dano agravado. A única diferença é o aumento do nível da Disciplina, que melhora diretamente sua capacidade de resistência e sobrevivência em combate e contra efeitos sobrenaturais."
+                },
+                {
+                    "subname": "NIVEL 6",
+                    "nivel": 5,
+                    "description": "Funciona exatamente como o nível anterior. O personagem continua somando Fortitude ao Vigor para absorver dano contusivo e letal, e utilizando seus pontos em Fortitude como dados para absorver dano agravado. A única diferença é o aumento do nível da Disciplina, que melhora diretamente sua capacidade de resistência e sobrevivência em combate e contra efeitos sobrenaturais."
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "OFUSCAÇÃO",
+            "description": "Permite ao vampiro ocultar sua presença, tornando-se invisível aos sentidos e passando despercebido mesmo em plena vista.",
+            "nivels": [
+                {
+                    "subname": "MANTO DAS SOMBRAS",
+                    "nivel": 1,
+                    "description": "O vampiro torna-se praticamente invisível enquanto permanecer parado, em silêncio e sob alguma forma de cobertura ou sombra. Ele não pode estar sob luz direta e não pode se mover, atacar ou chamar atenção. Enquanto essas condições forem mantidas, ele não é percebido pela visão normal, exceto por criaturas com percepção sobrenatural mais avançada. Nenhum teste é necessário. O efeito funciona automaticamente enquanto o personagem cumprir as condições de imobilidade, silêncio e ocultação em sombra/cobertura. O efeito termina imediatamente se ele se mover, agir ou sair para a luz direta."
+                },
+                {
+                    "subname": "PRESENÇA INVISÍVEL",
+                    "nivel": 2,
+                    "description": "O vampiro pode se mover enquanto permanece oculto, fazendo com que sua presença seja ignorada de forma instintiva pelas pessoas ao redor. Ele continua fisicamente presente, mas os outros tendem a desviar o olhar ou simplesmente não registrar sua existência, permitindo que ele atravesse ambientes sem ser notado. O efeito se mantém indefinidamente, desde que o vampiro não quebre a discrição. Não requer teste para ativar ou manter. O efeito funciona automaticamente enquanto o personagem não falar, atacar ou realizar ações que chamem atenção. Em situações de risco ou ações delicadas, o Narrador pode exigir testes de Raciocínio + Furtividade, com dificuldade variável conforme o ambiente. A ocultação é quebrada imediatamente se o vampiro causar qualquer ação chamativa. Observadores atentos podem resistir ao efeito e potencialmente perceber sua presença."
+                },
+                {
+                    "subname": "MÁSCARA DAS MIL FACES",
+                    "nivel": 3,
+                    "description": "(Rouse Check! --> Teste de Manipulação + Performance)O vampiro pode alterar a percepção dos outros, fazendo com que enxerguem uma aparência diferente da sua forma real. O corpo físico não muda, mas qualquer observador afetado percebe uma identidade completamente distinta, definida pela intenção do vampiro. Ele pode criar uma face totalmente nova ou reproduzir a aparência de outra pessoa, desde que tenha uma ideia clara do alvo ou do disfarce desejado. Disfarces originais tendem a ser mais estáveis, enquanto imitações exigem maior precisão e conhecimento do indivíduo copiado. Quanto mais íntima ou específica a pessoa imitada, mais difícil manter a ilusão de forma convincente. Em termos de sistema, o jogador realiza um teste de Manipulação + Performance contra dificuldade 7 para estabelecer o disfarce. O número de sucessos determina a qualidade da ilusão, mas os efeitos exatos e o nível de detalhe percebido pelos observadores ficam a critério do Narrador, que decide até que ponto o disfarce é convincente em cada situação, podendo variar desde alterações superficiais até transformações completas de identidade."
+                },
+                {
+                    "subname": "DESAPARECIMENTO DO OLHO DA MENTE",
+                    "nivel": 4,
+                    "description": "(Rouse Check! --> Teste de Carisma + Furtividade contra o Raciocínio do alvo)Este poder permite ao vampiro desaparecer completamente da percepção de quem o observa, mesmo estando à vista. Sua presença é apagada da mente dos observadores, causando efeitos psicológicos imediatos que variam de confusão e choque até pânico ou esquecimento total de sua existência recente. Quanto mais bem-sucedido o efeito, mais completo é o desaparecimento, podendo ir de uma aparência fantasmagórica ainda perceptível até a completa ausência da memória do vampiro na mente das testemunhas. Observadores mais resistentes podem tentar se recompor rapidamente ou agir sob confusão temporária. Em termos de sistema, o jogador realiza um teste de Carisma + Furtividade contra a dificuldade igual ao Raciocínio do alvo (ou do grupo, usando o maior valor presente). Com poucos sucessos, o vampiro apenas se torna uma figura borrada e difícil de distinguir. Com sucessos suficientes, ele desaparece completamente da percepção. Se os sucessos excederem a Força de Vontade do observador, este também esquece que o vampiro esteve presente."
+                },
+                {
+                    "subname": "COBRINDO O GRUPO",
+                    "nivel": 5,
+                    "description": "Este poder permite ao vampiro estender suas habilidades de Ofuscação para outras pessoas próximas, ocultando um grupo inteiro junto de si. Todos sob o efeito passam a compartilhar o mesmo disfarce de ocultação, movendo-se juntos sem chamar atenção, como se fossem igualmente ignorados pela percepção ao redor. É especialmente útil para deslocar aliados por áreas perigosas sem serem detectados. O efeito se mantém enquanto o vampiro sustentar a ocultação e enquanto os protegidos não quebrarem suas próprias condições de discrição. Qualquer indivíduo que atrapalhe o disfarce pode perder a proteção, mas isso não necessariamente expõe os demais. No entanto, se o próprio vampiro falhar em manter o efeito ou for detectado, toda a ocultação do grupo é rompida imediatamente. Em termos de sistema, o vampiro pode ocultar um número de pessoas igual ao seu nível em Furtividade. Ele realiza uma única jogada para ativar o poder e aplica o mesmo efeito de Ofuscação escolhido a todos os afetados. Cada indivíduo ainda precisa respeitar as exigências do poder usado para permanecer oculto. Se algum participante falhar em manter essas condições, apenas ele perde o efeito. O disfarce coletivo só é totalmente quebrado se o próprio vampiro comprometer a Ofuscação."
+                },
+                {
+                    "subname": "subname",
+                    "nivel": 6,
+                    "description": "description"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "POTÊNCIA",
+            "description": "Aumenta a força física do vampiro a níveis sobrenaturais, permitindo feitos de pura brutalidade como levantar pesos absurdos e esmagar oponentes com facilidade.",
+            "nivels": [
+                {
+                    "subname": "NIVEL 1",
+                    "nivel": 1,
+                    "description": "Este poder aumenta de forma sobrenatural a força física do vampiro, tornando seus golpes e feitos de impacto muito mais destrutivos. A Potência não substitui a força natural do personagem, mas a amplifica, permitindo que ele levante mais peso, cause mais dano em combate corpo a corpo e realize feitos de força impossível para mortais. Em termos de sistema, o nível de Potência é somado diretamente à Força do vampiro para todas as ações físicas que envolvam força bruta, como ataques corpo a corpo, arremessos, esmagamentos ou levantamento de objetos. Cada ponto adicional representa um aumento direto na capacidade de impacto e poder físico do personagem."
+                },
+                {
+                    "subname": "NIVEL 2",
+                    "nivel": 2,
+                    "description": "Os níveis seguintes de Potência funcionam exatamente da mesma forma, mantendo o mesmo sistema de soma com a Força. A única diferença entre os níveis é o aumento progressivo da força bruta disponível ao vampiro, tornando-o cada vez mais devastador em ações físicas."
+                },
+                {
+                    "subname": "NIVEL 3",
+                    "nivel": 3,
+                    "description": "Os níveis seguintes de Potência funcionam exatamente da mesma forma, mantendo o mesmo sistema de soma com a Força. A única diferença entre os níveis é o aumento progressivo da força bruta disponível ao vampiro, tornando-o cada vez mais devastador em ações físicas."
+                },
+                {
+                    "subname": "NIVEL 4",
+                    "nivel": 4,
+                    "description": "Os níveis seguintes de Potência funcionam exatamente da mesma forma, mantendo o mesmo sistema de soma com a Força. A única diferença entre os níveis é o aumento progressivo da força bruta disponível ao vampiro, tornando-o cada vez mais devastador em ações físicas."
+                },
+                {
+                    "subname": "NIVEL 5",
+                    "nivel": 5,
+                    "description": "Os níveis seguintes de Potência funcionam exatamente da mesma forma, mantendo o mesmo sistema de soma com a Força. A única diferença entre os níveis é o aumento progressivo da força bruta disponível ao vampiro, tornando-o cada vez mais devastador em ações físicas."
+                },
+                {
+                    "subname": "NIVEL 6",
+                    "nivel": 5,
+                    "description": "Os níveis seguintes de Potência funcionam exatamente da mesma forma, mantendo o mesmo sistema de soma com a Força. A única diferença entre os níveis é o aumento progressivo da força bruta disponível ao vampiro, tornando-o cada vez mais devastador em ações físicas."
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "MORTIS",
+            "description": "Domínio sobre a morte, decomposição e energia vital corrompida.",
+            "nivels": [
+                {
+                    "subname": "TOQUE FÚNEBRE",
+                    "nivel": 1,
+                    "description": "Seu toque carrega uma energia necrosante fraca, capaz de causar desconforto e enfraquecimento leve em alvos vivos."
+                },
+                {
+                    "subname": "SOPRO DA DECADÊNCIA",
+                    "nivel": 2,
+                    "description": "Você emana uma aura sutil de deterioração, fazendo com que matéria orgânica ao redor envelheça mais rapidamente."
+                },
+                {
+                    "subname": "DRENO VITAL",
+                    "nivel": 3,
+                    "description": "Permite absorver energia vital de inimigos próximos, recuperando parte da sua própria resistência."
+                },
+                {
+                    "subname": "CARNIÇA ANIMADA",
+                    "nivel": 4,
+                    "description": "Você consegue manipular tecidos mortos, movendo ou reanimando estruturas orgânicas de forma limitada."
+                },
+                {
+                    "subname": "AVATAR DA RUÍNA",
+                    "nivel": 5,
+                    "description": "Seu corpo se torna um canal da morte. Sua presença causa medo instintivo e acelera drasticamente a degradação de tudo ao redor."
+                },
+                {
+                    "subname": "subname",
+                    "nivel": 6,
+                    "description": "description"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "PRESENÇA",
+            "description": "Permite ao vampiro influenciar emoções e reações de quem está ao redor, inspirando medo, admiração ou devoção de forma sobrenatural.",
+            "nivels": [
+                {
+                    "subname": "FASCÍNIO",
+                    "nivel": 1,
+                    "description": "(Teste de Carisma + Performance) Este poder amplifica o magnetismo sobrenatural do vampiro, fazendo com que sua presença se torne irresistivelmente atrativa e persuasiva. As pessoas ao redor passam a se sentir mais inclinadas a se aproximar, ouvir e concordar com suas ideias, criando uma forte tendência de aceitação e influência social. Mesmo quem resiste tende a perceber o vampiro como uma figura dominante na situação. O efeito não remove o instinto de autopreservação: diante de perigo direto ou ameaça clara, o fascínio se rompe imediatamente. No entanto, enquanto ativo, ele pode mudar completamente o rumo de interações sociais, debates ou decisões em grupo, favorecendo fortemente a posição do vampiro. Em termos de sistema, o jogador realiza um teste de Carisma + Performance para ativar o poder. O número de sucessos determina quantas pessoas são afetadas, priorizando aquelas com menor Força de Vontade. O efeito dura até o fim da cena ou até ser voluntariamente encerrado pelo vampiro. Indivíduos afetados podem resistir gastando Força de Vontade, e deixam de ser influenciados ao acumular resistência suficiente para superar o impacto do poder."
+                },
+                {
+                    "subname": "OLHAR ATERRORIZANTE",
+                    "nivel": 2,
+                    "description": "(Teste de Carisma + Intimidação contra a Determinação do alvo) Este poder concentra e amplifica a natureza predatória do vampiro, transformando sua presença em uma fonte direta de pavor absoluto. Ao ser direcionado a um alvo, o vampiro manifesta um terror sobrenatural que pode causar fuga imediata, paralisia ou colapso psicológico. Mesmo indivíduos fortes podem ser dominados pelo medo irracional e instintivo gerado por este olhar. O efeito varia de acordo com a força da vítima, podendo ir de simples desconforto até fuga desesperada ou incapacidade total de agir. Em situações extremas, a vítima pode entrar em estado de pânico completo, perdendo toda capacidade de reação. Em termos de sistema, o jogador realiza um teste de Carisma + Intimidação contra a dificuldade à Determinação da vítima. Cada sucesso aumenta o impacto do terror, podendo reduzir a capacidade de ação do alvo no turno seguinte e, com sucessos acumulados, levá-lo à fuga ou colapso psicológico. O poder pode ser usado repetidamente em turnos consecutivos ou acumulado como ação prolongada para intensificar o efeito. Se o alvo atingir incapacidade total de reação devido ao acúmulo de sucessos, ele entra em estado de pânico absoluto e se torna inutilizável para ações ofensivas ou defensivas. Uma falha crítica faz o alvo resistir completamente ao efeito e se torna permanentemente imune a futuras tentativas deste poder pelo mesmo vampiro."
+                },
+                {
+                    "subname": "TRANSE",
+                    "nivel": 3,
+                    "description": "(Rouse Check! --> Teste de Aparência + Empatia contra a Força de Vontade do alvo) Este poder faz com que o vampiro desperte uma devoção emocional intensa no alvo, criando um estado de fascínio afetivo que o leva a obedecer e cooperar por vontade própria. A vítima passa a enxergar o vampiro como uma figura digna de confiança ou admiração, agindo de forma servil sem sentir coerção direta. Apesar disso, mantém sua individualidade, criatividade e senso de identidade, o que torna seu comportamento mais natural, porém também mais imprevisível. Diferente de controle mental direto, o Transe atua sobre emoções e percepção, e por isso tende a ser mais “orgânico”, mas também menos estável. O efeito é temporário e pode desaparecer com o tempo, exigindo renovação caso o vampiro queira manter a influência. Uma vez encerrado, o alvo volta ao seu estado normal e não pode ser imediatamente reafetado enquanto ainda estiver sob o mesmo uso do poder. Em termos de sistema, o jogador realiza um teste de Aparência + Empatia contra a Força de Vontade do alvo. O número de sucessos determina a duração do Transe, variando de horas até anos. O Narrador pode realizar o teste em segredo para manter a incerteza do nível de controle do vampiro. O poder não pode ser reaplicado em um alvo que ainda esteja sob seu efeito ativo; uma nova tentativa só funciona após o término do Transe atual."
+                },
+                {
+                    "subname": "CONVOCAÇÃO",
+                    "nivel": 4,
+                    "description": "(Teste de Carisma + Persuasão) Este poder permite ao vampiro chamar mentalmente qualquer pessoa que já tenha conhecido, independentemente da distância dentro do mundo físico. O alvo sente uma compulsão irresistível de se dirigir ao vampiro, movendo-se de forma intuitiva até ele, como se fosse guiado por uma necessidade constante de chegar ao seu destino. Mesmo que mude de lugar, o vampiro continua sendo o ponto de atração do chamado. O alvo mantém seus instintos de sobrevivência e não se coloca voluntariamente em situações claramente suicidas, mas tende a ignorar obstáculos comuns e seguir em direção ao chamado sempre que possível. A duração do efeito não é permanente, sendo necessário reforçá-lo caso o alvo não chegue antes do fim do efeito. Em termos de sistema, o jogador realiza um teste de Carisma + Lábia contra uma dificuldade variável definida pela familiaridade entre vampiro e alvo. O número de sucessos determina a velocidade e a determinação da resposta: desde uma aproximação lenta e hesitante até uma corrida direta e ininterrupta em direção ao vampiro. Cada sucesso aumenta a eficiência do deslocamento e a prioridade que o alvo dá ao chamado, reduzindo sua tendência a se distrair ou ser impedido por obstáculos comuns."
+                },
+                {
+                    "subname": "MAJESTADE",
+                    "nivel": 5,
+                    "description": "(Rouse Check! --> Sem rolagem de dados) Este poder amplifica de forma extrema a presença sobrenatural do vampiro, tornando-o uma figura quase irresistível de autoridade, beleza ou terror. Sua simples presença impõe respeito, medo ou devoção, fazendo com que pessoas ao redor tenham extrema dificuldade em se opor, desafiar ou até agir com hostilidade contra ele. Mesmo indivíduos fortes podem hesitar ou recuar diante da pressão psicológica exercida. Sob o efeito da Majestade, o comportamento social ao redor do vampiro muda drasticamente: oponentes tendem a perder agressividade, aliados se tornam excessivamente submissos e qualquer ato de desrespeito se torna psicologicamente difícil de executar. O efeito dura enquanto o vampiro o sustenta. Em termos de sistema, o vampiro gasta 1 ponto de Força de Vontade para ativar o poder, sem necessidade de teste. Qualquer pessoa que deseje agir contra o vampiro de forma direta ou hostil deve realizar um teste de Determinação + Coragem contra dificuldade igual ao Carisma do vampiro. Falha impede a ação e pode levar a comportamento submisso ou de recuo social. Um sucesso permite agir, mas com forte desconforto psicológico. O efeito dura uma cena inteira."
+                },
+                {
+                    "subname": "subname",
+                    "nivel": 5,
+                    "description": "description"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "TAUMATURGIA",
+            "description": "A arte proibida da magia do sangue, onde o vampiro dobra a própria vitae à sua vontade para realizar feitos sobrenaturais que desafiam a natureza.",
+            "nivels": [
+                {
+                    "subname": "NIVEL 1",
+                    "nivel": 1,
+                    "description": "(Rouse Check! --> Teste de Força de Vontade com a dificuldade igual ao Nivel do poder que está utilizando + 1) Taumaturgia é a magia do sangue, uma arte vampírica rara e extremamente poderosa baseada na manipulação da vitae para produzir efeitos sobrenaturais. Ela é composta por duas formas de expressão: linhas, que são poderes contínuos e versáteis, e rituais, que são efeitos preparados e mais estruturados. Cada linha de Taumaturgia funciona como uma progressão de domínio: o nível de Taumaturgia do vampiro determina o nível máximo que ele pode alcançar em cada linha aprendida. Ou seja, o poder de cada linha não pode ultrapassar o nível total de Taumaturgia do personagem. Em termos de sistema, ao ativar um poder de uma linha, o jogador deve fazer um Rouse Check e realizar um teste de Força de Vontade contra uma dificuldade igual ao nível do poder utilizado +1.  Apenas 1 sucesso é necessário para ativar o efeito, sendo que o nível do poder define sua intensidade. Falhas indicam que a magia não funciona. Caso o jogador não possua nenhum sucesso no teste, e um dos resultados no dado seja um Ank ( ☥ ) isso resultaa na perda de 1 ponto permanente de Força de Vontade, refletindo o risco extremo do uso dessa arte."
+                },
+                {
+                    "subname": "NIVEL 2",
+                    "nivel": 2,
+                    "description": "Os níveis superiores de Taumaturgia não representam efeitos próprios, mas apenas o aprofundamento geral do domínio do vampiro sobre a magia do sangue. Em outras palavras, Taumaturgia em si não gera poderes diretos: ela apenas define o limite máximo de poder que pode ser alcançado em cada linha aprendida. O progresso nesta Disciplina serve exclusivamente para ampliar o potencial das linhas taumaturgicas, sem adicionar efeitos independentes por conta própria."
+                },
+                {
+                    "subname": "NIVEL 3",
+                    "nivel": 3,
+                    "description": "Os níveis superiores de Taumaturgia não representam efeitos próprios, mas apenas o aprofundamento geral do domínio do vampiro sobre a magia do sangue. Em outras palavras, Taumaturgia em si não gera poderes diretos: ela apenas define o limite máximo de poder que pode ser alcançado em cada linha aprendida. O progresso nesta Disciplina serve exclusivamente para ampliar o potencial das linhas taumaturgicas, sem adicionar efeitos independentes por conta própria."
+                },
+                {
+                    "subname": "NIVEL 4",
+                    "nivel": 4,
+                    "description": "Os níveis superiores de Taumaturgia não representam efeitos próprios, mas apenas o aprofundamento geral do domínio do vampiro sobre a magia do sangue. Em outras palavras, Taumaturgia em si não gera poderes diretos: ela apenas define o limite máximo de poder que pode ser alcançado em cada linha aprendida. O progresso nesta Disciplina serve exclusivamente para ampliar o potencial das linhas taumaturgicas, sem adicionar efeitos independentes por conta própria."
+                },
+                {
+                    "subname": "NIVEL 5",
+                    "nivel": 5,
+                    "description": "Os níveis superiores de Taumaturgia não representam efeitos próprios, mas apenas o aprofundamento geral do domínio do vampiro sobre a magia do sangue. Em outras palavras, Taumaturgia em si não gera poderes diretos: ela apenas define o limite máximo de poder que pode ser alcançado em cada linha aprendida. O progresso nesta Disciplina serve exclusivamente para ampliar o potencial das linhas taumaturgicas, sem adicionar efeitos independentes por conta própria."
+                },
+                {
+                    "subname": "NIVEL 6",
+                    "nivel": 5,
+                    "description": "Os níveis superiores de Taumaturgia não representam efeitos próprios, mas apenas o aprofundamento geral do domínio do vampiro sobre a magia do sangue. Em outras palavras, Taumaturgia em si não gera poderes diretos: ela apenas define o limite máximo de poder que pode ser alcançado em cada linha aprendida. O progresso nesta Disciplina serve exclusivamente para ampliar o potencial das linhas taumaturgicas, sem adicionar efeitos independentes por conta própria."
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "SEDUÇÃO DAS CHAMAS",
+            "description": "Poder de conjurar chamas místicas através do sangue, criando fogo que pode ser usado como arma de destruição.",
+            "nivels": [
+                {
+                    "subname": "VELA",
+                    "nivel": 1,
+                    "description": "O vampiro manifesta pequenas chamas, frágeis e limitadas, capazes de iluminar ou queimar de forma leve. É o primeiro vislumbre do fogo místico, mais controle e presença do que destruição."
+                },
+                {
+                    "subname": "LABAREDAS",
+                    "nivel": 2,
+                    "description": "As chamas se tornam mais vivas e agressivas, já podendo ferir de forma consistente e se sustentar com mais intensidade. O fogo começa a ganhar um caráter mais ofensivo."
+                },
+                {
+                    "subname": "FOGUEIRA DE ACAMPAMENTO",
+                    "nivel": 3,
+                    "description": "O vampiro cria um fogo estável e perigoso, capaz de causar dano contínuo e afetar múltiplos alvos próximos. Aqui o poder já se torna claramente letal."
+                },
+                {
+                    "subname": "FOGUEIRA",
+                    "nivel": 4,
+                    "description": "As chamas assumem grande intensidade e alcance, consumindo rapidamente o ambiente e causando destruição severa. O controle ainda existe, mas o impacto já é devastador."
+                },
+                {
+                    "subname": "INFERNO",
+                    "nivel": 5,
+                    "description": "O vampiro invoca uma conflagração massiva, um fogo voraz que domina o campo de batalha e consome tudo ao redor. É uma manifestação de destruição em larga escala, difícil de conter."
+                },
+                {
+                    "subname": "APOCALIPSE",
+                    "nivel": 6,
+                    "description": "O vampiro deixa de “criar fogo” e passa a invocar uma catástrofe elemental: chamas colossais que engolem grandes áreas e se comportam quase como uma entidade viva de destruição. O controle é mais conceitual do que preciso — o fogo responde à intenção, mas uma vez liberado, torna-se uma força de devastação em escala brutal, capaz de transformar tudo ao redor em cinzas e ruína."
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "MOVIMENTO DA MENTE",
+            "description": "Poder de manipular objetos à distância com telecinese do sangue, com força e alcance crescentes conforme o nível. Contra seres vivos, pode ser resistido com Força de Vontade.",
+            "nivels": [
+                {
+                    "subname": "NIVEL 1",
+                    "nivel": 1,
+                    "description": "Até 500g"
+                },
+                {
+                    "subname": "NIVEL 2",
+                    "nivel": 2,
+                    "description": "Até 10kg"
+                },
+                {
+                    "subname": "NIVEL 3",
+                    "nivel": 3,
+                    "description": "Até 100kg. Ao usar contra seres vivos, o alvo pode resistir a cada ação com um teste oposto de Força de Vontade vs Força de Vontade, representando o confronto direto entre vontade e controle telecinético. Em caso de empate, a defesa vence."
+                },
+                {
+                    "subname": "NIVEL 4",
+                    "nivel": 4,
+                    "description": "Até 250kg"
+                },
+                {
+                    "subname": "NIVEL 5",
+                    "nivel": 5,
+                    "description": "Até 500kg"
+                },
+                {
+                    "subname": "NIVEL 6",
+                    "nivel": 6,
+                    "description": "Até 1000kg"
+                }
+            ]
+        }
+    ],
+    "rituals": [
+        {
+            "id": 0,
+            "name": "SELAMENTO DE MADEIRA MORTA",
+            "nivel": 1,
+            "short_description": "Barreira contra corrupção orgânica e madeira amaldiçoada.",
+            "description": "O vampiro traça um círculo com fragmentos de madeira queimada e sangue diluído. Ativa em 1 turno. Dura até 30 minutos ou até o círculo ser rompido fisicamente. Bloqueia avanço de matéria orgânica corrompida e impede entidades ligadas à madeira amaldiçoada de atravessar."
+        },
+        {
+            "id": 1,
+            "name": "BLOQUEIO CONTRA CARNIÇAIS",
+            "nivel": 2,
+            "short_description": "Afasta carniçais em curto raio.",
+            "description": "O ritual exige ossos pequenos organizados em padrão circular. Ativa em 2 turnos. Dura 1 cena (≈1 hora). Carniçais evitam atravessar o perímetro, exceto sob comando direto extremamente forte. Não impede ataques à distância."
+        },
+        {
+            "id": 2,
+            "name": "SINAL DE REPULSÃO FÚNEBRE",
+            "nivel": 2,
+            "short_description": "Reduz agressividade de mortos-vivos.",
+            "description": "Cinzas funerárias são marcadas na pele do alvo ou no chão. Ativa em 1 turno. Dura 1 hora. Mortos-vivos comuns têm redução de agressividade e hesitam ao iniciar combate, mas não ficam passivos."
+        },
+        {
+            "id": 3,
+            "name": "CERCO DE SILÊNCIO ÓSSEO",
+            "nivel": 2,
+            "short_description": "Abafa som espiritual e físico leve.",
+            "description": "Pequenos ossos são enterrados em pontos ao redor. Ativa em 3 turnos. Dura 1 cena. Sons dentro da área ficam abafados e rastreio por audição sobrenatural é severamente reduzido."
+        },
+        {
+            "id": 4,
+            "name": "SELAMENTO DE CINZA FRIA",
+            "nivel": 1,
+            "short_description": "Barreira simples contra entidades fracas.",
+            "description": "Cinzas são espalhadas em círculo contínuo. Ativa em 1 turno. Dura 20 minutos. Entidades de baixa força espiritual não conseguem cruzar a barreira enquanto ela estiver intacta."
+        },
+        {
+            "id": 5,
+            "name": "MARCA DO OLHO CEGO",
+            "nivel": 2,
+            "short_description": "Reduz detecção espiritual e visual leve.",
+            "description": "Um símbolo é desenhado com sangue na pele. Ativa imediatamente. Dura 3 horas. Reduz chance de ser notado por percepção sobrenatural básica, mas não oculta completamente em vigilância ativa."
+        },
+        {
+            "id": 6,
+            "name": "VÉU DE RESPIRAÇÃO RASA",
+            "nivel": 2,
+            "short_description": "Diminui assinatura vital.",
+            "description": "Controle respiratório ritualizado por 2 turnos. Dura 30 minutos. Reduz calor corporal, som e sinais vitais perceptíveis. Eficaz contra caçadores sensoriais, mas falha contra rastreio místico avançado."
+        },
+        {
+            "id": 7,
+            "name": "LAÇO DE ECO SOMBRIO",
+            "nivel": 3,
+            "short_description": "Cria distrações falsas de presença.",
+            "description": "O vampiro espalha pequenas gotas de sangue em pontos estratégicos. Ativa em 3 turnos. Dura 1 cena. Cria ecos ilusórios de movimento e presença em até 20 metros."
+        },
+        {
+            "id": 8,
+            "name": "SELAMENTO DE NOME RASGADO",
+            "nivel": 4,
+            "short_description": "Oculta identidade sobrenatural.",
+            "description": "Ritual de 5 minutos envolvendo destruição simbólica de um objeto pessoal. Dura 1 noite. Bloqueia rastreio por nome, linhagem e assinaturas espirituais diretas."
+        },
+        {
+            "id": 9,
+            "name": "ÂNCORA DE PELE FRIA",
+            "nivel": 3,
+            "short_description": "Reduz dano espiritual direto.",
+            "description": "Marca corporal feita com sangue resfriado. Ativa em 1 turno. Dura 1 hora. Reduz impacto de ataques espirituais ou mentais em cerca de 30–40%."
+        },
+        {
+            "id": 10,
+            "name": "FOGO SEM CHAMA",
+            "nivel": 1,
+            "short_description": "Cria luz fria sobrenatural.",
+            "description": "Ativado com foco e exalação de sangue em microquantidade. Dura 2 horas. Gera luz fria que não emite calor nem chama física, útil para exploração sem atrair criaturas térmicas."
+        },
+        {
+            "id": 11,
+            "name": "PULSO DE DESORIENTAÇÃO",
+            "nivel": 2,
+            "short_description": "Confunde percepção imediata.",
+            "description": "Ativado com batida de mão no chão ou superfície. Dura 10 segundos. Causa leve distorção espacial em inimigos num raio de 10 metros, quebrando mira e foco momentâneo."
+        },
+        {
+            "id": 12,
+            "name": "SELAMENTO DE PASSOS OCULTOS",
+            "nivel": 1,
+            "short_description": "Abafa deslocamento físico.",
+            "description": "Ritual simples com sangue na sola dos pés ou chão. Dura 1 hora. Reduz significativamente som de passos e deslocamento em superfícies sólidas."
+        },
+        {
+            "id": 13,
+            "name": "CÍRCULO DE PRESSÁGIO",
+            "nivel": 3,
+            "short_description": "Detecta ameaça próxima.",
+            "description": "Círculo desenhado com sangue seco e cinzas. Dura 2 horas. Vibra levemente quando entidades hostis entram em raio de 30 metros."
+        },
+        {
+            "id": 14,
+            "name": "MARCA DE FUGA RÁPIDA",
+            "nivel": 2,
+            "short_description": "Impulso de evasão temporária.",
+            "description": "Ativado com corte leve no braço. Dura 15 segundos. Aumenta velocidade de movimento e reflexos em situação de fuga, mas causa fadiga após uso."
+        },
+        {
+            "id": 15,
+            "name": "CORRENTE DE VIGILÂNCIA",
+            "nivel": 4,
+            "short_description": "Sensoriamento de presença.",
+            "description": "Correntes simbólicas desenhadas com sangue no chão. Dura 1 hora. Permite sentir presença viva ou sobrenatural em até 50 metros como pressão mental."
+        },
+        {
+            "id": 16,
+            "name": "SELAMENTO DE OLHOS INVISÍVEIS",
+            "nivel": 3,
+            "short_description": "Bloqueia observação sobrenatural direta.",
+            "description": "Ativado ao fechar os olhos por 3 turnos. Dura 30 minutos. Dificulta observação por entidades que utilizam percepção espiritual ou vigilância remota."
+        },
+        {
+            "id": 17,
+            "name": "RITUAL DE CINZA ERRANTE",
+            "nivel": 4,
+            "short_description": "Cria rastros falsos.",
+            "description": "Cinzas são espalhadas enquanto o vampiro anda em padrão irregular. Dura 1 hora. Gera múltiplos rastros espirituais falsos, confundindo perseguidores."
+        },
+        {
+            "id": 18,
+            "name": "VÉU DE DOR SILENCIOSA",
+            "nivel": 3,
+            "short_description": "Suprime percepção de dor.",
+            "description": "Ativado ao morder a própria língua e manter foco. Dura 1 cena. Reduz percepção de dor física, mas não reduz dano real recebido."
+        },
+        {
+            "id": 19,
+            "name": "SINAL DO VAZIO BREVE",
+            "nivel": 5,
+            "short_description": "Desaparecimento espiritual curto.",
+            "description": "Ritual de alta concentração envolvendo silêncio completo por 1 minuto. Dura 5–10 segundos. Remove o vampiro da percepção sobrenatural e comum por instantes críticos. Após uso, causa exaustão e risco de detecção residual."
+        },
+        {
+            "id": 20,
+            "name": "SUSSURRO DO SANGUE ANTIGO",
+            "nivel": 2,
+            "short_description": "Lê emoções residuais de sangue recente.",
+            "description": "O vampiro consome ou toca sangue que não tenha passado de 6 horas desde a morte. Ao focar por 1 turno completo, ele entra em ressonância com a Vitae residual da vítima. O efeito revela fragmentos emocionais (medo, raiva, prazer) e intenções imediatas antes da morte. Dura 1 cena ou até o vampiro se distrair. Não funciona em sangue fervido, purificado ou extremamente diluído."
+        },
+        {
+            "id": 21,
+            "name": "MÁSCARA DE PELE EMPRESTADA",
+            "nivel": 3,
+            "short_description": "Disfarce físico imperfeito, mas funcional.",
+            "description": "O vampiro realiza o ritual esfregando sangue próprio com cinzas em seu rosto e corpo por 3 minutos. A aparência muda levemente para outra identidade humana plausível (não específica). Dura 3 horas ou até receber dano direto. Não altera voz perfeitamente nem padrões de movimento, podendo ser detectado por observação atenta."
+        },
+        {
+            "id": 22,
+            "name": "JURAMENTO DE SILÊNCIO VERMELHO",
+            "nivel": 2,
+            "short_description": "Bloqueia revelação de segredos sob coerção mental.",
+            "description": "Após pronunciar um segredo voluntariamente dentro de um círculo de sangue, o vampiro sela a informação. Durante 24 horas, qualquer tentativa de revelar o segredo sob Dominação, tortura ou compulsão resulta em bloqueio psicológico intenso (dor ou incapacidade de falar). Não impede decisão voluntária fora de coerção."
+        },
+        {
+            "id": 23,
+            "name": "OLHO DA CAÇADA INTERROMPIDA",
+            "nivel": 3,
+            "short_description": "Detecta presas sendo ativamente caçadas.",
+            "description": "Ao fechar os olhos por 2 turnos e focar na ‘pressão do ambiente’, o vampiro percebe ecos de predadores próximos. Indica presença de caçadores ativos ou alvos marcados em até 30 metros. Dura 10 minutos. Não identifica o caçador, apenas a direção da tensão."
+        },
+        {
+            "id": 24,
+            "name": "CÍRCULO DE SANGUE ESTAGNADO",
+            "nivel": 4,
+            "short_description": "Reduz regeneração vampírica em área.",
+            "description": "Um círculo é desenhado com Vitae coagulado misturado a sal. Enquanto ativo (até 1 hora), vampiros dentro da área têm regeneração reduzida em 50% e custo de cura aumentado. O círculo se quebra se for atravessado por sangue novo ou se for apagado fisicamente."
+        },
+        {
+            "id": 25,
+            "name": "LÍNGUA DE PRATA MORTA",
+            "nivel": 3,
+            "short_description": "Aprimora persuasão sobrenatural.",
+            "description": "Ativado ao morder levemente a própria língua e falar durante o efeito (até 1 cena). O vampiro ganha fluidez sobrenatural, tornando mentiras mais difíceis de detectar por leitura emocional básica. Não afeta Auspícios avançados ou leitura direta de mente."
+        },
+        {
+            "id": 26,
+            "name": "SINAL DE DOMÍNIO FRAGMENTADO",
+            "nivel": 4,
+            "short_description": "Resiste parcialmente a controle mental.",
+            "description": "Ativado ao traçar símbolo no peito com sangue próprio. Dura 1 hora. Durante esse período, tentativas de Dominação ou compulsão mental sofrem atraso ou falham parcialmente, permitindo ao alvo ganhar um turno de reação antes de obedecer."
+        },
+        {
+            "id": 27,
+            "name": "SOMBRA DE PRESENÇA AUSENTE",
+            "nivel": 2,
+            "short_description": "Reduz lembrança social imediata.",
+            "description": "Após interação social breve, o vampiro ativa o efeito ao sussurrar seu próprio nome ao contrário. Por 30 minutos, observadores têm dificuldade em lembrar detalhes claros sobre sua presença. Não funciona se interação for prolongada (mais de 10 minutos contínuos)."
+        },
+        {
+            "id": 28,
+            "name": "SANGUE QUE NÃO DÁ NOME",
+            "nivel": 5,
+            "short_description": "Apaga rastreio sobrenatural de identidade.",
+            "description": "Ritual complexo de 10 minutos envolvendo destruição simbólica de um objeto pessoal e mistura de sangue com cinzas. Dura 1 noite inteira. Durante esse período, rituais de rastreio, leitura de linhagem ou identificação sobrenatural falham automaticamente contra o usuário."
+        },
+        {
+            "id": 29,
+            "name": "VÉU DE HOSPITALIDADE QUEBRADA",
+            "nivel": 3,
+            "short_description": "Afeta regras sociais em Elysium.",
+            "description": "Ativado ao derramar uma gota de sangue em superfície de pedra ou madeira dentro de ambiente social vampírico. Por 20 minutos, regras formais de etiqueta vampírica tornam-se instáveis, dificultando aplicação de punições sociais imediatas."
+        },
+        {
+            "id": 30,
+            "name": "PRESSÁGIO DE FOME PRÓXIMA",
+            "nivel": 2,
+            "short_description": "Prevê aumento de fome.",
+            "description": "Ao meditar por 1 minuto, o vampiro sente variações futuras da própria Fome nas próximas 6 horas. Não prevê eventos externos, apenas instabilidade de necessidade de Vitae."
+        },
+        {
+            "id": 31,
+            "name": "CORRENTE DE VÍNCULO QUEBRADO",
+            "nivel": 4,
+            "short_description": "Reduz influência de blood bond temporariamente.",
+            "description": "Ritual exige ingestão de uma gota de sangue antigo misturado com cinzas. Dura 1 cena a 1 hora. Durante o efeito, a intensidade de vínculos de sangue é reduzida em 1 estágio, permitindo resistência parcial a ordens emocionais."
+        },
+        {
+            "id": 32,
+            "name": "OLHAR QUE NÃO RESPONDE",
+            "nivel": 3,
+            "short_description": "Dificulta leitura mental/emocional.",
+            "description": "O vampiro entra em estado de foco imóvel por 2 turnos. Durante 1 hora após isso, leituras mentais ou emocionais básicas recebem informação confusa ou incompleta. Não bloqueia leitura completa de mentes altamente avançadas."
+        },
+        {
+            "id": 33,
+            "name": "SANGUE MARCADO DE TRAIÇÃO",
+            "nivel": 4,
+            "short_description": "Marca alvo como traidor rastreável.",
+            "description": "Necessita uma amostra de sangue do alvo e um juramento verbal. O alvo passa a emitir assinatura espiritual rastreável por 24 horas por rituais de caça, revelando sua posição aproximada em até 100 metros."
+        },
+        {
+            "id": 34,
+            "name": "CÂMARA DE CONFISSÃO MORTA",
+            "nivel": 5,
+            "short_description": "Induz revelação em área ritual.",
+            "description": "Um círculo é formado com sangue de múltiplas fontes. Dentro dele, qualquer vampiro ou humano sente pressão psicológica crescente ao mentir. Dura 10 minutos. Não força verdade absoluta, apenas reduz capacidade de manter mentira contínua."
+        },
+        {
+            "id": 35,
+            "name": "SUSSURRO ENTRE ESPELHOS",
+            "nivel": 3,
+            "short_description": "Comunicação via reflexos.",
+            "description": "Dois espelhos previamente preparados com sangue ritualizado permitem comunicação por 1 cena. A mensagem aparece como distorção no reflexo. Funciona apenas entre espelhos vinculados pelo mesmo ritual."
+        },
+        {
+            "id": 36,
+            "name": "SOMBRA DE CAÇADOR INVISÍVEL",
+            "nivel": 4,
+            "short_description": "Facilita emboscadas.",
+            "description": "Ativado ao permanecer imóvel por 1 turno completo. Dura até 1 cena. Durante esse tempo, o vampiro tem dificuldade extrema de ser notado até iniciar ação direta ou se mover bruscamente."
+        },
+        {
+            "id": 37,
+            "name": "PACTO DO SANGUE ESQUECIDO",
+            "nivel": 5,
+            "short_description": "Apaga memória social recente.",
+            "description": "Ritual de 5 minutos envolvendo destruição de objeto simbólico ligado à presença social do vampiro. Dura 1 noite. Durante o efeito, criaturas que interagiram com o usuário nas últimas horas têm dificuldade em lembrar detalhes ou até mesmo sua presença."
+        }
+    ],
+    "maxvalue_generation": {
+        "13": 5,
+        "12": 5,
+        "11": 5,
+        "10": 5,
+        "9": 5,
+        "8": 5,
+        "7": 6,
+        "6": 6,
+        "5": 6,
+        "4": 6
+    },
+    "bloodpotency_generation": {
+        "4": {
+            "min": 5,
+            "max": 10
+        },
+        "5": {
+            "min": 4,
+            "max": 9
+        },
+        "6": {
+            "min": 3,
+            "max": 8
+        },
+        "7": {
+            "min": 3,
+            "max": 7
+        },
+        "8": {
+            "min": 2,
+            "max": 6
+        },
+        "9": {
+            "min": 2,
+            "max": 5
+        },
+        "10": {
+            "min": 2,
+            "max": 5
+        },
+        "11": {
+            "min": 1,
+            "max": 4
+        },
+        "12": {
+            "min": 1,
+            "max": 3
+        },
+        "13": {
+            "min": 1,
+            "max": 3
+        }
+    },
+    "precedents": [
+        {
+            "id": 0,
+            "name": "ALIADOS",
+            "description": "Indivíduos ou grupos que possuem relação de confiança com você e podem oferecer suporte direto ou indireto em momentos críticos."
+        },
+        {
+            "id": 1,
+            "name": "CONTATOS",
+            "description": "Fontes de informação e influência que você pode acessar para obter dados, favores ou oportunidades."
+        },
+        {
+            "id": 2,
+            "name": "FAMA",
+            "description": "Seu nível de reconhecimento público, afetando como estranhos reagem à sua presença."
+        },
+        {
+            "id": 3,
+            "name": "GERAÇÃO",
+            "description": "Sua posição na linhagem vampírica, determinando o limite potencial de poder do seu sangue."
+        },
+        {
+            "id": 4,
+            "name": "INFLUÊNCIA",
+            "description": "Seu poder de manipular eventos sociais, políticos ou criminais dentro de sua esfera de atuação."
+        },
+        {
+            "id": 5,
+            "name": "LACAIOS",
+            "description": "Indivíduos subordinados que executam ordens e expandem sua presença no mundo mortal."
+        },
+        {
+            "id": 6,
+            "name": "MENTOR",
+            "description": "Uma figura mais experiente que guia seu desenvolvimento e pode desbloquear conhecimentos ocultos."
+        },
+        {
+            "id": 7,
+            "name": "REBANHO",
+            "description": "Fontes regulares de sustento e influência social, essenciais para sua sobrevivência discreta."
+        },
+        {
+            "id": 8,
+            "name": "RECURSOS",
+            "description": "Sua capacidade financeira e material para sustentar estilo de vida, operações e influência."
+        },
+        {
+            "id": 9,
+            "name": "STATUS",
+            "description": "Seu prestígio dentro da sociedade vampírica ou mortal, afetando respeito e hierarquia social."
+        }
+    ],
+    "bloodpotency": [
+        {
+            "description": "Define o quão poderoso é o seu sangue vampírico. Aumenta seus poderes e cura, mas torna sua fome mais exigente e difícil de saciar."
+        },
+        {
+            "nivel": 1,
+            "bloodsurge": 1,
+            "sheal": 1,
+            "aheal": 1,
+            "hungerdices": 1,
+            "consumablebloods": "Animal, Bolsa, Humano, Cadáver, Sobrenatural"
+        },
+        {
+            "nivel": 2,
+            "bloodsurge": 2,
+            "sheal": 2,
+            "aheal": 1,
+            "hungerdices": 1,
+            "consumablebloods": "Animal, Bolsa, Humano, Sobrenatural"
+        },
+        {
+            "nivel": 3,
+            "bloodsurge": 3,
+            "sheal": 3,
+            "aheal": 2,
+            "hungerdices": 2,
+            "consumablebloods": "Animal, Humano, Sobrenatural"
+        },
+        {
+            "nivel": 4,
+            "bloodsurge": 3,
+            "sheal": 4,
+            "aheal": 3,
+            "hungerdices": 2,
+            "consumablebloods": "Humanos, Sobrenatural"
+        },
+        {
+            "nivel": 5,
+            "bloodsurge": 4,
+            "sheal": 5,
+            "aheal": 3,
+            "hungerdices": 2,
+            "consumablebloods": "Humanos, Sobrenatural"
+        },
+        {
+            "nivel": 6,
+            "bloodsurge": 4,
+            "sheal": 6,
+            "aheal": 4,
+            "hungerdices": 2,
+            "consumablebloods": "Humanos, Sobrenatural"
+        },
+        {
+            "nivel": 7,
+            "bloodsurge": 5,
+            "sheal": 7,
+            "aheal": 4,
+            "hungerdices": 3,
+            "consumablebloods": "Humanos, Sobrenatural"
+        },
+        {
+            "nivel": 8,
+            "bloodsurge": 6,
+            "sheal": 8,
+            "aheal": 4,
+            "hungerdices": 3,
+            "consumablebloods": "Sobrenatural"
+        },
+        {
+            "nivel": 9,
+            "bloodsurge": 7,
+            "sheal": 9,
+            "aheal": 5,
+            "hungerdices": 3,
+            "consumablebloods": "Sobrenatural"
+        },
+        {
+            "nivel": 10,
+            "bloodsurge": 8,
+            "sheal": 10,
+            "aheal": 5,
+            "hungerdices": 4,
+            "consumablebloods": "Sobrenatural"
+        }
+    ],
+    "knowledges": [
+        {
+            "id": 0,
+            "name": "CIÊNCIA",
+            "description": "Conhecimento científico aplicado ao mundo moderno e sobrenatural, permitindo compreender fenômenos físicos e biológicos."
+        },
+        {
+            "id": 1,
+            "name": "DIREITO",
+            "description": "Entendimento das leis e sistemas jurídicos, permitindo manipular ou interpretar regras sociais e legais."
+        },
+        {
+            "id": 2,
+            "name": "ERUDIÇÃO",
+            "description": "Conhecimento acadêmico e histórico profundo sobre culturas, eventos e teorias antigas ou modernas."
+        },
+        {
+            "id": 3,
+            "name": "ESTRATÉGIA",
+            "description": "Capacidade de planejar ações complexas, antecipar movimentos e otimizar resultados em conflitos ou objetivos."
+        },
+        {
+            "id": 4,
+            "name": "FINANÇAS",
+            "description": "Controle e compreensão de dinheiro, investimentos e recursos econômicos em larga escala."
+        },
+        {
+            "id": 5,
+            "name": "INVESTIGAÇÃO",
+            "description": "Habilidade de reunir pistas, analisar evidências e reconstruir eventos ocultos ou fragmentados."
+        },
+        {
+            "id": 6,
+            "name": "MEDICINA",
+            "description": "Conhecimento do corpo humano, doenças e tratamentos, aplicável tanto em humanos quanto em criaturas."
+        },
+        {
+            "id": 7,
+            "name": "OCULTISMO",
+            "description": "Estudo de forças sobrenaturais, rituais e entidades além da compreensão científica convencional."
+        },
+        {
+            "id": 8,
+            "name": "PERCEPÇÃO",
+            "description": "Capacidade de notar detalhes sutis no ambiente, identificar mentiras e perceber ameaças ocultas."
+        },
+        {
+            "id": 9,
+            "name": "RELIGIÃO",
+            "description": "Entendimento de crenças, doutrinas e estruturas espirituais que influenciam sociedades e indivíduos."
+        },
+        {
+            "id": 10,
+            "name": "SUBMUNDO",
+            "description": "Conhecimento das redes criminosas, atividades ilegais e hierarquias ocultas da sociedade."
+        },
+        {
+            "id": 11,
+            "name": "TECNOLOGIA",
+            "description": "Domínio de sistemas tecnológicos, dispositivos e redes digitais modernas."
+        }
+    ],
+    "expertises": [
+        {
+            "id": 0,
+            "name": "ATUAÇÃO",
+            "description": "Capacidade de interpretar papéis e emoções de forma convincente para enganar ou entreter."
+        },
+        {
+            "id": 1,
+            "name": "AUTOCONTROLE",
+            "description": "Força mental para resistir impulsos, medo e instintos primitivos."
+        },
+        {
+            "id": 2,
+            "name": "CORAGEM",
+            "description": "Resistência psicológica ao perigo, permitindo agir sob ameaça extrema."
+        },
+        {
+            "id": 3,
+            "name": "PERSUASÃO",
+            "description": "Habilidade de influenciar opiniões e decisões através da fala e presença."
+        },
+        {
+            "id": 4,
+            "name": "EMPATIA",
+            "description": "Capacidade de compreender emoções e intenções de outras pessoas."
+        },
+        {
+            "id": 5,
+            "name": "EMP. C/ANIMAIS",
+            "description": "Habilidade de interagir e influenciar comportamentos de animais."
+        },
+        {
+            "id": 6,
+            "name": "ENGANAÇÃO",
+            "description": "Arte de mentir, manipular e criar ilusões sociais convincentes."
+        },
+        {
+            "id": 7,
+            "name": "ETIQUETA",
+            "description": "Conhecimento de normas sociais e comportamentais em diferentes ambientes e hierarquias."
+        },
+        {
+            "id": 8,
+            "name": "INTIMIDAÇÃO",
+            "description": "Capacidade de impor medo ou respeito através da presença ou ações."
+        },
+        {
+            "id": 9,
+            "name": "LIDERANÇA",
+            "description": "Habilidade de coordenar, inspirar e comandar grupos de forma eficaz."
+        },
+        {
+            "id": 10,
+            "name": "MANHA",
+            "description": "Senso prático de sobrevivência social e adaptação em situações perigosas ou instáveis."
+        },
+        {
+            "id": 11,
+            "name": "PERFORMANCE",
+            "description": "Domínio de habilidades expressivas em situações públicas ou de alta pressão."
+        }
+    ],
+    "talents": [
+        {
+            "id": 0,
+            "name": "ARMAS BRANCAS",
+            "description": "Proficiência no uso de armas corpo a corpo como facas, espadas e lâminas improvisadas."
+        },
+        {
+            "id": 1,
+            "name": "ARMAS DE FOGO",
+            "description": "Habilidade no uso eficiente de armas de fogo em combate direto ou tático."
+        },
+        {
+            "id": 2,
+            "name": "ARREMESSO",
+            "description": "Precisão e força ao lançar objetos ou armas à distância."
+        },
+        {
+            "id": 3,
+            "name": "ATLETISMO",
+            "description": "Capacidade física geral envolvendo corrida, salto e resistência corporal."
+        },
+        {
+            "id": 4,
+            "name": "BRIGA",
+            "description": "Combate desarmado baseado em força bruta, técnica e instinto."
+        },
+        {
+            "id": 5,
+            "name": "CONDUÇÃO",
+            "description": "Habilidade de operar veículos com controle e precisão em diferentes condições."
+        },
+        {
+            "id": 6,
+            "name": "ESQUIVA",
+            "description": "Capacidade de evitar ataques físicos ou situações perigosas com agilidade."
+        },
+        {
+            "id": 7,
+            "name": "FURTIVIDADE",
+            "description": "Arte de se mover sem ser detectado e agir sem chamar atenção."
+        },
+        {
+            "id": 8,
+            "name": "LADROAGEM",
+            "description": "Habilidade de furtar, invadir e manipular objetos ou sistemas de forma discreta."
+        },
+        {
+            "id": 9,
+            "name": "OFÍCIOS",
+            "description": "Conhecimento prático de trabalhos manuais e técnicos diversos."
+        },
+        {
+            "id": 10,
+            "name": "PRONTIDÃO",
+            "description": "Reflexos rápidos e capacidade de reagir instantaneamente a ameaças."
+        },
+        {
+            "id": 11,
+            "name": "SOBREVIVÊNCIA",
+            "description": "Capacidade de se manter vivo em ambientes hostis com recursos limitados."
+        }
+    ],
+    "atributes": [
+        {
+            "id": 0,
+            "name": "FORÇA",
+            "description": "Poder físico bruto aplicado em ações de impacto e combate corpo a corpo."
+        },
+        {
+            "id": 1,
+            "name": "DESTREZA",
+            "description": "Agilidade e coordenação motora para movimentos precisos e rápidos."
+        },
+        {
+            "id": 2,
+            "name": "VIGOR",
+            "description": "Resistência física e capacidade de suportar dor, fadiga e esforço prolongado."
+        },
+        {
+            "id": 3,
+            "name": "CARISMA",
+            "description": "Presença pessoal e capacidade de atrair ou influenciar outros naturalmente."
+        },
+        {
+            "id": 4,
+            "name": "MANIPULAÇÃO",
+            "description": "Habilidade de controlar ou influenciar outros de forma sutil ou direta."
+        },
+        {
+            "id": 5,
+            "name": "APARÊNCIA",
+            "description": "Impacto visual e presença estética que afeta a percepção dos outros."
+        },
+        {
+            "id": 6,
+            "name": "INTELIGÊNCIA",
+            "description": "Capacidade de raciocínio lógico, aprendizado e resolução de problemas complexos."
+        },
+        {
+            "id": 7,
+            "name": "RACIOCÍNIO",
+            "description": "Velocidade mental para análise e tomada de decisões sob pressão."
+        },
+        {
+            "id": 8,
+            "name": "DETERMINAÇÃO",
+            "description": "Força de vontade para resistir a pressões, medo e influências externas."
+        }
+    ]
+}

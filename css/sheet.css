@@ -1,0 +1,732 @@
+:root {
+    --color-hard-red: #ff0000;
+    --color-soft-red: #720000;
+    --color-vivid-green: #007204;
+
+
+    --color-sidebar-grey: #020202;
+    --color-fixedbar-grey: #0c0c0c;
+    --color-background-grey: #1c1c1c;
+    --color-very-soft-grey: #8b8b8b;
+    --color-ultra-soft-grey: #adadad;
+    --color-soft-grey: #4e4e4e;
+    --color-medium-grey: #686868;
+
+    --color-white: #ffffff;
+
+}
+
+@font-face {
+    font-family: "GimletMicro";
+    src: url("../otf/GimletMicroCompressed-Regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "GimletMicro";
+    src: url("../otf/GimletMicroCompressed-Bold.otf") format("opentype");
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+body {
+    text-align: center;
+    font-family: "GimletMicro";
+    font-weight: 400;
+    color: var(--color-white);
+}
+
+html {
+    background-color: var(--color-background-grey);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-very-soft-grey);
+    font-weight: 700;
+}
+
+h4 {
+    color: var(--color-soft-grey);
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.fixedbar {
+    background-color: var(--color-fixedbar-grey);
+    width: 100vw;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 60px;
+    z-index: 10;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logoimg {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7rem;
+}
+
+.page {
+    max-width: 360px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fixedbar-grey);
+    padding: 1rem;
+    gap: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    scroll-margin-top: 68px;
+    transition: .3s;
+}
+
+.sectionheader {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionheader > h2 {
+    width: 70%;
+    font-size: 1.3rem;
+    overflow-wrap: break-word;
+}
+
+.divider {
+  position: relative;
+  height: 2px;
+  background: var(--color-soft-grey);
+  width: 100%;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--color-soft-grey);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.profilepicturecontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilepicture {
+    background-color: aquamarine;
+    width: 100%;
+    height: 400px;
+    border-radius: 1rem;
+    outline: 2px solid black;
+}
+
+.xpholder {
+    background-color: var(--color-background-grey);
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    outline: 3px solid var(--color-vivid-green);
+}
+
+.statusitemcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+}
+
+.statusitemcontainer h5 {
+    font-size: .75rem;
+    color: var(--color-very-soft-grey)
+}
+
+.hightext {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.lowtext {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-soft-grey)
+}
+
+.statusitem {
+    background-color: var(--color-background-grey);
+    padding: .5rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    border-radius: 1rem;
+    outline: 3px solid var(--color-soft-red);
+}
+
+.total {
+    grid-column: span 2;
+}
+
+.levelcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.iconball {
+    background-color: var(--color-very-soft-grey);
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.active {
+    background-color: var(--color-hard-red);
+}
+
+.elementsectioncontainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.elementsectioncontainer h3 {
+    font-size: 1rem;
+}
+
+.elementsectioncontainer h4 {
+    font-size: 1rem;
+}
+
+.element {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.elementheader {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
+
+.elementheader > h5 {
+    color: var(--color-very-soft-grey);
+}
+
+.elementheader > h3 {
+    font-size: 1.2rem;
+    color: var(--color-very-soft-grey);
+    width: 75%;
+}
+
+.elementheader >h3.fullsize {
+    width: 100%;
+}
+
+.elementdescription {
+    color: var(--color-medium-grey);
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+    width: 100%;
+    min-height: 21px;
+    text-align: center;
+
+    max-height: 320px;
+    overflow-y: auto;
+
+}
+
+.elementsubtitle {
+    color: var(--color-soft-grey);
+    font-weight: 400;
+}
+
+.elementtitlecontainer{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+
+.elementtitlte{
+    text-align: left;
+}
+
+.expandicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.threshicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    opacity: .5;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.iconballcontainer {
+    display: flex;
+    gap: .25rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.elementcard {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    padding: 1rem;
+    background-color: var(--color-background-grey);
+    border-radius: 1rem;
+    outline: 3px solid var(--color-soft-red)
+}
+
+.addbutton {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-vivid-green);
+    border-radius: 4rem;
+    color: var(--color-white);
+    font-size: 3rem;
+    border: none;
+    transition: 0.2s;
+    outline: none;
+}
+
+.addbutton:active {
+    background-color: #005307;
+    transform: scale(0.90);
+}
+
+.changemoneyinput {
+    width: 100%;
+    height: 2.5rem;
+    font-family: "GimletMicro";
+    background-color: var(--color-soft-grey);
+    border: 3px solid transparent;;
+    color: var(--color-background-grey);
+    font-size: 1.2rem;
+    margin: 0;
+    border-radius: .5rem;
+}
+
+.changemoneyinput:focus {
+    outline: none;
+    border-color: var(--color-soft-red);
+}
+
+.sidebar {
+    position: fixed;
+    background-color: var(--color-sidebar-grey);
+    height: 100vh;
+    overflow-y: auto;
+    width: 18rem;
+    top:0;
+    left: 0;
+    z-index: 20;
+    transition: .5s;
+    transform: translateX(0%);
+    scrollbar-width: none;
+    padding-bottom: 3rem;
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    padding: 1.8rem;
+    list-style: none;
+    font-weight: 400;
+    color: var(--color-ultra-soft-grey)
+}
+
+.sidebar li {
+    width: 100%;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+}
+
+.sidebarheader {
+    padding: .5rem;
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.sidebarheader > div {
+    background-color: #686868;
+    width: 8rem;
+    height: 100%;
+}
+
+.sidebarheader > button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5rem;
+    font-family: "Arial";
+    font-size: 2rem;
+    color: var(--color-very-soft-grey);
+    background: none;
+    border: none
+}
+
+.sidemenuicon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 15;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+footer {
+    width: 100%;
+    height: 1.2rem;
+}
+
+.section.unlocked {
+    background-color: #000f02;
+}
+
+.section.locked {
+    background-color: #0f0000;
+}
+
+.modal.unlocked {
+    outline: 5px solid rgb(0, 100, 0)
+}
+
+.modal.locked {
+    outline: 5px solid rgb(155, 0, 0)
+}
+
+.modal {
+    pointer-events: all;
+
+    outline: 4px solid var(--color-medium-grey);
+    transition: .5s;
+    opacity: 1;
+
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+    width: 320px;
+
+    z-index: 25;
+}
+
+
+
+.modal h4 {
+    font-size: 1rem;
+}
+
+.modal span {
+    font-size: 1.2rem;
+    color: var(--color-white);
+}
+
+.modal.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modal.hidden * {
+    pointer-events: none;
+}
+
+.modal.overlayed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cardheader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cardtitle {
+    font-size: 1.4rem;
+    color: var(--color-ultra-soft-grey);
+    width: 80%;
+}
+
+.cardsubtitle {
+    font-size: .95rem;
+    color: var(--color-soft-grey)
+}
+
+.cardnavbutton {
+    font-weight: 700;
+    font-family: "Arial";
+    color: var(--color-ultra-soft-grey);
+}
+
+.cardclosebutton {
+    position: absolute;
+    font-family: "Arial";
+    font-size: 2rem;
+    top: -.25rem;
+    right: -1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.cardcontent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.cardcontent > textarea {
+    width: 100%;
+    height: 180px;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    font-family: "Gimlet Micro";
+    font-size: 1rem;
+    background-color: var(--color-ultra-soft-grey);
+}
+
+.cardcontentsection {
+    width: 100%;
+    display: flex;
+    gap: .2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardcontentsection > textarea {
+    width: 100%;
+    height: 4rem;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    font-family: "Gimlet Micro";
+    font-size: 1.2rem;
+    background-color: var(--color-ultra-soft-grey);
+}
+
+.cardnivel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.cardnivel > h4 {
+    font-size: 1.15rem;
+}
+
+.cardoptions {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    width: 100%;
+}
+
+.cardoptions > div {
+    display: flex;
+}
+
+.cardbuttoncontainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardbutton {
+    font-family: "GimletMicro";
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    transition: .2s;
+    width: 48%;
+    pointer-events: all;
+}
+
+.cardbutton.unavailable {
+    background-color: #4e4e4e;
+    pointer-events: none;
+}
+
+.cardfooter {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.confirmbutton {
+    background-color: var(--color-vivid-green);
+}
+
+.cancellbutton {
+    background-color: var(--color-soft-red);
+}
+
+.confirmbutton:active {
+    transform:scale(.95);
+    background-color: rgb(0, 54, 0);
+}
+
+.cancellbutton:active {
+    transform:scale(.95);
+    background-color: rgb(54, 0, 0);
+}
+
+.toast {
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+  transform: translate(-50%, -6rem);
+  
+  background-color: #ff0004;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,1);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 9999;
+  pointer-events: none;
+
+  width: 75%;
+  max-width: 300px;
+  min-height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast h4 {
+    font-size: 1rem;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0rem);
+}

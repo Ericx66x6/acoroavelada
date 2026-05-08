@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ficha de Personagem</title>
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/sheet.css">
+    </head>
+
+    <body class="sheet">
+        <div id="toast" class="toast">
+            <h4></h4>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <header class="fixedbar">
+            <img src="data:image/svg+xml,%3csvg%20width='29'%20height='25'%20viewBox='0%200%2029%2025'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20opacity='0.55'%3e%3cpath%20d='M1.5%201.5H27.0938'%20stroke='white'%20stroke-width='3'%20stroke-linecap='round'/%3e%3cpath%20d='M1.5%2012.5H27.0938'%20stroke='white'%20stroke-width='3'%20stroke-linecap='round'/%3e%3cpath%20d='M1.5%2023.5H27.0938'%20stroke='white'%20stroke-width='3'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" id="sidebar_ob">
+            <img src="img/logo.png" class="logoimg">
+        </header>
+
+        <aside class="sidebar closed" id="side_bar">
+            <div class="sidebarheader">
+                <img src="img/logo.png" class="logoimg">
+                <button id="sidebar_cb">X</button>
+            </div>
+            <ul>
+                <li data-section="overview" data-closeable="false">
+                    <img src="img/sidemenu_icons/overview.png" class="sidemenuicon">
+                    <span>Visão Geral</span>
+                </li>
+                <li data-section="status" data-closeable="false">
+                    <img src="img/sidemenu_icons/status.png" class="sidemenuicon">
+                    <span>Status</span>
+                </li>
+                <li data-section="bloodpotency" data-closeable="false">
+                    <img src="img/sidemenu_icons/bloodpotency.png" class="sidemenuicon">
+                    <span>Potência de Sangue</span>
+                </li>
+                <li data-section="atributes" data-closeable="false">
+                    <img src="img/sidemenu_icons/atributes.png" class="sidemenuicon">
+                    <span>Atributos</span>
+                </li>
+                <li data-section="talents" data-closeable="true">
+                    <img src="img/sidemenu_icons/talents.png" class="sidemenuicon">
+                    <span>Talentos</span>
+                </li>
+                <li data-section="expertises" data-closeable="true">
+                    <img src="img/sidemenu_icons/expertises.png" class="sidemenuicon">
+                    <span>Perícias</span>
+                </li>
+                <li data-section="knowledges" data-closeable="true">
+                    <img src="img/sidemenu_icons/knowledges.png" class="sidemenuicon">
+                    <span>Conhecimentos</span>
+                </li>
+                <li data-section="disciplines" data-closeable="true">
+                    <img src="img/sidemenu_icons/disciplines.png" class="sidemenuicon">
+                    <span>Disciplinas</span>
+                </li>
+                <li data-section="rituals" data-closeable="true">
+                    <img src="img/sidemenu_icons/rituals.png" class="sidemenuicon">
+                    <span>Rituais</span>
+                </li>
+                <li data-section="precedents" data-closeable="true">
+                    <img src="img/sidemenu_icons/precedents.png" class="sidemenuicon">
+                    <span>Antecedentes</span>
+                </li>   
+                <li data-section="items" data-closeable="true">
+                    <img src="img/sidemenu_icons/items.png" class="sidemenuicon">
+                    <span>Posses</span>
+                </li>
+                <li data-section="goals" data-closeable="true">
+                    <img src="img/sidemenu_icons/goals.png" class="sidemenuicon">
+                    <span>Objetivos</span>
+                </li>
+                <li data-section="moralityes" data-closeable="true">
+                    <img src="img/sidemenu_icons/morality.png" class="sidemenuicon">
+                    <span>Moralidade</span>
+                </li>            
+            </ul>
+        </aside>
+
+        <div class="modal hidden section" id="upg_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle" id="upg_modal_title">TITLE</h3>
+                    <h3 class="cardclosebutton" id="upg_modal_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="elementdescription" id="upg_modal_description">
+                    DESCRIPTION
+                </p>
+
+                <div class="divider"></div>
+
+                <div class="cardnivel">
+                    <div class="iconballcontainer" id="upg_modal_iconballcontainer">
+                    </div>
+                </div>
+
+                <div class="cardbuttoncontainer">
+                    <button class="cardbutton cancellbutton" id="upg_modal_lessbutton">-</button>
+                    <button class="cardbutton confirmbutton" id="upg_modal_plusbutton">+</button>
+                </div>
+
+                <div class="cardoptions" id="upg_modal_options_container">
+                    <div>
+                        <h4>Você possui: <span id="upg_modal_act_xp">0 XP</span></h4>
+                    </div>
+                    <div>
+                        <h4>Investimento necessário: <span id="upg_modal_cost_xp">0 XP</span></h4>
+                    </div>
+                    <div>
+                        <h4>Restante após evoluir: <span id="upg_modal_remain_xp">0 XP</span></h4>
+                    </div>
+                </div>
+                <button class="cardbutton confirmbutton" id="upg_modal_upg_button">EVOLUIR</button>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="discipline_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <div>
+                        <h3 class="cardtitle" id="discipline_modal_title">TENEBROSIDADE</h3>
+                    </div>
+                    <div>
+                        <h3 class="cardsubtitle" id="discipline_modal_subtitle">BRAÇOS DO ABISMO</h3>
+                    </div>
+                    <div>
+                        <h3 class="cardclosebutton" id="discipline_modal_x_button">X</h3>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+            
+                <p class="elementdescription" id="discipline_modal_description">
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                    Lorem ipsum mahed ioen ioernjm giore goimg iogremoig igo gerio iogre erop ergpo pgoergm,p gpoermgpo gpoe rgpo.
+                </p>
+
+                <div class="divider"></div>
+
+                <div class="cardfooter">
+                    <div>
+                        <h2 class="cardnavbutton" id="discipline_modal_previous_button"><</h2>
+                    </div>
+                    <div>
+                        <h2 id="discipline_modal_nivel_text">III</h2>
+                        <div class="iconballcontainer" id="discipline_modal_iconballcontainer">
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="cardnavbutton" id="discipline_modal_next_button">></h2>
+                    </div>
+                </div>
+                <button class="cardbutton confirmbutton" id="discipline_modal_unlock_button">ADQUIRIR</button>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="ritual_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle" id="ritual_modal_title">RITUAL</h3>
+                    <h3 class="cardclosebutton" id="ritual_modal_close_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="elementdescription" id="ritual_modal_description">
+                </p>
+
+                <h2 id="ritual_modal_nivel_text">III</h2>    
+
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="items_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <img class="threshicon" src="img/threshicon.svg" id="items_modal_delete_button"">
+                    <h3 class="cardtitle" id="items_modal_title">TITLE</h3>
+                    <h3 class="cardclosebutton" id="items_modal_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="elementdescription" id="items_modal_description">
+                    LOREM IPSUM
+                    LOREM IPSUM
+                    LOREM IPSUM
+                    LOREM IPSUM
+                    LOREM IPSUM
+                    LOREM IPSUM
+                    LOREM IPSUM
+                </p>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="confirm_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle" id="confirm_modal_title">TEM CERTEZA?</h3>
+                    <h3 class="cardclosebutton"id="confirm_modal_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="elementdescription" id="confirm_modal_description">
+                    Texto de confirmação
+                </p>
+
+                <div class="cardbuttoncontainer">
+                    <button class="cardbutton cancellbutton" id="confirm_modal_cancell_button">CANCELAR</button>
+                    <button class="cardbutton confirmbutton" id="confirm_modal_confirm_button">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="edit_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle" id="edit_modal_title">EDITAR ALGO</h3>
+                    <h3 class="cardclosebutton" id="edit_modal_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="cardcontent">
+                    <textarea id="edit_modal_textarea"></textarea>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="cardbuttoncontainer">
+                    <button class="cardbutton cancellbutton" id="edit_modal_cancellbutton">CANCELAR</button>
+                    <button class="cardbutton confirmbutton" id="edit_modal_confirmbutton">SALVAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="add_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle" id="create_modal_title">CRIAR ITEM</h3>
+                    <h3 class="cardclosebutton" id="create_modal_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="cardcontent">
+                    <div class="cardcontentsection">
+                        <h3 class="cardtitle">NOME</h3>
+                        <textarea id="create_modal_name_textarea"></textarea>
+                    </div>
+                    <div class="cardcontentsection">
+                        <h3 class="cardtitle">DESCRIÇÃO</h3>
+                        <textarea id="create_modal_description_textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="cardbuttoncontainer">
+                    <button class="cardbutton cancellbutton" id="create_modal_cancellbutton">CANCELAR</button>
+                    <button class="cardbutton confirmbutton" id="create_modal_confirmbutton">CRIAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="edit_goals_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle" id="editgoals_title">EDITAR AMBIÇÃO</h3>
+                    <h3 class="cardclosebutton" id="editgoals_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="cardcontent">
+                    <textarea id="editgoals_text"></textarea>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="cardbuttoncontainer">
+                    <button class="cardbutton cancellbutton" id="editgoals_cancellbutton">CANCELAR</button>
+                    <button class="cardbutton confirmbutton" id="editgoals_confirmbutton">SALVAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hidden section" id="c_upg_modal">
+            <div class="card">
+                <div class="cardheader">
+                    <h3 class="cardtitle">TEM CERTEZA?</h3>
+                    <h3 class="cardclosebutton" id="c_upg_modal_x_button">X</h3>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="elementdescription" id="c_upg_modal_description">
+                    Deseja gastar 0 xp para evoluir a habilidade 'Empatia c/ animais' para o nível 0 ?
+                </p>
+                
+                <div class="cardbuttoncontainer">
+                    <button class="cardbutton cancellbutton" id="c_upg_modal_cancell_button">CANCELAR</button>
+                    <button class="cardbutton confirmbutton" id="c_upg_modal_confirm_button">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+
+        <main class="page">
+            <section class="overviewsection section" id="overview">
+                <div>
+                    <h2 id="charname">PERSONAGEM</h2>
+                    <h4 id="playername">Jogador</h4>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="profilepicturecontainer">
+                    <img class="profilepicture" id="profilepicture">
+                </div>
+                <div>
+                    <h3 id="cla">Clã</h3>
+                    <h4 id="generation">Geração</h4>
+                </div>
+                <div class="xpholder">
+                    <h2 id="xp">0xp</h2>
+                </div>
+            </section>
+
+            <section class="statussection section" id="status">
+                <div class="sectionheader">
+                    <h2>STATUS</h2>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="statusitemcontainer">
+                    <div class="statusitem">
+                        <div>
+                            <h5>FOME</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="hunger">6</span><span class="lowtext" id="hunger_max">/6</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>HUMANIDADE</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="humanity">5</span><span class="lowtext" id="humanity_max">/5</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>DANO SUPERFICIAL</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="sdamage">10</span><span class="lowtext" id="sdamage_max">/10</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>DANO AGRAVADO</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="adamage">10</span><span class="lowtext" id="adamage_max">/10</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>FORÇA DE VONTADE</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="willpower">10</span><span class="lowtext" id="willpower_max">/10</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>INSPIRAÇÃO</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="inspiration">1</span><span class="lowtext" id="inspiration_max">/1</span>
+                        </div>
+                    </div>                                                                                
+                </div>
+            </section>
+
+            <section class="bloodpotencysection section" id="bloodpotency">
+                <div class="sectionheader">
+                    <h2>POTÊNCIA DE SANGUE</h2>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="levelcontainer" id="bloodpotencycontainer">
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                    <div class="iconball"></div>
+                </div>
+                <div class="statusitemcontainer">
+                    <div class="statusitem">
+                        <div>
+                            <h5>SURTO DE SANGUE</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="bloodsurge">+0</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>CURA SUPERFICIAL</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="sheal">+0</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>CURA AGRAVADA</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="aheal">+0</span>
+                        </div>
+                    </div>
+                    <div class="statusitem">
+                        <div>
+                            <h5>DADOS DE FOME</h5>
+                        </div>
+                        <div>
+                            <span class="hightext" id="hungerdices">+0</span>
+                        </div>
+                    </div>
+                    <div class="statusitem total">
+                        <div>
+                            <h5>SANGUES CONSUMÍVEIS</h5>
+                        </div>
+                        <div>
+                            <span id="consumablebloods">Nenhum</span>
+                        </div>
+                    </div>
+                </div>
+            </section>        
+            
+            <section class="atributessection section" id="atributes">
+                <div class="sectionheader">
+                    <h2>ATRIBUTOS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="elementsectioncontainer">
+                    <div>
+                        <h4>FÍSICOS</h4>
+                    </div>
+                    <div class="element" id="atribute_0">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">FORÇA</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>
+                    <div class="element" id="atribute_1">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">DESTREZA</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>
+                    <div class="element" id="atribute_2">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">VIGOR</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="elementsectioncontainer">
+                    <div>
+                        <h4>SOCIAIS</h4>
+                    </div>
+                    <div class="element" id="atribute_3">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">CARISMA</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>
+                    <div class="element" id="atribute_4">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">MANIPULAÇÃO</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>
+                    <div class="element" id="atribute_5">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">APARÊNCIA</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>                    
+                </div>
+                
+                <div class="elementsectioncontainer">
+                    <div>
+                        <h4>MENTAIS</h4>
+                    </div>
+                    <div class="element" id="atribute_6">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">INTELIGÊNCIA</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>
+                    <div class="element" id="atribute_7">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">RACIOCÍNIO</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>
+                    <div class="element" id="atribute_8">
+                        <div class="elementtitlecontainer">
+                            <h3 class="elementtitle">DETERMINAÇÃO</h3>
+                        </div>
+                        <div class="iconballcontainer">
+                        </div>
+                    </div>                    
+                </div>                
+
+            </section>
+            
+            <section class="talentsection section" id="talents">
+                <div class="sectionheader">
+                    <h2>TALENTOS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="elementsectioncontainer" id="talentscontainer">
+                </div>
+            </section>
+
+            <section class="expertisesection section" id="expertises">
+                <div class="sectionheader">
+                    <h2>PERÍCIAS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="elementsectioncontainer" id="expertisescontainer">
+                </div>
+            </section>
+            
+            <section class="knowledgesection section" id="knowledges">
+                <div class="sectionheader">
+                    <h2>CONHECIMENTOS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="elementsectioncontainer" id="knowledgescontainer">
+                </div>
+            </section>            
+
+            <section class="disciplinesection section" id="disciplines">
+                <div class="sectionheader">
+                    <h2>DISCIPLINAS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+            
+                <div class="elementsectioncontainer" id="disciplines_container">                   
+                </div>
+
+<!--                 <div class="divider"></div>
+
+                <button class="addbutton">+</button> -->
+            </section>
+
+            <section class="ritualssection section" id="rituals">
+                <div class="sectionheader">
+                    <h2>RITUAIS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="elementsectioncontainer" id="rituals_container">                   
+                </div>
+            </section>
+
+            <section class="precedentsection section" id="precedents">
+                <div class="sectionheader">
+                    <h2>ANTECEDENTES</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="elementsectioncontainer" id="precedentscontainer">
+                </div>
+            </section>               
+
+            <section class="itemssection section" id="items">
+                <div class="sectionheader">
+                    <h2>POSSES</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="elementsectioncontainer" id="items_container">
+                    <div class="elementcard" id="money_card">
+                        <div class="elementheader">
+                            <h3>DINHEIRO</h3>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div>
+                            <h2 id="money">$ 000.000</h2>
+                        </div>
+
+                        <input type="number" class="changemoneyinput" placeholder="Digite um valor" id="money_input">
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <button class="addbutton" data-add-section="items" id="add_items_button">+</button>
+
+                </div>
+            </section>
+
+            <section class="goalssection section" id="goals">
+                <div class="sectionheader">
+                    <h2>OBJETIVOS</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="elementsectioncontainer">
+                    <div class="elementcard" data-refresh="ambition">
+                        <div class="elementheader" data-refresh="ambition">
+                            <h3 data-refresh="ambition">AMBIÇÃO</h3>
+                            <h5 class="expandicon" data-refresh="ambition">↓</h5>
+                        </div>
+
+                        <h3 class="elementsubtitle" data-refresh="ambition">Objetivo a <strong>LONGO</strong> prazo</h3>
+
+                        <div class="divider" data-refresh="ambition"></div>
+
+                        <p class="elementdescription" id="ambition_description" data-refresh="ambition">
+                        </p>
+                    </div>
+
+                    <div class="elementcard" data-refresh="wish">
+                        <div class="elementheader" data-refresh="wish">
+                            <h3 data-refresh="wish">DESEJO</h3>
+                            <h5 class="expandicon" data-refresh="wish">↓</h5>
+                        </div>
+
+                        <h3 class="elementsubtitle" data-refresh="wish">Objetivo a <strong data-refresh="wish">CURTO</strong> prazo</h3>
+
+                        <div class="divider" data-refresh="wish"></div>
+
+                        <p class="elementdescription" id="wish_description" data-refresh="wish">
+                        </p>
+                    </div>   
+                </div>
+
+            </section>
+
+            <section class="moralitysection section" id="moralityes">
+                <div class="sectionheader">
+                    <h2>MORALIDADE</h2>
+                    <h5 class="expandicon">↓</h5>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="elementsectioncontainer">
+                    <div class="elementcard" data-upgrade="morality">
+                        <div class="elementheader" data-upgrade="morality">
+                            <h3 data-upgrade="morality">PRINCÍPIOS</h3>
+                            <h5 data-upgrade="morality" class="expandicon">↓</h5>
+                        </div>
+
+                        <h3 class="elementsubtitle"  data-upgrade="morality">Moralidade em comum entre todos os jogadores</h3>
+
+                        <div class="divider" data-upgrade="morality"></div>
+
+                        <p class="elementdescription" id="principle" data-upgrade="morality">
+                        </p>
+                    </div>
+
+                    <div class="elementcard" data-upgrade="morality">
+                        <div class="elementheader" data-upgrade="morality">
+                            <h3 data-upgrade="morality">CONVICÇÕES</h3>
+                            <h5 class="expandicon" data-upgrade="morality">↓</h5>
+                        </div>
+
+                        <h3 class="elementsubtitle" data-upgrade="morality">Moralidades individuais do jogador</h3>
+
+                        <div class="divider" data-upgrade="morality"></div>
+
+                        <p class="elementdescription" id="conviction_1" data-upgrade="morality">
+                        </p>
+
+                        <div class="divider" data-upgrade="morality"></div>
+
+                        <p class="elementdescription" id="conviction_2" data-upgrade="morality">
+                        </p>
+
+                        <div class="divider" data-upgrade="morality"></div>
+
+                        <p class="elementdescription" id="conviction_3" data-upgrade="morality">
+                        </p>                        
+                    </div>   
+                </div>
+
+            </section>   
+        </main>
+
+        <footer>
+        </footer>
+
+        <script type="module" src="js/sheet/main.js"></script>
+    </body>
+</html>
