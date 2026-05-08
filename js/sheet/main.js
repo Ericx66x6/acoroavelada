@@ -48,8 +48,8 @@ const playerFile = params.get("char")
 const playerToken = params.get("token")
 
 Promise.all([
-    fetch("http://127.0.0.1:5000/game").then(r => r.json()),
-    fetch(`http://127.0.0.1:5000/get?char=${playerFile}&token=${playerToken}`)
+    fetch("https://acoroavelada.onrender.com/game").then(r => r.json()),
+    fetch(`https://acoroavelada.onrender.com/get?char=${playerFile}&token=${playerToken}`)
         .then(r => r.json())
 ]).then(([gData, pData]) => {
 
