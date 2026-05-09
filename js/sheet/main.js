@@ -58,6 +58,8 @@ Promise.all([
     player_data = new Player(pData)
     game_data = new GameData(gData)
 
+    window.player_data = player_data
+
     startSheet(player_data, game_data);
     changeStatusEvents()
 });

@@ -172,7 +172,7 @@ def save_data():
     web_data = body.get("data")
     web_id = body.get("id")
 
-    if not all([web_token, web_data, web_id]):
+    if web_token is None or web_data is None or web_id is None:
         return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
