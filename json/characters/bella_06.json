@@ -1,10 +1,10 @@
 {
-    "player": "João",
-    "char": "Cheron",
+    "player": "Paola dos Anjos",
+    "char": "Bella",
     "id": 6,
     "cla": "TOREADOR",
-    "generation": 10,
-    "profilepicture": "/img/characters/cheron.jpeg",
+    "generation": 8,
+    "profilepicture": "/img/characters/bella.jpeg",
     "xp": 20,
     "bloodpotency": 2,
     "status": {

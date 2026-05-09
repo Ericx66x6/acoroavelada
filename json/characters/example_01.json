@@ -1,10 +1,10 @@
 {
-    "player": "Isabela Braga",
+    "player": "Isabella Fonseca",
     "char": "Bella Pietra",
     "id": 1,
     "cla": "TOREADOR",
     "generation": 8,
-    "profilepicture": "/img/example.jpg",
+    "profilepicture": "/img/characters/example.jpg",
     "xp": 12,
     "bloodpotency": 3,
     "status": {
