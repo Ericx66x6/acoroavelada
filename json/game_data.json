@@ -415,6 +415,566 @@
                     "description": "Até 1000kg"
                 }
             ]
+        },
+        {
+            "id": 11,
+            "name": "ANIMALISMO",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        
+        {
+            "id": 12,
+            "name": "METAMORFOSE",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        
+        {
+            "id": 13,
+            "name": "TENEBROSIDADE",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        
+        {
+            "id": 14,
+            "name": "QUIMERISMO",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "SERPENTIS",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        
+        {
+            "id": 16,
+            "name": "QUIETUS",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        
+        {
+            "id": 17,
+            "name": "DEMÊNCIA",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "name": "NECROMANCIA",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "name": "LINHA DO SEPÚLCRO",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "name": "LINHA DOS OSSOS",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "name": "LINHA DAS CINZAS",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "name": "LINHA DO SANGUE",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "name": "LINHA DA CONJURAÇÃO",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "name": "MÃOS DA DESTRUIÇÃO",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "name": "VICISSITUDE",
+            "description": "",
+            "nivels": [
+                {
+                    "subname": "",
+                    "nivel": 1,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 2,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 3,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 4,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 5,
+                    "description": ""
+                },
+                {
+                    "subname": "",
+                    "nivel": 6,
+                    "description": ""
+                }
+            ]
         }
     ],
     "rituals": [
@@ -431,258 +991,6 @@
             "nivel": 2,
             "short_description": "Afasta carniçais em curto raio.",
             "description": "O ritual exige ossos pequenos organizados em padrão circular. Ativa em 2 turnos. Dura 1 cena (≈1 hora). Carniçais evitam atravessar o perímetro, exceto sob comando direto extremamente forte. Não impede ataques à distância."
-        },
-        {
-            "id": 2,
-            "name": "SINAL DE REPULSÃO FÚNEBRE",
-            "nivel": 2,
-            "short_description": "Reduz agressividade de mortos-vivos.",
-            "description": "Cinzas funerárias são marcadas na pele do alvo ou no chão. Ativa em 1 turno. Dura 1 hora. Mortos-vivos comuns têm redução de agressividade e hesitam ao iniciar combate, mas não ficam passivos."
-        },
-        {
-            "id": 3,
-            "name": "CERCO DE SILÊNCIO ÓSSEO",
-            "nivel": 2,
-            "short_description": "Abafa som espiritual e físico leve.",
-            "description": "Pequenos ossos são enterrados em pontos ao redor. Ativa em 3 turnos. Dura 1 cena. Sons dentro da área ficam abafados e rastreio por audição sobrenatural é severamente reduzido."
-        },
-        {
-            "id": 4,
-            "name": "SELAMENTO DE CINZA FRIA",
-            "nivel": 1,
-            "short_description": "Barreira simples contra entidades fracas.",
-            "description": "Cinzas são espalhadas em círculo contínuo. Ativa em 1 turno. Dura 20 minutos. Entidades de baixa força espiritual não conseguem cruzar a barreira enquanto ela estiver intacta."
-        },
-        {
-            "id": 5,
-            "name": "MARCA DO OLHO CEGO",
-            "nivel": 2,
-            "short_description": "Reduz detecção espiritual e visual leve.",
-            "description": "Um símbolo é desenhado com sangue na pele. Ativa imediatamente. Dura 3 horas. Reduz chance de ser notado por percepção sobrenatural básica, mas não oculta completamente em vigilância ativa."
-        },
-        {
-            "id": 6,
-            "name": "VÉU DE RESPIRAÇÃO RASA",
-            "nivel": 2,
-            "short_description": "Diminui assinatura vital.",
-            "description": "Controle respiratório ritualizado por 2 turnos. Dura 30 minutos. Reduz calor corporal, som e sinais vitais perceptíveis. Eficaz contra caçadores sensoriais, mas falha contra rastreio místico avançado."
-        },
-        {
-            "id": 7,
-            "name": "LAÇO DE ECO SOMBRIO",
-            "nivel": 3,
-            "short_description": "Cria distrações falsas de presença.",
-            "description": "O vampiro espalha pequenas gotas de sangue em pontos estratégicos. Ativa em 3 turnos. Dura 1 cena. Cria ecos ilusórios de movimento e presença em até 20 metros."
-        },
-        {
-            "id": 8,
-            "name": "SELAMENTO DE NOME RASGADO",
-            "nivel": 4,
-            "short_description": "Oculta identidade sobrenatural.",
-            "description": "Ritual de 5 minutos envolvendo destruição simbólica de um objeto pessoal. Dura 1 noite. Bloqueia rastreio por nome, linhagem e assinaturas espirituais diretas."
-        },
-        {
-            "id": 9,
-            "name": "ÂNCORA DE PELE FRIA",
-            "nivel": 3,
-            "short_description": "Reduz dano espiritual direto.",
-            "description": "Marca corporal feita com sangue resfriado. Ativa em 1 turno. Dura 1 hora. Reduz impacto de ataques espirituais ou mentais em cerca de 30–40%."
-        },
-        {
-            "id": 10,
-            "name": "FOGO SEM CHAMA",
-            "nivel": 1,
-            "short_description": "Cria luz fria sobrenatural.",
-            "description": "Ativado com foco e exalação de sangue em microquantidade. Dura 2 horas. Gera luz fria que não emite calor nem chama física, útil para exploração sem atrair criaturas térmicas."
-        },
-        {
-            "id": 11,
-            "name": "PULSO DE DESORIENTAÇÃO",
-            "nivel": 2,
-            "short_description": "Confunde percepção imediata.",
-            "description": "Ativado com batida de mão no chão ou superfície. Dura 10 segundos. Causa leve distorção espacial em inimigos num raio de 10 metros, quebrando mira e foco momentâneo."
-        },
-        {
-            "id": 12,
-            "name": "SELAMENTO DE PASSOS OCULTOS",
-            "nivel": 1,
-            "short_description": "Abafa deslocamento físico.",
-            "description": "Ritual simples com sangue na sola dos pés ou chão. Dura 1 hora. Reduz significativamente som de passos e deslocamento em superfícies sólidas."
-        },
-        {
-            "id": 13,
-            "name": "CÍRCULO DE PRESSÁGIO",
-            "nivel": 3,
-            "short_description": "Detecta ameaça próxima.",
-            "description": "Círculo desenhado com sangue seco e cinzas. Dura 2 horas. Vibra levemente quando entidades hostis entram em raio de 30 metros."
-        },
-        {
-            "id": 14,
-            "name": "MARCA DE FUGA RÁPIDA",
-            "nivel": 2,
-            "short_description": "Impulso de evasão temporária.",
-            "description": "Ativado com corte leve no braço. Dura 15 segundos. Aumenta velocidade de movimento e reflexos em situação de fuga, mas causa fadiga após uso."
-        },
-        {
-            "id": 15,
-            "name": "CORRENTE DE VIGILÂNCIA",
-            "nivel": 4,
-            "short_description": "Sensoriamento de presença.",
-            "description": "Correntes simbólicas desenhadas com sangue no chão. Dura 1 hora. Permite sentir presença viva ou sobrenatural em até 50 metros como pressão mental."
-        },
-        {
-            "id": 16,
-            "name": "SELAMENTO DE OLHOS INVISÍVEIS",
-            "nivel": 3,
-            "short_description": "Bloqueia observação sobrenatural direta.",
-            "description": "Ativado ao fechar os olhos por 3 turnos. Dura 30 minutos. Dificulta observação por entidades que utilizam percepção espiritual ou vigilância remota."
-        },
-        {
-            "id": 17,
-            "name": "RITUAL DE CINZA ERRANTE",
-            "nivel": 4,
-            "short_description": "Cria rastros falsos.",
-            "description": "Cinzas são espalhadas enquanto o vampiro anda em padrão irregular. Dura 1 hora. Gera múltiplos rastros espirituais falsos, confundindo perseguidores."
-        },
-        {
-            "id": 18,
-            "name": "VÉU DE DOR SILENCIOSA",
-            "nivel": 3,
-            "short_description": "Suprime percepção de dor.",
-            "description": "Ativado ao morder a própria língua e manter foco. Dura 1 cena. Reduz percepção de dor física, mas não reduz dano real recebido."
-        },
-        {
-            "id": 19,
-            "name": "SINAL DO VAZIO BREVE",
-            "nivel": 5,
-            "short_description": "Desaparecimento espiritual curto.",
-            "description": "Ritual de alta concentração envolvendo silêncio completo por 1 minuto. Dura 5–10 segundos. Remove o vampiro da percepção sobrenatural e comum por instantes críticos. Após uso, causa exaustão e risco de detecção residual."
-        },
-        {
-            "id": 20,
-            "name": "SUSSURRO DO SANGUE ANTIGO",
-            "nivel": 2,
-            "short_description": "Lê emoções residuais de sangue recente.",
-            "description": "O vampiro consome ou toca sangue que não tenha passado de 6 horas desde a morte. Ao focar por 1 turno completo, ele entra em ressonância com a Vitae residual da vítima. O efeito revela fragmentos emocionais (medo, raiva, prazer) e intenções imediatas antes da morte. Dura 1 cena ou até o vampiro se distrair. Não funciona em sangue fervido, purificado ou extremamente diluído."
-        },
-        {
-            "id": 21,
-            "name": "MÁSCARA DE PELE EMPRESTADA",
-            "nivel": 3,
-            "short_description": "Disfarce físico imperfeito, mas funcional.",
-            "description": "O vampiro realiza o ritual esfregando sangue próprio com cinzas em seu rosto e corpo por 3 minutos. A aparência muda levemente para outra identidade humana plausível (não específica). Dura 3 horas ou até receber dano direto. Não altera voz perfeitamente nem padrões de movimento, podendo ser detectado por observação atenta."
-        },
-        {
-            "id": 22,
-            "name": "JURAMENTO DE SILÊNCIO VERMELHO",
-            "nivel": 2,
-            "short_description": "Bloqueia revelação de segredos sob coerção mental.",
-            "description": "Após pronunciar um segredo voluntariamente dentro de um círculo de sangue, o vampiro sela a informação. Durante 24 horas, qualquer tentativa de revelar o segredo sob Dominação, tortura ou compulsão resulta em bloqueio psicológico intenso (dor ou incapacidade de falar). Não impede decisão voluntária fora de coerção."
-        },
-        {
-            "id": 23,
-            "name": "OLHO DA CAÇADA INTERROMPIDA",
-            "nivel": 3,
-            "short_description": "Detecta presas sendo ativamente caçadas.",
-            "description": "Ao fechar os olhos por 2 turnos e focar na ‘pressão do ambiente’, o vampiro percebe ecos de predadores próximos. Indica presença de caçadores ativos ou alvos marcados em até 30 metros. Dura 10 minutos. Não identifica o caçador, apenas a direção da tensão."
-        },
-        {
-            "id": 24,
-            "name": "CÍRCULO DE SANGUE ESTAGNADO",
-            "nivel": 4,
-            "short_description": "Reduz regeneração vampírica em área.",
-            "description": "Um círculo é desenhado com Vitae coagulado misturado a sal. Enquanto ativo (até 1 hora), vampiros dentro da área têm regeneração reduzida em 50% e custo de cura aumentado. O círculo se quebra se for atravessado por sangue novo ou se for apagado fisicamente."
-        },
-        {
-            "id": 25,
-            "name": "LÍNGUA DE PRATA MORTA",
-            "nivel": 3,
-            "short_description": "Aprimora persuasão sobrenatural.",
-            "description": "Ativado ao morder levemente a própria língua e falar durante o efeito (até 1 cena). O vampiro ganha fluidez sobrenatural, tornando mentiras mais difíceis de detectar por leitura emocional básica. Não afeta Auspícios avançados ou leitura direta de mente."
-        },
-        {
-            "id": 26,
-            "name": "SINAL DE DOMÍNIO FRAGMENTADO",
-            "nivel": 4,
-            "short_description": "Resiste parcialmente a controle mental.",
-            "description": "Ativado ao traçar símbolo no peito com sangue próprio. Dura 1 hora. Durante esse período, tentativas de Dominação ou compulsão mental sofrem atraso ou falham parcialmente, permitindo ao alvo ganhar um turno de reação antes de obedecer."
-        },
-        {
-            "id": 27,
-            "name": "SOMBRA DE PRESENÇA AUSENTE",
-            "nivel": 2,
-            "short_description": "Reduz lembrança social imediata.",
-            "description": "Após interação social breve, o vampiro ativa o efeito ao sussurrar seu próprio nome ao contrário. Por 30 minutos, observadores têm dificuldade em lembrar detalhes claros sobre sua presença. Não funciona se interação for prolongada (mais de 10 minutos contínuos)."
-        },
-        {
-            "id": 28,
-            "name": "SANGUE QUE NÃO DÁ NOME",
-            "nivel": 5,
-            "short_description": "Apaga rastreio sobrenatural de identidade.",
-            "description": "Ritual complexo de 10 minutos envolvendo destruição simbólica de um objeto pessoal e mistura de sangue com cinzas. Dura 1 noite inteira. Durante esse período, rituais de rastreio, leitura de linhagem ou identificação sobrenatural falham automaticamente contra o usuário."
-        },
-        {
-            "id": 29,
-            "name": "VÉU DE HOSPITALIDADE QUEBRADA",
-            "nivel": 3,
-            "short_description": "Afeta regras sociais em Elysium.",
-            "description": "Ativado ao derramar uma gota de sangue em superfície de pedra ou madeira dentro de ambiente social vampírico. Por 20 minutos, regras formais de etiqueta vampírica tornam-se instáveis, dificultando aplicação de punições sociais imediatas."
-        },
-        {
-            "id": 30,
-            "name": "PRESSÁGIO DE FOME PRÓXIMA",
-            "nivel": 2,
-            "short_description": "Prevê aumento de fome.",
-            "description": "Ao meditar por 1 minuto, o vampiro sente variações futuras da própria Fome nas próximas 6 horas. Não prevê eventos externos, apenas instabilidade de necessidade de Vitae."
-        },
-        {
-            "id": 31,
-            "name": "CORRENTE DE VÍNCULO QUEBRADO",
-            "nivel": 4,
-            "short_description": "Reduz influência de blood bond temporariamente.",
-            "description": "Ritual exige ingestão de uma gota de sangue antigo misturado com cinzas. Dura 1 cena a 1 hora. Durante o efeito, a intensidade de vínculos de sangue é reduzida em 1 estágio, permitindo resistência parcial a ordens emocionais."
-        },
-        {
-            "id": 32,
-            "name": "OLHAR QUE NÃO RESPONDE",
-            "nivel": 3,
-            "short_description": "Dificulta leitura mental/emocional.",
-            "description": "O vampiro entra em estado de foco imóvel por 2 turnos. Durante 1 hora após isso, leituras mentais ou emocionais básicas recebem informação confusa ou incompleta. Não bloqueia leitura completa de mentes altamente avançadas."
-        },
-        {
-            "id": 33,
-            "name": "SANGUE MARCADO DE TRAIÇÃO",
-            "nivel": 4,
-            "short_description": "Marca alvo como traidor rastreável.",
-            "description": "Necessita uma amostra de sangue do alvo e um juramento verbal. O alvo passa a emitir assinatura espiritual rastreável por 24 horas por rituais de caça, revelando sua posição aproximada em até 100 metros."
-        },
-        {
-            "id": 34,
-            "name": "CÂMARA DE CONFISSÃO MORTA",
-            "nivel": 5,
-            "short_description": "Induz revelação em área ritual.",
-            "description": "Um círculo é formado com sangue de múltiplas fontes. Dentro dele, qualquer vampiro ou humano sente pressão psicológica crescente ao mentir. Dura 10 minutos. Não força verdade absoluta, apenas reduz capacidade de manter mentira contínua."
-        },
-        {
-            "id": 35,
-            "name": "SUSSURRO ENTRE ESPELHOS",
-            "nivel": 3,
-            "short_description": "Comunicação via reflexos.",
-            "description": "Dois espelhos previamente preparados com sangue ritualizado permitem comunicação por 1 cena. A mensagem aparece como distorção no reflexo. Funciona apenas entre espelhos vinculados pelo mesmo ritual."
-        },
-        {
-            "id": 36,
-            "name": "SOMBRA DE CAÇADOR INVISÍVEL",
-            "nivel": 4,
-            "short_description": "Facilita emboscadas.",
-            "description": "Ativado ao permanecer imóvel por 1 turno completo. Dura até 1 cena. Durante esse tempo, o vampiro tem dificuldade extrema de ser notado até iniciar ação direta ou se mover bruscamente."
-        },
-        {
-            "id": 37,
-            "name": "PACTO DO SANGUE ESQUECIDO",
-            "nivel": 5,
-            "short_description": "Apaga memória social recente.",
-            "description": "Ritual de 5 minutos envolvendo destruição de objeto simbólico ligado à presença social do vampiro. Dura 1 noite. Durante o efeito, criaturas que interagiram com o usuário nas últimas horas têm dificuldade em lembrar detalhes ou até mesmo sua presença."
         }
     ],
     "maxvalue_generation": {

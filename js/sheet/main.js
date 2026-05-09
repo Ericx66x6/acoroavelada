@@ -43,13 +43,15 @@ import { saveJson } from "./save_server.js";
 let player_data = null;
 let game_data = null;
 
+export const base_url = "https://acoroavelada.onrender.com"
+
 const params = new URLSearchParams(window.location.search)
 const playerFile = params.get("char")
 const playerToken = params.get("token")
 
 Promise.all([
-    fetch("https://acoroavelada.onrender.com/game").then(r => r.json()),
-    fetch(`https://acoroavelada.onrender.com/get?char=${playerFile}&token=${playerToken}`)
+    fetch(`${base_url}/game`).then(r => r.json()),
+    fetch(`${base_url}/get?char=${playerFile}&token=${playerToken}`)
         .then(r => r.json())
 ]).then(([gData, pData]) => {
 
