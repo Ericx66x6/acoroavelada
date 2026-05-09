@@ -17,6 +17,7 @@ def safe_request(r):
 
     try:
         data = r.json()
+
     except:
         data = {}
 
@@ -24,12 +25,34 @@ def safe_request(r):
 
         print("\n✔ Sucesso")
 
+        if isinstance(data, dict):
+
+            if "msg" in data:
+                print(data["msg"])
+
     else:
 
         print(f"\n❌ Erro HTTP {r.status_code}")
 
         if "erro" in data:
             print(data["erro"])
+
+
+def find_char_by_id(player_id):
+
+    r = requests.get(base_url + "/listchars")
+
+    if r.status_code != 200:
+        return None
+
+    chars = r.json()
+
+    for char in chars:
+
+        if str(char.get("id")) == str(player_id):
+            return char
+
+    return None
 
 
 # ----------------------------
@@ -40,18 +63,22 @@ def ask_token():
     return input("Token: ")
 
 
+def ask_player_id():
+    return input("ID do personagem: ")
+
+
 # ----------------------------
 # DAR XP
 # ----------------------------
 
 def send_xp():
 
-    char = input("Personagem: ")
+    player_id = ask_player_id()
     token = ask_token()
     xp = input("XP: ")
 
     payload = {
-        "char": char,
+        "id": player_id,
         "token": token,
         "xp": xp
     }
@@ -71,24 +98,24 @@ def send_xp_session():
     token = ask_token()
     xp = input("XP para os jogadores: ")
 
-    print("\nDigite os personagens que vão receber XP")
+    print("\nDigite os IDs dos personagens")
     print("Digite '0' para finalizar\n")
 
-    chars = []
+    ids = []
 
     while True:
 
-        char = input("Personagem: ")
+        player_id = input("ID: ")
 
-        if char == "0":
+        if player_id == "0":
             break
 
-        if char.strip() == "":
+        if player_id.strip() == "":
             continue
 
-        chars.append(char)
+        ids.append(player_id)
 
-    if len(chars) == 0:
+    if len(ids) == 0:
         print("❌ Nenhum personagem informado")
         pause()
         return
@@ -97,10 +124,10 @@ def send_xp_session():
     print("       XP SESSÃO")
     print("========================")
 
-    for char in chars:
+    for player_id in ids:
 
         payload = {
-            "char": char,
+            "id": player_id,
             "token": token,
             "xp": xp
         }
@@ -108,14 +135,22 @@ def send_xp_session():
         r = requests.post(base_url + "/addxp", json=payload)
 
         if r.status_code == 200:
-            print(f"✔ {char} +{xp} XP")
+
+            char = find_char_by_id(player_id)
+
+            if char:
+                print(f'✔ {char.get("char")} +{xp} XP')
+
+            else:
+                print(f'✔ ID {player_id} +{xp} XP')
 
         else:
+
             try:
-                print(f"❌ {char}: {r.json().get('erro')}")
+                print(f"❌ ID {player_id}: {r.json().get('erro')}")
 
             except:
-                print(f"❌ {char}: erro desconhecido")
+                print(f"❌ ID {player_id}: erro desconhecido")
 
     pause()
 
@@ -126,12 +161,12 @@ def send_xp_session():
 
 def change_generation():
 
-    char = input("Personagem: ")
+    player_id = ask_player_id()
     token = ask_token()
     gen = input("Nova geração: ")
 
     payload = {
-        "char": char,
+        "id": player_id,
         "token": token,
         "newgeneration": gen
     }
@@ -162,7 +197,11 @@ def list_chars():
     print("========================")
 
     for char in chars:
-        print("-", char)
+
+        print(
+            f'ID: {char.get("id")} | '
+            f'Nome: {char.get("char")}'
+        )
 
     pause()
 
@@ -173,11 +212,11 @@ def list_chars():
 
 def download_char():
 
-    char = input("Personagem: ")
+    player_id = ask_player_id()
     token = ask_token()
 
     r = requests.get(
-        f"{base_url}/download/{char}",
+        f"{base_url}/download/{player_id}",
         params={"token": token}
     )
 
@@ -186,7 +225,7 @@ def download_char():
         pause()
         return
 
-    filename = f"{char}.json"
+    filename = f"{player_id}.json"
 
     with open(filename, "wb") as f:
         f.write(r.content)
@@ -203,7 +242,7 @@ def download_char():
 def upload_char():
 
     path = input("Caminho do JSON: ")
-    name = input("Nome do personagem: ")
+    player_id = ask_player_id()
     token = ask_token()
 
     if not path.endswith(".json"):
@@ -220,11 +259,12 @@ def upload_char():
             }
 
             data = {
-                "token": token
+                "token": token,
+                "id": player_id
             }
 
             r = requests.post(
-                f"{base_url}/upload/{name}",
+                f"{base_url}/upload",
                 files=files,
                 data=data
             )
@@ -311,10 +351,20 @@ def upload_game_data():
 
 def delete_char():
 
-    char = input("Personagem: ")
+    player_id = ask_player_id()
     token = ask_token()
 
-    confirm = input(f'Tem certeza que deseja deletar "{char}"? (s/n): ')
+    char = find_char_by_id(player_id)
+
+    if char:
+        confirm = input(
+            f'Tem certeza que deseja deletar "{char.get("char")}"? (s/n): '
+        )
+
+    else:
+        confirm = input(
+            f'Tem certeza que deseja deletar ID "{player_id}"? (s/n): '
+        )
 
     if confirm.lower() != "s":
         print("Cancelado.")
@@ -322,11 +372,12 @@ def delete_char():
         return
 
     payload = {
-        "token": token
+        "token": token,
+        "id": player_id
     }
 
     r = requests.delete(
-        f"{base_url}/delete/{char}",
+        f"{base_url}/delete",
         json=payload
     )
 

@@ -21,7 +21,6 @@ GAME_FILE = os.path.join(JSON_DIR, "game_data.json")
 
 os.makedirs(CHAR_DIR, exist_ok=True)
 
-
 # ----------------------------
 # HELPERS
 # ----------------------------
@@ -45,6 +44,26 @@ def check_token(web_token):
     return web_token == TOKEN
 
 
+def find_char_by_id(player_id):
+
+    for file in os.listdir(CHAR_DIR):
+
+        if not file.endswith(".json"):
+            continue
+
+        path = os.path.join(CHAR_DIR, file)
+
+        data = load_json(path)
+
+        if not data:
+            continue
+
+        if str(data.get("id")) == str(player_id):
+            return path, data
+
+    return None, None
+
+
 # ----------------------------
 # HOME
 # ----------------------------
@@ -62,6 +81,7 @@ def home():
 def get_game():
 
     try:
+
         data = load_json(GAME_FILE)
 
         if data is None:
@@ -82,12 +102,29 @@ def list_chars():
 
     chars = []
 
-    for file in os.listdir(CHAR_DIR):
+    try:
 
-        if file.endswith(".json") and os.path.isfile(os.path.join(CHAR_DIR, file)): 
-            chars.append(file.replace(".json", ""))
+        for file in os.listdir(CHAR_DIR):
 
-    return jsonify(chars), 200
+            if not file.endswith(".json"):
+                continue
+
+            path = os.path.join(CHAR_DIR, file)
+
+            data = load_json(path)
+
+            if not data:
+                continue
+
+            chars.append({
+                "id": data.get("id"),
+                "char": data.get("char")
+            })
+
+        return jsonify(chars), 200
+
+    except Exception as e:
+        return jsonify({"erro": str(e)}), 500
 
 
 # ----------------------------
@@ -97,26 +134,26 @@ def list_chars():
 @app.route("/get", methods=["GET"])
 def get_data():
 
-    web_name = request.args.get("char")
+    web_id = request.args.get("id")
     web_token = request.args.get("token")
 
-    if not all([web_name, web_token]):
+    if not all([web_id, web_token]):
         return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
         return jsonify({"erro": "token invalido"}), 401
 
-    if not web_name.isalnum():
-        return jsonify({"erro": "nome invalido"}), 400
+    try:
 
-    path = os.path.join(CHAR_DIR, f"{web_name}.json")
+        _, data = find_char_by_id(web_id)
 
-    data = load_json(path)
+        if not data:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
 
-    if data is None:
-        return jsonify({"erro": "personagem nao encontrado"}), 404
+        return jsonify(data), 200
 
-    return jsonify(data), 200
+    except Exception as e:
+        return jsonify({"erro": str(e)}), 500
 
 
 # ----------------------------
@@ -131,27 +168,31 @@ def save_data():
     if not body:
         return jsonify({"erro": "body vazio"}), 400
 
-    web_name = body.get("char")
     web_token = body.get("token")
     web_data = body.get("data")
+    web_id = body.get("id")
 
-    if not all([web_name, web_token, web_data]):
+    if not all([web_token, web_data, web_id]):
         return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
         return jsonify({"erro": "token invalido"}), 401
 
-    if not web_name.isalnum():
-        return jsonify({"erro": "nome invalido"}), 400
-
     if not isinstance(web_data, dict):
         return jsonify({"erro": "data invalida"}), 400
 
-    path = os.path.join(CHAR_DIR, f"{web_name}.json")
-
     try:
+
+        path, _ = find_char_by_id(web_id)
+
+        if not path:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
+
         save_json(path, web_data)
-        return jsonify({"msg": "salvo com sucesso"}), 200
+
+        return jsonify({
+            "msg": "salvo com sucesso"
+        }), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
@@ -169,11 +210,11 @@ def addxp():
     if not body:
         return jsonify({"erro": "body vazio"}), 400
 
-    web_name = body.get("char")
+    web_id = body.get("id")
     web_token = body.get("token")
     web_xp = body.get("xp")
 
-    if not all([web_name, web_token, web_xp]):
+    if not all([web_id, web_token, web_xp]):
         return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
@@ -185,17 +226,17 @@ def addxp():
     except:
         return jsonify({"erro": "xp precisa ser numero"}), 400
 
-    path = os.path.join(CHAR_DIR, f"{web_name}.json")
-
-    data = load_json(path)
-
-    if data is None:
-        return jsonify({"erro": "personagem nao encontrado"}), 404
-
-    data["xp"] = data.get("xp", 0) + web_xp
-
     try:
+
+        path, data = find_char_by_id(web_id)
+
+        if not data:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        data["xp"] = data.get("xp", 0) + web_xp
+
         save_json(path, data)
+
         return jsonify(data), 200
 
     except Exception as e:
@@ -214,11 +255,11 @@ def change_generation():
     if not body:
         return jsonify({"erro": "body vazio"}), 400
 
-    web_name = body.get("char")
+    web_id = body.get("id")
     web_token = body.get("token")
     web_newgeneration = body.get("newgeneration")
 
-    if not all([web_name, web_token, web_newgeneration]):
+    if not all([web_id, web_token, web_newgeneration]):
         return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
@@ -230,17 +271,17 @@ def change_generation():
     except:
         return jsonify({"erro": "generation precisa ser numero"}), 400
 
-    path = os.path.join(CHAR_DIR, f"{web_name}.json")
-
-    data = load_json(path)
-
-    if data is None:
-        return jsonify({"erro": "personagem nao encontrado"}), 404
-
-    data["generation"] = web_newgeneration
-
     try:
+
+        path, data = find_char_by_id(web_id)
+
+        if not data:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        data["generation"] = web_newgeneration
+
         save_json(path, data)
+
         return jsonify(data), 200
 
     except Exception as e:
@@ -251,8 +292,8 @@ def change_generation():
 # DELETE JSON
 # ----------------------------
 
-@app.route("/delete/<name>", methods=["DELETE"])
-def delete_json(name):
+@app.route("/delete", methods=["DELETE"])
+def delete_json():
 
     body = request.get_json()
 
@@ -260,18 +301,26 @@ def delete_json(name):
         return jsonify({"erro": "body vazio"}), 400
 
     web_token = body.get("token")
+    web_id = body.get("id")
+
+    if not all([web_token, web_id]):
+        return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
         return jsonify({"erro": "token invalido"}), 401
 
-    path = os.path.join(CHAR_DIR, f"{name}.json")
-
-    if not os.path.exists(path):
-        return jsonify({"erro": "arquivo nao encontrado"}), 404
-
     try:
+
+        path, _ = find_char_by_id(web_id)
+
+        if not path:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
+
         os.remove(path)
-        return jsonify({"msg": "arquivo deletado"}), 200
+
+        return jsonify({
+            "msg": "arquivo deletado"
+        }), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
@@ -281,10 +330,14 @@ def delete_json(name):
 # UPLOAD JSON
 # ----------------------------
 
-@app.route("/upload/<name>", methods=["POST"])
-def upload_json(name):
+@app.route("/upload", methods=["POST"])
+def upload_json():
 
     web_token = request.form.get("token")
+    web_id = request.form.get("id")
+
+    if not all([web_token, web_id]):
+        return jsonify({"erro": "faltando parametros"}), 400
 
     if not check_token(web_token):
         return jsonify({"erro": "token invalido"}), 401
@@ -295,16 +348,24 @@ def upload_json(name):
         return jsonify({"erro": "arquivo nao enviado"}), 400
 
     try:
-        data = json.load(file)
+
+        new_data = json.load(file)
 
     except:
         return jsonify({"erro": "json invalido"}), 400
 
-    path = os.path.join(CHAR_DIR, f"{name}.json")
-
     try:
-        save_json(path, data)
-        return jsonify({"msg": "upload concluido"}), 200
+
+        path, _ = find_char_by_id(web_id)
+
+        if not path:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        save_json(path, new_data)
+
+        return jsonify({
+            "msg": "upload concluido"
+        }), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
@@ -314,24 +375,29 @@ def upload_json(name):
 # DOWNLOAD JSON
 # ----------------------------
 
-@app.route("/download/<name>", methods=["GET"])
-def download_json(name):
+@app.route("/download/<player_id>", methods=["GET"])
+def download_json(player_id):
 
     web_token = request.args.get("token")
 
     if not check_token(web_token):
         return jsonify({"erro": "token invalido"}), 401
 
-    path = os.path.join(CHAR_DIR, f"{name}.json")
+    try:
 
-    if not os.path.exists(path):
-        return jsonify({"erro": "arquivo nao encontrado"}), 404
+        path, _ = find_char_by_id(player_id)
 
-    return send_file(
-        path,
-        as_attachment=True,
-        download_name=f"{name}.json"
-    )
+        if not path:
+            return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        return send_file(
+            path,
+            as_attachment=True,
+            download_name=f"{player_id}.json"
+        )
+
+    except Exception as e:
+        return jsonify({"erro": str(e)}), 500
 
 
 # ----------------------------
