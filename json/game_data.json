@@ -984,7 +984,7 @@
         {
         "id": 4,
         "name": "PASSO DE VITAE",
-        "nivel": 2,
+        "nivel": 4,
         "short_description": "Reduz permanentemente a geração do vampiro através de sangue ancião.",
         "description": "Reduz a geração de um vampiro em um nível, fortalecendo permanentemente sua ligação com a vitae. Só pode ser usado uma vez por indivíduo. Requer consumo direto de sangue de um vampiro de geração mais baixa (ancião) e um ritual prolongado de assimilação que dura várias horas. Após concluído, a geração do vampiro diminui permanentemente, aumentando seu poder sanguíneo."
         },
