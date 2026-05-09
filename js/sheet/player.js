@@ -2,6 +2,7 @@ export class Player {
   constructor(data) {
     this.player = data.player;
     this.char = data.char;
+    this.id = data.id;
     this.cla = data.cla;
     this.generation = data.generation;
     this.profilepicture = data.profilepicture;

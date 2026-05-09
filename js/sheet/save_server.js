@@ -12,7 +12,8 @@ export async function saveJson() {
         body: JSON.stringify({
             char: player_data.char,
             token: "acoroavelada2026",
-            data: player_data
+            data: player_data,
+            id: player_data.id
         })
     });
 

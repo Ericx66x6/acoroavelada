@@ -46,12 +46,12 @@ let game_data = null;
 export const base_url = "https://acoroavelada.onrender.com"
 
 const params = new URLSearchParams(window.location.search)
-const playerFile = params.get("char")
+const playerId = params.get("id")
 const playerToken = params.get("token")
 
 Promise.all([
     fetch(`${base_url}/game`).then(r => r.json()),
-    fetch(`${base_url}/get?char=${playerFile}&token=${playerToken}`)
+    fetch(`${base_url}/get?id=${playerId}&token=${playerToken}`)
         .then(r => r.json())
 ]).then(([gData, pData]) => {
 
