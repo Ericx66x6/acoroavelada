@@ -10,8 +10,6 @@ CORS(app)
 # CONFIG
 # ----------------------------
 
-TOKEN = "acoroavelada2026"
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 JSON_DIR = os.path.join(BASE_DIR, "..", "json")
@@ -40,8 +38,20 @@ def save_json(path, data):
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 
-def check_token(web_token):
-    return web_token == TOKEN
+def check_token(data, web_token):
+
+    if not data:
+        return False
+
+    return data.get("token") == web_token
+
+
+def sanitize_data(data):
+
+    safe_data = data.copy()
+    safe_data.pop("token", None)
+
+    return safe_data
 
 
 def find_char_by_id(player_id):
@@ -140,9 +150,6 @@ def get_data():
     if not all([web_id, web_token]):
         return jsonify({"erro": "faltando parametros"}), 400
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     try:
 
         _, data = find_char_by_id(web_id)
@@ -150,7 +157,10 @@ def get_data():
         if not data:
             return jsonify({"erro": "personagem nao encontrado"}), 404
 
-        return jsonify(data), 200
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
+
+        return jsonify(sanitize_data(data)), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
@@ -175,18 +185,21 @@ def save_data():
     if web_token is None or web_data is None or web_id is None:
         return jsonify({"erro": "faltando parametros"}), 400
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     if not isinstance(web_data, dict):
         return jsonify({"erro": "data invalida"}), 400
 
     try:
 
-        path, _ = find_char_by_id(web_id)
+        path, data = find_char_by_id(web_id)
 
-        if not path:
+        if not data:
             return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
+
+        # mantém o token original
+        web_data["token"] = data.get("token")
 
         save_json(path, web_data)
 
@@ -217,9 +230,6 @@ def addxp():
     if not all([web_id, web_token, web_xp]):
         return jsonify({"erro": "faltando parametros"}), 400
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     try:
         web_xp = int(web_xp)
 
@@ -233,11 +243,14 @@ def addxp():
         if not data:
             return jsonify({"erro": "personagem nao encontrado"}), 404
 
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
+
         data["xp"] = data.get("xp", 0) + web_xp
 
         save_json(path, data)
 
-        return jsonify(data), 200
+        return jsonify(sanitize_data(data)), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
@@ -262,9 +275,6 @@ def change_generation():
     if not all([web_id, web_token, web_newgeneration]):
         return jsonify({"erro": "faltando parametros"}), 400
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     try:
         web_newgeneration = int(web_newgeneration)
 
@@ -278,11 +288,14 @@ def change_generation():
         if not data:
             return jsonify({"erro": "personagem nao encontrado"}), 404
 
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
+
         data["generation"] = web_newgeneration
 
         save_json(path, data)
 
-        return jsonify(data), 200
+        return jsonify(sanitize_data(data)), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
@@ -306,15 +319,15 @@ def delete_json():
     if not all([web_token, web_id]):
         return jsonify({"erro": "faltando parametros"}), 400
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     try:
 
-        path, _ = find_char_by_id(web_id)
+        path, data = find_char_by_id(web_id)
 
         if not path:
             return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
 
         os.remove(path)
 
@@ -339,9 +352,6 @@ def upload_json():
     if not all([web_token, web_id]):
         return jsonify({"erro": "faltando parametros"}), 400
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     file = request.files.get("file")
 
     if not file:
@@ -356,10 +366,16 @@ def upload_json():
 
     try:
 
-        path, _ = find_char_by_id(web_id)
+        path, data = find_char_by_id(web_id)
 
         if not path:
             return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
+
+        # mantém token original
+        new_data["token"] = data.get("token")
 
         save_json(path, new_data)
 
@@ -380,15 +396,15 @@ def download_json(player_id):
 
     web_token = request.args.get("token")
 
-    if not check_token(web_token):
-        return jsonify({"erro": "token invalido"}), 401
-
     try:
 
-        path, _ = find_char_by_id(player_id)
+        path, data = find_char_by_id(player_id)
 
         if not path:
             return jsonify({"erro": "personagem nao encontrado"}), 404
+
+        if not check_token(data, web_token):
+            return jsonify({"erro": "token invalido"}), 401
 
         return send_file(
             path,
