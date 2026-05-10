@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 import os
@@ -6,67 +6,43 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# ----------------------------
-# CONFIG
-# ----------------------------
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 JSON_DIR = os.path.join(BASE_DIR, "..", "json")
 CHAR_DIR = os.path.join(JSON_DIR, "characters")
 
-GAME_FILE = os.path.join(JSON_DIR, "game_data.json")
-
 os.makedirs(CHAR_DIR, exist_ok=True)
+
+# 🔐 ADMIN TOKEN (usa isso no console/admin tools)
+ADMIN_TOKEN = "2755eric"
+
 
 # ----------------------------
 # HELPERS
 # ----------------------------
 
 def load_json(path):
-
-    if not os.path.exists(path):
-        return None
-
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def save_json(path, data):
-
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 
-def check_token(data, web_token):
-
-    if not data:
-        return False
-
-    return data.get("token") == web_token
-
-
-def sanitize_data(data):
-
-    safe_data = data.copy()
-    safe_data.pop("token", None)
-
-    return safe_data
+def sanitize(data):
+    d = data.copy()
+    d.pop("token", None)
+    return d
 
 
 def find_char_by_id(player_id):
-
     for file in os.listdir(CHAR_DIR):
-
         if not file.endswith(".json"):
             continue
 
         path = os.path.join(CHAR_DIR, file)
-
         data = load_json(path)
-
-        if not data:
-            continue
 
         if str(data.get("id")) == str(player_id):
             return path, data
@@ -74,351 +50,276 @@ def find_char_by_id(player_id):
     return None, None
 
 
-# ----------------------------
-# HOME
-# ----------------------------
+def auth(player_data, player_token, admin_token):
+    # admin ignora token do player
+    if admin_token == ADMIN_TOKEN:
+        return True
 
-@app.route("/")
-def home():
-    return "Servidor rodando!"
-
-
-# ----------------------------
-# GAME DATA GLOBAL
-# ----------------------------
-
-@app.route("/game", methods=["GET"])
-def get_game():
-
-    try:
-
-        data = load_json(GAME_FILE)
-
-        if data is None:
-            return jsonify({"erro": "game_data nao encontrado"}), 404
-
-        return jsonify(data), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return player_data and player_data.get("token") == player_token
 
 
-# ----------------------------
-# LIST CHARS
-# ----------------------------
+def get_body():
+    return request.get_json() or {}
 
-@app.route("/listchars", methods=["GET"])
-def list_chars():
 
-    chars = []
+def fail(msg, code=400):
+    return jsonify({"erro": msg}), code
 
-    try:
 
-        for file in os.listdir(CHAR_DIR):
+def ok(msg="ok"):
+    return jsonify({"msg": msg}), 200
 
-            if not file.endswith(".json"):
-                continue
 
-            path = os.path.join(CHAR_DIR, file)
+def update_player(player_id, player_token, admin_token, updater):
+    path, data = find_char_by_id(player_id)
 
-            data = load_json(path)
+    if not data:
+        return None, ("personagem nao encontrado", 404)
 
-            if not data:
-                continue
+    if not auth(data, player_token, admin_token):
+        return None, ("token invalido", 401)
 
-            chars.append({
-                "id": data.get("id"),
-                "char": data.get("char")
-            })
+    updater(data)
+    save_json(path, data)
 
-        return jsonify(chars), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return data, None
 
 
 # ----------------------------
-# GET PLAYER DATA
+# GET PLAYER
 # ----------------------------
 
 @app.route("/get", methods=["GET"])
-def get_data():
+def get_player():
+    player_id = request.args.get("id")
+    token = request.args.get("token")
 
-    web_id = request.args.get("id")
-    web_token = request.args.get("token")
+    if not player_id:
+        return fail("faltando id")
 
-    if not all([web_id, web_token]):
-        return jsonify({"erro": "faltando parametros"}), 400
+    _, data = find_char_by_id(player_id)
 
-    try:
+    if not data:
+        return fail("nao encontrado", 404)
 
-        _, data = find_char_by_id(web_id)
+    if token and not auth(data, token, ""):
+        return fail("token invalido", 401)
 
-        if not data:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
-
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        return jsonify(data), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return jsonify(sanitize(data)), 200
 
 
 # ----------------------------
-# SAVE FULL DATA
-# ----------------------------
-
-@app.route("/save", methods=["POST"])
-def save_data():
-
-    body = request.get_json()
-
-    if not body:
-        return jsonify({"erro": "body vazio"}), 400
-
-    web_token = body.get("token")
-    web_data = body.get("data")
-    web_id = body.get("id")
-
-    if web_token is None or web_data is None or web_id is None:
-        return jsonify({"erro": "faltando parametros"}), 400
-
-    if not isinstance(web_data, dict):
-        return jsonify({"erro": "data invalida"}), 400
-
-    try:
-
-        path, data = find_char_by_id(web_id)
-
-        if not data:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
-
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        # mantém o token original
-        web_data["token"] = data.get("token")
-
-        save_json(path, web_data)
-
-        return jsonify({
-            "msg": "salvo com sucesso"
-        }), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
-
-
-# ----------------------------
-# ADD XP
+# XP
 # ----------------------------
 
 @app.route("/addxp", methods=["POST"])
-def addxp():
+def add_xp():
+    body = get_body()
 
-    body = request.get_json()
+    player_id = body.get("id")
+    player_token = body.get("token")
+    admin_token = body.get("admin_token")
+    xp = body.get("xp")
 
-    if not body:
-        return jsonify({"erro": "body vazio"}), 400
-
-    web_id = body.get("id")
-    web_token = body.get("token")
-    web_xp = body.get("xp")
-
-    if not all([web_id, web_token, web_xp]):
-        return jsonify({"erro": "faltando parametros"}), 400
+    if None in [player_id, xp]:
+        return fail("faltando parametros")
 
     try:
-        web_xp = int(web_xp)
-
+        xp = int(xp)
     except:
-        return jsonify({"erro": "xp precisa ser numero"}), 400
+        return fail("xp invalido")
 
-    try:
+    def updater(d):
+        d["xp"] = d.get("xp", 0) + xp
 
-        path, data = find_char_by_id(web_id)
+    _, err = update_player(player_id, player_token, admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
 
-        if not data:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
-
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        data["xp"] = data.get("xp", 0) + web_xp
-
-        save_json(path, data)
-
-        return jsonify(sanitize_data(data)), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return ok("xp atualizado")
 
 
 # ----------------------------
-# CHANGE GENERATION
+# MONEY
 # ----------------------------
 
-@app.route("/changegeneration", methods=["POST"])
-def change_generation():
+@app.route("/addmoney", methods=["POST"])
+def add_money():
+    body = get_body()
 
-    body = request.get_json()
-
-    if not body:
-        return jsonify({"erro": "body vazio"}), 400
-
-    web_id = body.get("id")
-    web_token = body.get("token")
-    web_newgeneration = body.get("newgeneration")
-
-    if not all([web_id, web_token, web_newgeneration]):
-        return jsonify({"erro": "faltando parametros"}), 400
+    player_id = body.get("id")
+    admin_token = body.get("admin_token")
+    amount = body.get("amount", 0)
 
     try:
-        web_newgeneration = int(web_newgeneration)
-
+        amount = int(amount)
     except:
-        return jsonify({"erro": "generation precisa ser numero"}), 400
+        return fail("valor invalido")
 
-    try:
+    def updater(d):
+        d["money"] = d.get("money", 0) + amount
 
-        path, data = find_char_by_id(web_id)
+    _, err = update_player(player_id, "", admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
 
-        if not data:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
-
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        data["generation"] = web_newgeneration
-
-        save_json(path, data)
-
-        return jsonify(sanitize_data(data)), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return ok("money atualizado")
 
 
 # ----------------------------
-# DELETE JSON
+# ITEMS
 # ----------------------------
 
-@app.route("/delete", methods=["DELETE"])
-def delete_json():
+@app.route("/additem", methods=["POST"])
+def add_item():
+    body = get_body()
 
-    body = request.get_json()
+    player_id = body.get("id")
+    admin_token = body.get("admin_token")
+    item = body.get("item")
 
-    if not body:
-        return jsonify({"erro": "body vazio"}), 400
+    if not item:
+        return fail("item faltando")
 
-    web_token = body.get("token")
-    web_id = body.get("id")
+    def updater(d):
+        if "items" not in d:
+            d["items"] = []
 
-    if not all([web_token, web_id]):
-        return jsonify({"erro": "faltando parametros"}), 400
+        d["items"].append(item)
 
-    try:
+    _, err = update_player(player_id, "", admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
 
-        path, data = find_char_by_id(web_id)
-
-        if not path:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
-
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        os.remove(path)
-
-        return jsonify({
-            "msg": "arquivo deletado"
-        }), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return ok("item adicionado")
 
 
 # ----------------------------
-# UPLOAD JSON
+# DISCIPLINE
 # ----------------------------
 
-@app.route("/upload", methods=["POST"])
-def upload_json():
+@app.route("/adddiscipline", methods=["POST"])
+def add_discipline():
+    body = get_body()
 
-    web_token = request.form.get("token")
-    web_id = request.form.get("id")
+    player_id = body.get("id")
+    admin_token = body.get("admin_token")
+    disc_id = body.get("discipline_id")
+    nivel = int(body.get("nivel", 1))
 
-    if not all([web_token, web_id]):
-        return jsonify({"erro": "faltando parametros"}), 400
+    def updater(d):
+        if "disciplines" not in d:
+            d["disciplines"] = []
 
-    file = request.files.get("file")
+        found = next((x for x in d["disciplines"] if x["id"] == disc_id), None)
 
-    if not file:
-        return jsonify({"erro": "arquivo nao enviado"}), 400
+        if found:
+            found["nivel"] = max(found["nivel"], nivel)
+        else:
+            d["disciplines"].append({"id": disc_id, "nivel": nivel})
 
-    try:
+    _, err = update_player(player_id, "", admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
 
-        new_data = json.load(file)
-
-    except:
-        return jsonify({"erro": "json invalido"}), 400
-
-    try:
-
-        path, data = find_char_by_id(web_id)
-
-        if not path:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
-
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        # mantém token original
-        new_data["token"] = data.get("token")
-
-        save_json(path, new_data)
-
-        return jsonify({
-            "msg": "upload concluido"
-        }), 200
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return ok("disciplina atualizada")
 
 
 # ----------------------------
-# DOWNLOAD JSON
+# RITUAL
 # ----------------------------
 
-@app.route("/download/<player_id>", methods=["GET"])
-def download_json(player_id):
+@app.route("/addritual", methods=["POST"])
+def add_ritual():
+    body = get_body()
 
-    web_token = request.args.get("token")
+    player_id = body.get("id")
+    admin_token = body.get("admin_token")
+    ritual_id = body.get("ritual")
 
-    try:
+    def updater(d):
+        if "rituals" not in d:
+            d["rituals"] = []
 
-        path, data = find_char_by_id(player_id)
+        if ritual_id not in [r.get("id") for r in d["rituals"]]:
+            d["rituals"].append({"id": ritual_id})
 
-        if not path:
-            return jsonify({"erro": "personagem nao encontrado"}), 404
+    _, err = update_player(player_id, "", admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
 
-        if not check_token(data, web_token):
-            return jsonify({"erro": "token invalido"}), 401
-
-        return send_file(
-            path,
-            as_attachment=True,
-            download_name=f"{player_id}.json"
-        )
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 500
+    return ok("ritual adicionado")
 
 
 # ----------------------------
-# RUN SERVER
+# CHARACTERISTIC
+# ----------------------------
+
+@app.route("/addcharacteristic", methods=["POST"])
+def add_characteristic():
+    body = get_body()
+
+    player_id = body.get("id")
+    admin_token = body.get("admin_token")
+    char_id = body.get("characteristic_id")
+
+    def updater(d):
+        if "caracteristics" not in d:
+            d["caracteristics"] = []
+
+        if char_id not in [c.get("id") for c in d["caracteristics"]]:
+            d["caracteristics"].append({"id": char_id})
+
+    _, err = update_player(player_id, "", admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
+
+    return ok("characteristic adicionada")
+
+
+# ----------------------------
+# STATS GENERIC
+# ----------------------------
+
+@app.route("/updatestats", methods=["POST"])
+def update_stats():
+    body = get_body()
+
+    player_id = body.get("id")
+    admin_token = body.get("admin_token")
+    category = body.get("category")
+    stat_id = body.get("id_stat")
+    value = body.get("value")
+
+    allowed = ["atributes", "knowledges", "expertises", "talents"]
+
+    if category not in allowed:
+        return fail("categoria invalida")
+
+    def updater(d):
+        if category not in d:
+            d[category] = []
+
+        arr = d[category]
+
+        found = next((x for x in arr if x["id"] == stat_id), None)
+
+        if found:
+            found["value"] = value
+        else:
+            arr.append({"id": stat_id, "value": value})
+
+    _, err = update_player(player_id, "", admin_token, updater)
+    if err:
+        return fail(err[0], err[1])
+
+    return ok("stats atualizados")
+
+
+# ----------------------------
+# RUN
 # ----------------------------
 
 if __name__ == "__main__":
-    app.run()
+    print("SERVER RUNNING...")
+    app.run(debug=True)

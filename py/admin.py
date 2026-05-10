@@ -1,8 +1,15 @@
 import requests
 import os
-import json
 
 base_url = "https://acoroavelada.onrender.com"
+
+# ----------------------------
+# CONFIG
+# ----------------------------
+
+ADMIN_TOKEN = input("🔐 ADMIN TOKEN: ")
+
+current_id = None  # 💡 mantém o último player usado
 
 
 # ----------------------------
@@ -10,378 +17,233 @@ base_url = "https://acoroavelada.onrender.com"
 # ----------------------------
 
 def pause():
-    input("\nEnter para voltar...")
+    input("\nEnter para continuar...")
+
+
+def auth():
+    return ADMIN_TOKEN
+
+
+def ask_id():
+    global current_id
+
+    use_last = input(f"Usar último ID ({current_id})? [s/n]: ")
+
+    if use_last.lower() == "s" and current_id:
+        return current_id
+
+    current_id = input("ID do personagem: ")
+    return current_id
 
 
 def safe_request(r):
-
     try:
         data = r.json()
-
     except:
         data = {}
 
     if r.status_code == 200:
-
         print("\n✔ Sucesso")
-
-        if isinstance(data, dict):
-
-            if "msg" in data:
-                print(data["msg"])
-
+        if "msg" in data:
+            print("→", data["msg"])
     else:
-
         print(f"\n❌ Erro HTTP {r.status_code}")
-
         if "erro" in data:
-            print(data["erro"])
-
-
-def find_char_by_id(player_id):
-
-    r = requests.get(base_url + "/listchars")
-
-    if r.status_code != 200:
-        return None
-
-    chars = r.json()
-
-    for char in chars:
-
-        if str(char.get("id")) == str(player_id):
-            return char
-
-    return None
+            print("→", data["erro"])
 
 
 # ----------------------------
-# TOKEN
+# CORE REQUEST WRAPPER
 # ----------------------------
 
-def ask_token():
-    return input("Token: ")
+def post(route, payload):
+    return requests.post(base_url + route, json=payload)
 
 
-def ask_player_id():
-    return input("ID do personagem: ")
+def delete(route, payload):
+    return requests.delete(base_url + route, json=payload)
 
 
 # ----------------------------
-# DAR XP
+# XP
 # ----------------------------
 
-def send_xp():
-
-    player_id = ask_player_id()
-    token = ask_token()
+def add_xp():
+    pid = ask_id()
     xp = input("XP: ")
 
-    payload = {
-        "id": player_id,
-        "token": token,
+    r = post("/addxp", {
+        "id": pid,
+        "token": auth(),
         "xp": xp
-    }
-
-    r = requests.post(base_url + "/addxp", json=payload)
+    })
 
     safe_request(r)
     pause()
 
 
-# ----------------------------
-# XP DA SESSÃO
-# ----------------------------
+def xp_session():
+    xp = input("XP da sessão: ")
 
-def send_xp_session():
-
-    token = ask_token()
-    xp = input("XP para os jogadores: ")
-
-    print("\nDigite os IDs dos personagens")
-    print("Digite '0' para finalizar\n")
-
+    print("\nIDs (0 pra finalizar)")
     ids = []
 
     while True:
-
-        player_id = input("ID: ")
-
-        if player_id == "0":
+        i = input("> ")
+        if i == "0":
             break
+        if i.strip():
+            ids.append(i)
 
-        if player_id.strip() == "":
-            continue
-
-        ids.append(player_id)
-
-    if len(ids) == 0:
-        print("❌ Nenhum personagem informado")
-        pause()
-        return
-
-    print("\n========================")
-    print("       XP SESSÃO")
-    print("========================")
-
-    for player_id in ids:
-
-        payload = {
-            "id": player_id,
-            "token": token,
+    for pid in ids:
+        r = post("/addxp", {
+            "id": pid,
+            "token": auth(),
             "xp": xp
-        }
-
-        r = requests.post(base_url + "/addxp", json=payload)
-
-        if r.status_code == 200:
-
-            char = find_char_by_id(player_id)
-
-            if char:
-                print(f'✔ {char.get("char")} +{xp} XP')
-
-            else:
-                print(f'✔ ID {player_id} +{xp} XP')
-
-        else:
-
-            try:
-                print(f"❌ ID {player_id}: {r.json().get('erro')}")
-
-            except:
-                print(f"❌ ID {player_id}: erro desconhecido")
+        })
+        print(f"{pid}: {r.status_code}")
 
     pause()
 
 
 # ----------------------------
-# MUDAR GERAÇÃO
+# GEN / DELETE
 # ----------------------------
 
-def change_generation():
-
-    player_id = ask_player_id()
-    token = ask_token()
+def change_gen():
+    pid = ask_id()
     gen = input("Nova geração: ")
 
-    payload = {
-        "id": player_id,
-        "token": token,
+    r = post("/changegeneration", {
+        "id": pid,
+        "token": auth(),
         "newgeneration": gen
-    }
+    })
 
-    r = requests.post(base_url + "/changegeneration", json=payload)
+    safe_request(r)
+    pause()
+
+
+def delete_char():
+    pid = ask_id()
+
+    confirm = input("Tem certeza? (s/n): ")
+    if confirm.lower() != "s":
+        print("Cancelado.")
+        return
+
+    r = delete("/delete", {
+        "id": pid,
+        "token": auth()
+    })
 
     safe_request(r)
     pause()
 
 
 # ----------------------------
-# LISTAR PERSONAGENS
+# UPDATE SYSTEMS
+# ----------------------------
+
+def add_ritual():
+    pid = ask_id()
+    rid = input("Ritual ID: ")
+
+    r = post("/addritual", {
+        "id": pid,
+        "token": auth(),
+        "ritual": rid
+    })
+
+    safe_request(r)
+    pause()
+
+
+def add_discipline():
+    pid = ask_id()
+    did = input("Disciplina ID: ")
+    lvl = input("Nível: ")
+
+    r = post("/adddiscipline", {
+        "id": pid,
+        "token": auth(),
+        "discipline_id": did,
+        "nivel": lvl
+    })
+
+    safe_request(r)
+    pause()
+
+
+def update_stat():
+    pid = ask_id()
+
+    print("\natributes / knowledges / expertises / talents")
+    cat = input("Categoria: ")
+
+    sid = input("Stat ID: ")
+    val = input("Valor: ")
+
+    r = post("/updatestats", {
+        "id": pid,
+        "token": auth(),
+        "category": cat,
+        "id_stat": sid,
+        "value": val
+    })
+
+    safe_request(r)
+    pause()
+
+
+def update_morality():
+    pid = ask_id()
+
+    mid = input("Morality ID: ")
+    desc = input("Descrição: ")
+
+    r = post("/updatemorality", {
+        "id": pid,
+        "token": auth(),
+        "id_morality": mid,
+        "description": desc
+    })
+
+    safe_request(r)
+    pause()
+
+
+def add_characteristic():
+    pid = ask_id()
+    cid = input("Characteristic ID: ")
+
+    r = post("/addcharacteristic", {
+        "id": pid,
+        "token": auth(),
+        "characteristic_id": cid
+    })
+
+    safe_request(r)
+    pause()
+
+
+# ----------------------------
+# LIST
 # ----------------------------
 
 def list_chars():
-
     r = requests.get(base_url + "/listchars")
 
     if r.status_code != 200:
-        print("❌ Erro ao buscar personagens")
+        print("Erro")
         pause()
         return
 
-    chars = r.json()
+    print("\n=== PERSONAGENS ===")
 
-    print("\n========================")
-    print("     PERSONAGENS")
-    print("========================")
+    for c in r.json():
+        print(f'{c["id"]} | {c["char"]}')
 
-    for char in chars:
-
-        print(
-            f'ID: {char.get("id")} | '
-            f'Nome: {char.get("char")}'
-        )
-
-    pause()
-
-
-# ----------------------------
-# DOWNLOAD JSON
-# ----------------------------
-
-def download_char():
-
-    player_id = ask_player_id()
-    token = ask_token()
-
-    r = requests.get(
-        f"{base_url}/download/{player_id}",
-        params={"token": token}
-    )
-
-    if r.status_code != 200:
-        safe_request(r)
-        pause()
-        return
-
-    filename = f"{player_id}.json"
-
-    with open(filename, "wb") as f:
-        f.write(r.content)
-
-    print(f"\n✔ Arquivo salvo como {filename}")
-
-    pause()
-
-
-# ----------------------------
-# UPLOAD JSON
-# ----------------------------
-
-def upload_char():
-
-    path = input("Caminho do JSON: ")
-    player_id = ask_player_id()
-    token = ask_token()
-
-    if not path.endswith(".json"):
-        print("❌ Arquivo precisa ser .json")
-        pause()
-        return
-
-    try:
-
-        with open(path, "rb") as f:
-
-            files = {
-                "file": f
-            }
-
-            data = {
-                "token": token,
-                "id": player_id
-            }
-
-            r = requests.post(
-                f"{base_url}/upload",
-                files=files,
-                data=data
-            )
-
-    except Exception as e:
-
-        print("❌ Erro ao abrir arquivo:")
-        print(e)
-
-        pause()
-        return
-
-    safe_request(r)
-    pause()
-
-
-# ----------------------------
-# DOWNLOAD GAME DATA
-# ----------------------------
-
-def download_game_data():
-
-    path = "./json/game_data.json"
-
-    if not os.path.exists(path):
-        print("❌ game_data.json não encontrado")
-        pause()
-        return
-
-    try:
-
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        filename = "game_data.json"
-
-        with open(filename, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
-
-        print(f"\n✔ Arquivo salvo como {filename}")
-
-    except Exception as e:
-
-        print("❌ Erro:")
-        print(e)
-
-    pause()
-
-
-# ----------------------------
-# UPLOAD GAME DATA
-# ----------------------------
-
-def upload_game_data():
-
-    path = input("Caminho do JSON: ")
-
-    if not os.path.exists(path):
-        print("❌ Arquivo não encontrado")
-        pause()
-        return
-
-    try:
-
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        with open("./json/game_data.json", "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
-
-        print("\n✔ game_data.json atualizado")
-
-    except Exception as e:
-
-        print("❌ Erro:")
-        print(e)
-
-    pause()
-
-
-# ----------------------------
-# DELETAR PERSONAGEM
-# ----------------------------
-
-def delete_char():
-
-    player_id = ask_player_id()
-    token = ask_token()
-
-    char = find_char_by_id(player_id)
-
-    if char:
-        confirm = input(
-            f'Tem certeza que deseja deletar "{char.get("char")}"? (s/n): '
-        )
-
-    else:
-        confirm = input(
-            f'Tem certeza que deseja deletar ID "{player_id}"? (s/n): '
-        )
-
-    if confirm.lower() != "s":
-        print("Cancelado.")
-        pause()
-        return
-
-    payload = {
-        "token": token,
-        "id": player_id
-    }
-
-    r = requests.delete(
-        f"{base_url}/delete",
-        json=payload
-    )
-
-    safe_request(r)
     pause()
 
 
@@ -390,63 +252,42 @@ def delete_char():
 # ----------------------------
 
 def menu():
-
-    print("\n========================")
-    print("    RPG ADMIN CONSOLE")
-    print("========================")
-    print("1  - Dar XP")
-    print("2  - Mudar geração")
-    print("3  - Dar XP da sessão")
-    print("4  - Listar personagens")
-    print("5  - Download JSON")
-    print("6  - Upload JSON")
-    print("7  - Deletar personagem")
-    print("8  - Download GameData")
-    print("9  - Upload GameData")
-    print("0  - Sair")
-    print("========================")
+    print("""
+========================
+ RPG ADMIN PANEL
+========================
+1  XP player
+2  XP sessão
+3  mudar geração
+4  listar chars
+5  deletar char
+6  ritual
+7  disciplina
+8  stats
+9  moralidade
+10 característica
+0  sair
+========================
+""")
 
 
 # ----------------------------
-# LOOP PRINCIPAL
+# LOOP
 # ----------------------------
 
 while True:
-
     menu()
+    op = input("→ ")
 
-    choice = input("Escolha: ")
-
-    if choice == "1":
-        send_xp()
-
-    elif choice == "2":
-        change_generation()
-
-    elif choice == "3":
-        send_xp_session()
-
-    elif choice == "4":
-        list_chars()
-
-    elif choice == "5":
-        download_char()
-
-    elif choice == "6":
-        upload_char()
-
-    elif choice == "7":
-        delete_char()
-
-    elif choice == "8":
-        download_game_data()
-
-    elif choice == "9":
-        upload_game_data()
-
-    elif choice == "0":
-        print("Saindo...")
-        break
-
-    else:
-        print("❌ Opção inválida")
+    if op == "1": add_xp()
+    elif op == "2": xp_session()
+    elif op == "3": change_gen()
+    elif op == "4": list_chars()
+    elif op == "5": delete_char()
+    elif op == "6": add_ritual()
+    elif op == "7": add_discipline()
+    elif op == "8": update_stat()
+    elif op == "9": update_morality()
+    elif op == "10": add_characteristic()
+    elif op == "0": break
+    else: print("inválido")
