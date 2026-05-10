@@ -1503,5 +1503,21 @@
             "name": "DETERMINAÇÃO",
             "description": "Força mental para resistir a medo, coerção e influências externas. Define estabilidade psicológica, autocontrole e capacidade de manter ações sob pressão extrema."
         }
+    ],
+    "caracteristics": [
+        {
+            "id": 0,
+            "name": "VISÃO AGUÇADA",
+            "type": "QUALIDADE",
+            "description": "Sua percepção visual é excepcionalmente refinada. Reduza em 1 a dificuldade de testes de Percepção relacionados à visão, como notar detalhes, movimentos, rastros ou objetos ocultos.",
+            "value": 1
+        },
+        {
+            "id": 1,
+            "name": "AUDIÇÃO AGUÇADA",
+            "type": "QUALIDADE",
+            "description": "Sua percepção visual é excepcionalmente refinada. Reduza em 1 a dificuldade de testes de Percepção relacionados à visão, como notar detalhes, movimentos, rastros ou objetos ocultos.",
+            "value": 1
+        }
     ]
 }

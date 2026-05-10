@@ -1,5 +1,6 @@
 import { getPlayerData } from "./main.js"
 import { getGameData } from "./main.js"
+import { startNavbar } from "./navbar.js"
 
 let player_data = null
 let game_data = null
@@ -20,6 +21,8 @@ export function startSheet() {
     startItems();
     startGoals();
     startMorality();
+    startNavbar();
+    startCaracteristics();
 }
 
 function startSkills(){
@@ -190,6 +193,74 @@ function startMorality(){
     conviction_2.textContent = player_data.moralityes[2].description
     conviction_3.textContent = player_data.moralityes[3].description
 
+}
+
+function startCaracteristics(){
+    const caracteristicsContainer = document.querySelector("#caracteristics_container")
+
+    console.log(player_data)
+
+    let count = player_data.caracteristics.length
+
+    for(let i = 0; i < count; i++){
+        let id = player_data.caracteristics[i].id
+
+        createCaracteristic(id)
+    }
+}
+
+export function createCaracteristic(id){
+    const caracteristicsContainer = document.querySelector("#caracteristics_container")
+
+    const elementcard = document.createElement("div")
+    const elementheader = document.createElement("div")
+    const elementtitle = document.createElement("h3")
+    const expandicon = document.createElement("h5")
+    const elementsubtitle = document.createElement("h3")
+    const iconballcontainer = document.createElement("div")
+
+    const elementList = [elementcard, elementheader, elementtitle, expandicon, elementsubtitle]
+
+    elementList.forEach((item) => {
+        item.dataset.upgrade = "caracteristic"
+        item.dataset.id = id
+    })
+
+    elementheader.appendChild(elementtitle)
+    elementheader.appendChild(expandicon)
+
+    elementcard.appendChild(elementheader)
+    elementcard.appendChild(elementsubtitle)
+    elementcard.appendChild(iconballcontainer)
+
+    elementcard.classList.add("elementcard")
+    elementheader.classList.add("elementheader")
+    expandicon.classList.add("expandicon")
+    elementsubtitle.classList.add("elementsubtitle")
+    iconballcontainer.classList.add("iconballcontainer")
+
+    let caracteristic = game_data[caracteristics].find(c => c.id === id)
+
+    elementtitle.textContent = caracteristic.name
+    elementsubtitle.textContent = caracteristic.type.toUpperCase()
+
+    let value = caracteristic.value
+
+    for(let i = 0; i < max_value; i++){
+        const iconball = document.createElement("div");
+        iconball.classList.add("iconball");
+        iconballcontainer.appendChild(iconball);
+
+        iconball.dataset.upgrade = "caracteristic"
+        iconball.dataset.id = id
+
+        if(value > 0){
+            iconball.classList.add("active")
+            value--
+        }
+    }
+
+    caracteristicsContainer.appendChild(elementcard)
 }
 
 export function createItem(name, description, id){

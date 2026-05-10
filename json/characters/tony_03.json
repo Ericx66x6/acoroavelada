@@ -310,5 +310,13 @@
     ],
     "notes": [
         
+    ],
+    "caracteristics": [
+        {
+            "id": 0, "name": "asd"
+        },
+        {
+            "id": 1, "name": "dds"
+        }
     ]
 }

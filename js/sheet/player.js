@@ -26,5 +26,6 @@ export class Player {
     this.goals = data.goals;
     this.moralityes = data.moralityes;
     this.notes = data.notes;
+    this.caracteristics = data.caracteristics;
   }
 }

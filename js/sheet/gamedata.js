@@ -16,5 +16,6 @@ export class GameData {
     this.knowledges = data.knowledges;
     this.expertises = data.expertises;
     this.talents = data.talents;
+    this.caracteristics = data.caracteristics;
   }
 }

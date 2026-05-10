@@ -89,6 +89,7 @@ export function updateIconBallContainer(container, max_nivel, act_nivel){
 export function refreshXpViewer(){
     const player_data = getPlayerData()
 
+    document.getElementById("navbar_xp_text").textContent = player_data.xp
     document.getElementById("xp").textContent = player_data.xp + "xp"
 }
 

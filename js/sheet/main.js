@@ -97,6 +97,9 @@ document.addEventListener("click", (e) => {
             case("morality"):
                 sendAlert("A moralidade do personagem é permanente e não pode ser alterada!")
                 break
+            case("caracteristic"):
+                sendAlert("Qualidades e Defeitos só podem ser adicionados na criação da ficha. Em caso de problemas, consulte seu narrador.")
+                break
             default:
                 openUpgradeSkillModal()
                 updateSkillModalData(e.target)
