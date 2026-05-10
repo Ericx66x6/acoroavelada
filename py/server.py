@@ -160,7 +160,7 @@ def get_data():
         if not check_token(data, web_token):
             return jsonify({"erro": "token invalido"}), 401
 
-        return jsonify(sanitize_data(data)), 200
+        return jsonify(data), 200
 
     except Exception as e:
         return jsonify({"erro": str(e)}), 500

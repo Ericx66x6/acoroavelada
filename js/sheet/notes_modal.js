@@ -69,6 +69,7 @@ export async function editNoteDescription(id, currentDesc) {
 export function createNote(){
     openCreateModal("CRIAR NOTA", "note")
     closeNotesModal()
+    showOverlay()
 }
 
 
