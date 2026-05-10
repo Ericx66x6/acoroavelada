@@ -4,9 +4,9 @@
     "id": 1,
     "cla": "BRUJAH",
     "token": "Z2bkfcuiv7T1wqg9OD",
-    "generation": 4,
+    "generation": 6,
     "profilepicture": "/img/characters/example.jpg",
-    "xp": 999,
+    "xp": 500,
     "bloodpotency": 3,
     "status": {
         "adamage": 1,
@@ -361,19 +361,27 @@
     ],
     "notes": [
         {
-            "description": "description",
-            "id": 0,
-            "title": "name"
+            "id": 0, "name": "Seita incórum maçons", "description":"Seita satânica, informações obtidas na casa do Victor pelo Nosferatu, com amuletos e simbolos estranhos","date": "08/03", "time":"11:16"
         },
         {
-            "description": "description",
-            "id": 1,
-            "title": "name"
+            "id": 1, "name": "Abraçado por Monek", "description":"Nome do mentor que me abraçou e desapareceu", "date": "07/02", "time":"09:53"
+        }
+    ],
+    "caracteristics": [
+        {
+            "id": 6
         },
         {
-            "description": "description",
-            "id": 2,
-            "title": "name"
+            "id": 5
+        },
+        {
+            "id": 2
+        },
+        {
+            "id": 3
+        },
+        {
+            "id": 4
         }
     ]
 }

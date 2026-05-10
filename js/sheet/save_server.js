@@ -10,7 +10,7 @@ export async function saveJson() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            token: "acoroavelada2026",
+            token: player_data.token,
             data: player_data,
             id: player_data.id
         })

@@ -286,7 +286,8 @@ h5 {
 
 .elementdescription {
     color: var(--color-medium-grey);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 400;
     overflow-wrap: break-word;
     width: 100%;
     min-height: 21px;
@@ -741,6 +742,67 @@ footer {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+.cardelement {
+    background-color: var(--color-background-grey);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: solid 4px var(--color-soft-red);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    max-height: 1000px;
+    overflow: visible;
+
+    transition: max-height 0.3s ease;
+}
+
+.cardelementheader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.cardcontainer {
+    width: 100%;
+    
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
+
+
+    max-height: 300px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cardelementheader img {
+    position: absolute;
+    width: 1.6rem;
+    left: -.5rem;
+    opacity: .5;
+}
+
+.cardelementheader h3 {
+    font-size: 1.2rem;
+    width: 80%;
+}
+
+.cardelementheader h2 {
+    font-size: 1.6rem;
+    color: var(--color-very-soft-grey);
 }
 
 .confirmbutton {

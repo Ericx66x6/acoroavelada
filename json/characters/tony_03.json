@@ -6,7 +6,7 @@
     "token": "bJFhFjcs74Xtxoyx6l",
     "generation": 10,
     "profilepicture": "/img/characters/tony.jpeg",
-    "xp": 11,
+    "xp": 0,
     "bloodpotency": 2,
     "status": {
         "adamage": 4,
@@ -51,7 +51,7 @@
         },
         {
             "id": 8,
-            "value": 3
+            "value": 1
         }
     ],
     "knowledges": [
@@ -115,7 +115,7 @@
         },
         {
             "id": 2,
-            "value": 0
+            "value": 2
         },
         {
             "id": 3,
@@ -197,7 +197,7 @@
         },
         {
             "id": 10,
-            "value": 0
+            "value": 2
         },
         {
             "id": 11,
@@ -223,7 +223,9 @@
         }
     ],
     "rituals": [
-
+        {
+            "id": 0
+        }
     ],
     "precedents": [
         {
@@ -272,13 +274,13 @@
         {
         "id": 0,
         "name": "Serpente Negra",
-        "description": "Uma pistola cromada, pesada de acabamento escurecido e detalhes entalhados lembrando escamas e presas de serpente."
-    },
-    {
-    "id": 3,
-    "name": "Pó de Letárgia Carmesim",
-    "description": "Uma substância rara de coloração rubra e textura extremamente fina, criada através de processos alquímicos envolvendo vitae deteriorada e ervas funerárias. Quando inalado ou misturado ao sangue ingerido por um vampiro, o composto enfraquece violentamente a Besta e paralisa o corpo morto-vivo, induzindo um estado semelhante ao torpor. Os efeitos começam com lentidão, confusão mental e perda gradual dos sentidos até o colapso completo. O recipiente contém apenas uma única dose."
-    }
+        "description": "Uma pistola GLOCK 17 cromada, pesada de acabamento escurecido e detalhes entalhados lembrando escamas e presas de serpente."
+        },
+        {
+        "id": 3,
+        "name": "Pó de Letárgia Carmesim",
+        "description": "Uma substância rara de coloração rubra e textura extremamente fina, criada através de processos alquímicos envolvendo vitae deteriorada e ervas funerárias. Quando inalado ou misturado ao sangue ingerido por um vampiro, o composto enfraquece violentamente a Besta e paralisa o corpo morto-vivo, induzindo um estado semelhante ao torpor. Os efeitos começam com lentidão, confusão mental e perda gradual dos sentidos até o colapso completo. O recipiente contém apenas uma única dose."
+        }
     ],
     "goals": [
         {
@@ -293,30 +295,44 @@
     "moralityes": [
         {
         "id": 0,
-        "description": "Segredos são poder; jamais permita que informações valiosas caiam em mãos erradas."
+        "description": "Segredos são poder. Jamais permito que informações valiosas caiam em mãos erradas."
     },
     {
         "id": 1,
-        "description": "Lealdade aos seus aliados é inegociável; traição é uma sentença pior que a morte."
+        "description": "Lealdade aos meus aliados é inegociável; traição é uma sentença pior que a morte."
     },
     {
         "id": 2,
-        "description": "Jamais derramar o sangue de crianças, independentemente das circunstâncias."
+        "description": "Jamais derramo o sangue de crianças, independentemente das circunstâncias."
     },
     {
         "id": 3,
-        "description": "Nunca se submeter à autoridade de alguém considerado fraco, incompetente ou indigno do poder que carrega."
+        "description": "Nunca me submeto à autoridade de alguém considerado fraco, incompetente ou indigno do poder que carrega."
     }
     ],
     "notes": [
-        
+        {
+            "id": 0, "name": "Seita incórum maçons", "description":"Seita satânica, informações obtidas na casa do Victor pelo Nosferatu, com amuletos e simbolos estranhos","date": "08/03", "time":"11:16"
+        },
+        {
+            "id": 1, "name": "Abraçado por Monek", "description":"Nome do mentor que me abraçou e desapareceu", "date": "07/02", "time":"09:53"
+        }
     ],
     "caracteristics": [
         {
-            "id": 0, "name": "asd"
+            "id": 6
         },
         {
-            "id": 1, "name": "dds"
+            "id": 5
+        },
+        {
+            "id": 2
+        },
+        {
+            "id": 3
+        },
+        {
+            "id": 4
         }
     ]
 }

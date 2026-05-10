@@ -2,6 +2,7 @@ export class Player {
   constructor(data) {
     this.player = data.player;
     this.char = data.char;
+    this.token = data.token;
     this.id = data.id;
     this.cla = data.cla;
     this.generation = data.generation;

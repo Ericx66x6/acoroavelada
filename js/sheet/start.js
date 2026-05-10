@@ -23,6 +23,7 @@ export function startSheet() {
     startMorality();
     startNavbar();
     startCaracteristics();
+    startNotes();
 }
 
 function startSkills(){
@@ -198,14 +199,26 @@ function startMorality(){
 function startCaracteristics(){
     const caracteristicsContainer = document.querySelector("#caracteristics_container")
 
-    console.log(player_data)
-
     let count = player_data.caracteristics.length
 
     for(let i = 0; i < count; i++){
         let id = player_data.caracteristics[i].id
 
         createCaracteristic(id)
+    }
+}
+
+export function startNotes(){
+    const caracteristicsContainer = document.querySelector("#notes_modal_cardcontainer")
+
+    caracteristicsContainer.innerHTML = ""
+
+    let count = player_data.notes.length
+
+    for(let i = 0; i < count; i++){
+        let note = player_data.notes[i]
+
+        createNote(note.id, note.date, note.time, note.name, note.description)
     }
 }
 
@@ -239,7 +252,7 @@ export function createCaracteristic(id){
     elementsubtitle.classList.add("elementsubtitle")
     iconballcontainer.classList.add("iconballcontainer")
 
-    let caracteristic = game_data[caracteristics].find(c => c.id === id)
+    let caracteristic = game_data.caracteristics.find(c => c.id === id)
 
     elementtitle.textContent = caracteristic.name
     elementsubtitle.textContent = caracteristic.type.toUpperCase()
@@ -341,6 +354,56 @@ function createRitual(id, title, description, nivel){
     elementsubtitle.textContent = "NIVEL "+nivel
 
     rituals_container.appendChild(elementcard)
+}
+
+function createNote(id, date, time, title, description){
+    const container = document.querySelector("#notes_modal_cardcontainer")
+
+    const element = document.createElement("div")
+    const elementheader = document.createElement("div")
+    const delete_button = document.createElement("img")
+    const expand_button = document.createElement("h2")
+    const elementtitle = document.createElement("h3")
+    const divider = document.createElement("div")
+    const elementhour = document.createElement("P")
+    const elementdescription = document.createElement("p")
+
+    const elementList = [element, elementheader, expand_button, delete_button, elementtitle, divider, elementdescription]
+
+    elementList.forEach((item) => {
+        item.dataset.upgrade = "note"
+        item.dataset.id = id
+    })
+
+    expand_button.dataset.type = "expand"
+    delete_button.dataset.type = "delete"
+    elementtitle.dataset.type = "title"
+    elementdescription.dataset.type = "description"
+
+    element.classList.add("cardelement")
+    elementheader.classList.add("cardelementheader")
+    delete_button.src = "img/threshicon.svg"
+    expand_button.textContent = "↓"
+    expand_button.classList.add("expandicon")
+    divider.classList.add("divider")
+    elementdescription.classList.add("elementdescription")
+    elementhour.classList.add("elementdescription")
+
+    elementheader.appendChild(delete_button)
+    elementheader.appendChild(elementtitle)
+    elementheader.appendChild(expand_button)
+    element.appendChild(elementheader)
+    element.appendChild(divider)
+    element.appendChild(elementhour)
+    element.appendChild(elementdescription)
+
+    let hour = date + " - " + time
+
+    elementtitle.textContent = title.toUpperCase()
+    elementhour.textContent = hour
+    elementdescription.textContent = description
+
+    container.appendChild(element)
 }
 
 function createDiscipline(id, title, description, nivel){
@@ -447,4 +510,3 @@ function createSkillsByList(container, list, key){
         container.appendChild(element);
     }
 }
-

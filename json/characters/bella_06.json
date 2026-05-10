@@ -6,20 +6,20 @@
     "token": "VerDUZBO0YvrcSQ1Hk",
     "generation": 8,
     "profilepicture": "/img/characters/bella.jpeg",
-    "xp": 20,
+    "xp": 0,
     "bloodpotency": 2,
     "status": {
-        "adamage": 0,
+        "adamage": 3,
         "humanity": 3,
-        "hunger": 0,
+        "hunger": 1,
         "inspiration": 0,
-        "sdamage": 0,
-        "willpower": 8
+        "sdamage": 1,
+        "willpower": 10
     },
     "atributes": [
         {
             "id": 0,
-            "value": 2
+            "value": 3
         },
         {
             "id": 1,
@@ -27,53 +27,53 @@
         },
         {
             "id": 2,
-            "value": 2
+            "value": 3
         },
         {
             "id": 3,
-            "value": 2
+            "value": 3
         },
         {
             "id": 4,
-            "value": 2
+            "value": 4
         },
         {
             "id": 5,
-            "value": 4
+            "value": 3
         },
         {
             "id": 6,
-            "value": 3
+            "value": 2
         },
         {
             "id": 7,
-            "value": 4
+            "value": 2
         },
         {
             "id": 8,
-            "value": 3
+            "value": 1
         }
     ],
     "knowledges": [
         {
             "id": 0,
-            "value": 0
+            "value": 1
         },
         {
             "id": 1,
-            "value": 0
+            "value": 1
         },
         {
             "id": 2,
-            "value": 0
+            "value": 2
         },
         {
             "id": 3,
-            "value": 0
+            "value": 2
         },
         {
             "id": 4,
-            "value": 0
+            "value": 1
         },
         {
             "id": 5,
@@ -85,7 +85,7 @@
         },
         {
             "id": 7,
-            "value": 0
+            "value": 1
         },
         {
             "id": 8,
@@ -93,11 +93,11 @@
         },
         {
             "id": 9,
-            "value": 0
+            "value": 2
         },
         {
             "id": 10,
-            "value": 0
+            "value": 1
         },
         {
             "id": 11,
@@ -119,39 +119,39 @@
         },
         {
             "id": 3,
-            "value": 2
-        },
-        {
-            "id": 4,
             "value": 3
         },
         {
-            "id": 5,
+            "id": 4,
             "value": 2
         },
         {
+            "id": 5,
+            "value": 1
+        },
+        {
             "id": 6,
-            "value": 4
+            "value": 0
         },
         {
             "id": 7,
-            "value": 0
+            "value": 2
         },
         {
             "id": 8,
-            "value": 4
+            "value": 1
         },
         {
             "id": 9,
-            "value": 4
+            "value": 0
         },
         {
             "id": 10,
-            "value": 0
+            "value": 1
         },
         {
             "id": 11,
-            "value": 0
+            "value": 2
         }
     ],
     "talents": [
@@ -161,19 +161,19 @@
         },
         {
             "id": 1,
-            "value": 0
+            "value": 1
         },
         {
             "id": 2,
-            "value": 0
+            "value": 1
         },
         {
             "id": 3,
-            "value": 0
+            "value": 1
         },
         {
             "id": 4,
-            "value": 2
+            "value": 1
         },
         {
             "id": 5,
@@ -181,11 +181,11 @@
         },
         {
             "id": 6,
-            "value": 0
+            "value": 1
         },
         {
             "id": 7,
-            "value": 0
+            "value": 1
         },
         {
             "id": 8,
@@ -193,15 +193,15 @@
         },
         {
             "id": 9,
-            "value": 0
+            "value": 1
         },
         {
             "id": 10,
-            "value": 0
+            "value": 1
         },
         {
             "id": 11,
-            "value": 2
+            "value": 1
         }
     ],
     "disciplines": [
@@ -211,7 +211,7 @@
         },
         {
             "id": 0,
-            "nivel": 1
+            "nivel": 3
         },
         {
             "id": 7,
@@ -224,23 +224,23 @@
     "precedents": [
         {
             "id": 0,
-            "value": 0
+            "value": 2
         },
         {
             "id": 1,
-            "value": 0
+            "value": 2
         },
         {
             "id": 2,
-            "value": 3
+            "value": 0
         },
         {
             "id": 3,
-            "value": 3
+            "value": 5
         },
         {
             "id": 4,
-            "value": 0
+            "value": 2
         },
         {
             "id": 5,
@@ -256,7 +256,7 @@
         },
         {
             "id": 8,
-            "value": 4
+            "value": 2
         },
         {
             "id": 9,
@@ -273,29 +273,36 @@
             "id": 0
         },
         {
-            "description": "Rastrear a origem da criatura avistada nos esgotos, o “rato” que se move sobre os ombros da Toreadora conhecida como Bella, identificando sua natureza, vínculo e possível propósito dentro da teia sobrenatural que a cerca.",
+            "description": "Toque para definir um desejo",
             "id": 1
         }
     ],
     "moralityes": [
         {
-            "description": "Segredos devem sempre ser protegidos",
+            "description": "Segredos são poder. Jamais permito que informações valiosas caiam em mãos erradas.",
             "id": 0
         },
         {
-            "description": "Converse com o narrador para definir uma convicção",
+            "description": "Não machuco inocentes",
             "id": 1
         },
         {
-            "description": "Converse com o narrador para definir uma convicção",
+            "description": "Não sacrifico a verdade para me sentir segura",
             "id": 2
         },
         {
-            "description": "Converse com o narrador para definir uma convicção",
+            "description": "Não abandono nem traio quem me protege",
             "id": 3
         }
     ],
     "notes": [
-        
+        {
+            "id": 1, "name": "ALIADOS", "description":"1: Irmaõ | 2: Melhor amiga (Tamires)", "date": "07/02", "time":"09:53"
+        },
+        {
+            "id": 1, "name": "CONTATOS", "description":"1: Presidente | 2: Agente da CIA", "date": "07/02", "time":"09:53"
+        } 
+    ],
+    "caracteristics": [
     ]
 }

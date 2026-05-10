@@ -1,4 +1,5 @@
 import { getGameData, getPlayerData } from "./main.js"
+import { openNotesModal } from "./notes_modal.js"
 import { sendAlert } from "./toast.js"
 
 const navbar = document.querySelector("#navbar")
@@ -16,7 +17,7 @@ export function startNavbar(){
     xp_text.textContent = player_data.xp
 
     notes_button.addEventListener("click", () => {
-        sendAlert("As anotações estarão disponíveis em breve. Estamos trabalhando nisso.")
+        openNotesModal()
     })
 
     search_button.addEventListener("click", () => {

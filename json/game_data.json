@@ -956,7 +956,7 @@
         {
         "id": 0,
         "name": "ECO CADAVÉRICO",
-        "nivel": 1,
+        "nivel": 2,
         "short_description": "Extrai fragmentos finais da morte de um cadáver.",
         "description": "Permite acessar os últimos instantes de um cadáver, obtendo fragmentos sensoriais e emocionais da morte em forma de visões simbólicas e incompletas. Requer cadáver não-degradado e não-destruído, sal negro consagrado e cinzas de osso humano queimado, além de tempo de preparação. Teste de Raciocínio + Ocultismo determina a clareza das informações obtidas."
         },
@@ -1509,14 +1509,49 @@
             "id": 0,
             "name": "VISÃO AGUÇADA",
             "type": "QUALIDADE",
-            "description": "Sua percepção visual é excepcionalmente refinada. Reduza em 1 a dificuldade de testes de Percepção relacionados à visão, como notar detalhes, movimentos, rastros ou objetos ocultos.",
+            "description": "Sua percepção visual é excepcionalmente refinada. Reduz em 1 a dificuldade de testes de Percepção baseados em visão, como notar detalhes, movimentos, rastros ou objetos ocultos.",
             "value": 1
         },
         {
             "id": 1,
             "name": "AUDIÇÃO AGUÇADA",
             "type": "QUALIDADE",
-            "description": "Sua percepção visual é excepcionalmente refinada. Reduza em 1 a dificuldade de testes de Percepção relacionados à visão, como notar detalhes, movimentos, rastros ou objetos ocultos.",
+            "description": "Sua audição é extremamente sensível. Reduz em 1 a dificuldade de testes de Percepção baseados em som, permitindo identificar ruídos sutis, conversas distantes ou movimentos leves.",
+            "value": 1
+        },
+        {
+            "id": 2,
+            "name": "VULNERABILIDADE À PRATA",
+            "type": "DEFEITO",
+            "description": "Seu corpo reage negativamente ao contato com prata. Qualquer dano causado por armas ou objetos de prata é aumentado.",
+            "value": 2
+        },
+        {
+            "id": 3,
+            "name": "VINGANÇA",
+            "type": "DEFEITO",
+            "description": "Alguém ou algo possui um forte desejo de vingança contra você. Esse inimigo pode surgir no futuro em momentos oportunos, complicando sua vida ou interferindo diretamente nas suas ações.",
+            "value": 2
+        },
+        {
+            "id": 4,
+            "name": "FOBIA (ARANHAS)",
+            "type": "DEFEITO",
+            "description": "Você possui um medo intenso de aranhas. Ao se deparar com elas, sofre penalidades em testes de coragem ou ações sob pressão.",
+            "value": 2
+        },
+        {
+            "id": 5,
+            "name": "PRECOCE",
+            "type": "QUALIDADE",
+            "description": "Você aprende mais rapido que o normal. Além disso, sempre recebe +2 XP adicional ao final de cada narração.",
+            "value": 3
+        },
+        {
+            "id": 6,
+            "name": "FRIEZA LÓGICA",
+            "type": "QUALIDADE",
+            "description": "Você consegue separar bem fatos de emoção e percebe quando alguém está distorcendo a realidade por sentimentos. Reduz em 1 a dificuldade de testes para detectar dissimulação e intenções ocultas.",
             "value": 1
         }
     ]

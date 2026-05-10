@@ -60,7 +60,7 @@ export async function deleteItemsModalItem(){
 export async function editItemsModalTitle(){
     const text = await editModal({
         title: "EDITAR NOME",
-        initialValue: "",
+        initialValue: modal_data.title,
     })
 
     if(text !== null){
@@ -76,7 +76,7 @@ export async function editItemsModalTitle(){
 export async function editItemsModalDescription(){
     const text = await editModal({
         title: "EDITAR DESCRIÇÃO",
-        initialValue: "",
+        initialValue: modal_data.description,
     })
 
     if(text !== null){

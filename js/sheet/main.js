@@ -36,14 +36,16 @@ import { closeEditGoalsModal } from "./edit_goals.js";
 import { openEditGoalsModal } from "./edit_goals.js";
 import { closeItemsModal, openItemsModal } from "./item_modal.js";
 import { closeCreateModal } from "./create_modal.js";
-import { closeRitualModal, openRitualModal } from "./ritual_modal.js";
+import { closeRitualModal, openRitualModal, ShowDescriptiveModal } from "./ritual_modal.js";
 
 import { saveJson } from "./save_server.js";
+import { closeNotesModal, deleteNote, editNoteDescription, editNoteTitle } from "./notes_modal.js";
 
 let player_data = null;
 let game_data = null;
 
 export const base_url = "https://acoroavelada.onrender.com"
+//export const base_url = "127.0.0.1:5500"
 
 const params = new URLSearchParams(window.location.search)
 const playerId = params.get("id")
@@ -58,6 +60,8 @@ Promise.all([
     player_data = new Player(pData)
     game_data = new GameData(gData)
 
+    window.player_data = player_data
+
     startSheet(player_data, game_data);
     changeStatusEvents()
 });
@@ -71,6 +75,7 @@ document.addEventListener("overlay:click",() => {
     closeItemsModal()
     closeCreateModal()
     closeRitualModal()
+    closeNotesModal()
     hideOverlay()
 })
 
@@ -98,7 +103,25 @@ document.addEventListener("click", (e) => {
                 sendAlert("A moralidade do personagem é permanente e não pode ser alterada!")
                 break
             case("caracteristic"):
-                sendAlert("Qualidades e Defeitos só podem ser adicionados na criação da ficha. Em caso de problemas, consulte seu narrador.")
+                let carac = game_data.caracteristics.find(c => c.id === Number(e.target.dataset.id))
+                ShowDescriptiveModal(carac.name, carac.type + ": " + carac.description, carac.value)
+                break
+            case("note"):
+                let note = player_data.notes.find(n => n.id === Number(e.target.dataset.id))
+                switch(e.target.dataset.type){
+                    case("delete"):
+                        deleteNote(Number(e.target.dataset.id))
+                        break
+                    case("title"):
+                        editNoteTitle(note.id, note.name)
+                        break
+                    case("description"):
+                        editNoteDescription(note.id, note.description)
+                        break
+                    case("expand"):
+                        console.log("expandir, n faz nada por hora")
+                        break
+                }
                 break
             default:
                 openUpgradeSkillModal()

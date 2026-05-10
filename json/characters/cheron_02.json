@@ -6,7 +6,7 @@
     "token": "0kFdtl6RRyTXT7XMwG",
     "generation": 10,
     "profilepicture": "/img/characters/cheron.jpeg",
-    "xp": 20,
+    "xp": 0,
     "bloodpotency": 2,
     "status": {
         "adamage": 0,
@@ -51,7 +51,7 @@
         },
         {
             "id": 8,
-            "value": 3
+            "value": 1
         }
     ],
     "knowledges": [
@@ -111,11 +111,11 @@
         },
         {
             "id": 1,
-            "value": 0
+            "value": 3
         },
         {
             "id": 2,
-            "value": 0
+            "value": 2
         },
         {
             "id": 3,
@@ -197,7 +197,7 @@
         },
         {
             "id": 10,
-            "value": 0
+            "value": 2
         },
         {
             "id": 11,
@@ -279,7 +279,7 @@
     ],
     "moralityes": [
         {
-            "description": "Segredos devem sempre ser protegidos",
+            "description": "Segredos são poder. Jamais permito que informações valiosas caiam em mãos erradas.",
             "id": 0
         },
         {
@@ -296,6 +296,7 @@
         }
     ],
     "notes": [
-        
+    ],
+    "caracteristics": [
     ]
 }
