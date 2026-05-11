@@ -105,6 +105,9 @@ def download_player(player_id):
     if ADMIN_TOKEN != url_token:
         return jsonify({"error": "invalid token"}), 403
 
+    print("PATH:", path)
+    print("EXISTS:", os.path.exists(path))
+
     return send_file(
         path,
         as_attachment=True
@@ -154,6 +157,9 @@ def download_game():
         return jsonify({"error": "invalid token"}), 403
 
     game_path = "./json/game_data.json"
+
+    print("PATH:", game_path)
+    print("EXISTS:", os.path.exists(game_path))
 
     return send_file(
         game_path,
