@@ -112,7 +112,7 @@ def download_player(player_id):
     print("EXISTS:", os.path.exists(path))
 
     return send_file(
-        path,
+        os.path.abspath(path),
         as_attachment=True
     )
 
@@ -165,9 +165,8 @@ def download_game():
     print("EXISTS:", os.path.exists(game_path))
 
     return send_file(
-        game_path,
-        as_attachment=True,
-        download_name="game_data.json"
+        os.path.abspath(game_path),
+        as_attachment=True
     )
 
 
