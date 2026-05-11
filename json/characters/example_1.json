@@ -1,17 +1,17 @@
 {
     "player": "Isabella Fonseca",
     "char": "Bella Pietra",
+    "token": "Z2bkfcuiv7T1wqg9OD",
     "id": 1,
     "cla": "BRUJAH",
-    "token": "Z2bkfcuiv7T1wqg9OD",
     "generation": 6,
     "profilepicture": "/img/characters/example.jpg",
     "xp": 500,
-    "bloodpotency": 3,
+    "bloodpotency": 4,
     "status": {
         "adamage": 1,
-        "humanity": 3,
-        "hunger": 2,
+        "humanity": 4,
+        "hunger": 3,
         "inspiration": 1,
         "sdamage": 3,
         "willpower": 7
@@ -19,7 +19,7 @@
     "atributes": [
         {
             "id": 0,
-            "value": 1
+            "value": 2
         },
         {
             "id": 1,
@@ -61,7 +61,7 @@
         },
         {
             "id": 1,
-            "value": 0
+            "value": 1
         },
         {
             "id": 2,
@@ -206,10 +206,6 @@
     ],
     "disciplines": [
         {
-            "id": 0,
-            "nivel": 1
-        },
-        {
             "id": 1,
             "nivel": 1
         },
@@ -248,12 +244,13 @@
         {
             "id": 10,
             "nivel": 1
+        },
+        {
+            "id": 0,
+            "nivel": 3
         }
     ],
     "rituals": [
-        {
-            "id": 0
-        },
         {
             "id": 1
         },
@@ -274,12 +271,15 @@
         },
         {
             "id": 7
+        },
+        {
+            "id": 0
         }
     ],
     "precedents": [
         {
             "id": 0,
-            "value": 0
+            "value": 2
         },
         {
             "id": 1,
@@ -318,7 +318,7 @@
             "value": 1
         }
     ],
-    "money": 5000,
+    "money": 5001,
     "items": [
         {
             "description": "Um fragmento de vitae preservado artificialmente. Impuro, mas útil em emergências.",
@@ -343,7 +343,7 @@
     ],
     "moralityes": [
         {
-            "description": "Preservar a própria humanidade acima da fome e dos instintos da Besta.",
+            "description": "Teste de atualização de moralidade",
             "id": 0
         },
         {
@@ -361,10 +361,18 @@
     ],
     "notes": [
         {
-            "id": 0, "name": "Seita incórum maçons", "description":"Seita satânica, informações obtidas na casa do Victor pelo Nosferatu, com amuletos e simbolos estranhos","date": "08/03", "time":"11:16"
+            "date": "08/03",
+            "description": "Seita satânica, informações obtidas na casa do Victor pelo Nosferatu, com amuletos e simbolos estranhos",
+            "id": 0,
+            "name": "Seita incórum maçons",
+            "time": "11:16"
         },
         {
-            "id": 1, "name": "Abraçado por Monek", "description":"Nome do mentor que me abraçou e desapareceu", "date": "07/02", "time":"09:53"
+            "date": "07/02",
+            "description": "Nome do mentor que me abraçou e desapareceu",
+            "id": 1,
+            "name": "Abraçado por Monek",
+            "time": "09:53"
         }
     ],
     "caracteristics": [
@@ -382,6 +390,9 @@
         },
         {
             "id": 4
+        },
+        {
+            "id": 0
         }
     ]
 }

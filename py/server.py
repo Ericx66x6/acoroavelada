@@ -1,229 +1,326 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
+from datetime import datetime
 import json
 import os
 
 app = Flask(__name__)
 CORS(app)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_DIR = os.path.join(BASE_DIR, "..", "json")
-CHAR_DIR = os.path.join(JSON_DIR, "characters")
+ADMIN_TOKEN = "2755Eric!"
+CHAR_PATH = ".\json\characters"
+GAME_PATH = ".\json"
 
-os.makedirs(CHAR_DIR, exist_ok=True)
+def find_player_by_id(player_id):
+    for filename in os.listdir(CHAR_PATH):
 
-ADMIN_TOKEN = "2755eric"
-
-
-# ----------------------------
-# HELPERS
-# ----------------------------
-
-def load_json(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def save_json(path, data):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
-
-
-def find_char_by_id(player_id):
-    for file in os.listdir(CHAR_DIR):
-        if not file.endswith(".json"):
+        if not filename.endswith(".json"):
             continue
 
-        path = os.path.join(CHAR_DIR, file)
-        data = load_json(path)
+        path = os.path.join(CHAR_PATH, filename)
 
-        if str(data.get("id")) == str(player_id):
-            return path, data
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                player_data = json.load(f)
+
+            if str(player_data.get("id")) == str(player_id):
+                return player_data, path
+
+        except Exception as e:
+            print(f"Erro ao ler {filename}: {e}")
 
     return None, None
 
+@app.route("/", methods=["GET"])
+def main():
+    return "Servidor Online!"
 
-def is_admin(token):
-    return token == ADMIN_TOKEN
+@app.route("/get/game_data", methods=["GET"])
+def get_game_data():
+    path = os.path.join(GAME_PATH, "game_data.json")
+    
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            game_data = json.load(f)  
+            print("Game Get Sucefully")          
+            return game_data
+
+    except Exception as e:
+        return f"Erro ao obter o Game_Data: {e}"
+
+@app.route("/get/player_data", methods=["GET"])
+def get_player_data():
+    url_player_id = request.args.get("id")
+    url_token = request.args.get("token")
+
+    if not url_player_id or not url_token:
+        return jsonify({"error": "missing id or token"}), 400
+
+    player_data, original_file_path = find_player_by_id(url_player_id)
+
+    if not player_data:
+        return jsonify({"error": "player not found"}), 404
+
+    if player_data.get("token") != url_token and ADMIN_TOKEN != url_token:
+        return jsonify({"error": "invalid token"}), 403
+
+    print("Player Get Sucefully")
+    return jsonify(player_data)
 
 
-def auth(data, player_token, admin_token):
-    # admin SEMPRE passa
-    if is_admin(admin_token) or is_admin(player_token):
+@app.route("/save/player_data", methods=["POST"])
+def save_player():
+    data = request.json
+
+    url_player_id = data.get("id")
+    url_token = data.get("token")
+    url_player_data = data.get("data")
+
+    if not url_player_id or not url_token or not url_player_data:
+        return jsonify({"error": "missing data"}), 400
+
+    player_data, original_file_path = find_player_by_id(url_player_id)
+
+    if not player_data:
+        return jsonify({"error": "player not found"}), 404
+
+    if player_data.get("token") != url_token and ADMIN_TOKEN != url_token:
+        return jsonify({"error": "invalid token"}), 403
+    
+    with open(original_file_path, "w", encoding="utf-8") as f:
+        json.dump(url_player_data, f, indent=4, ensure_ascii=False)
+
+    print ("Salvo com Sucesso !")
+    return jsonify({"status": "saved"})
+
+@app.route("/download/player/<int:player_id>")
+def download_player(player_id):
+    url_token = request.args.get("token")
+
+    player_data,_ = find_player_by_id(player_id)
+    path = os.path.join("..",_)
+
+    if not player_data:
+        return jsonify({"error": "player not found"}), 404
+
+    if ADMIN_TOKEN != url_token:
+        return jsonify({"error": "invalid token"}), 403
+
+    return send_file(
+        path,
+        as_attachment=True
+    )
+
+@app.route("/upload/player", methods=["POST"])
+def upload_player():
+    url_token = request.form.get("token")
+
+    if url_token != ADMIN_TOKEN:
+        return jsonify({"error": "invalid token"}), 403
+
+    if "file" not in request.files:
+        return jsonify({"error": "no file"}), 400
+
+    file = request.files["file"]
+
+    save_path = os.path.join(CHAR_PATH, file.filename)
+
+    file.save(save_path)
+
+    return jsonify({"status": "uploaded"})
+
+@app.route("/delete/player/<int:player_id>", methods=["DELETE"])
+def delete_player(player_id):
+
+    url_token = request.args.get("token")
+
+    player_data, original_file_path = find_player_by_id(player_id)
+
+    if not player_data:
+        return jsonify({"error": "player not found"}), 404
+
+    if url_token != ADMIN_TOKEN:
+        return jsonify({"error": "invalid token"}), 403
+
+    os.remove(original_file_path)
+
+    return jsonify({"status": "deleted"})
+
+@app.route("/download/game", methods=["GET"])
+def download_game():
+
+    url_token = request.args.get("token")
+
+    if url_token != ADMIN_TOKEN:
+        return jsonify({"error": "invalid token"}), 403
+
+    game_path = os.path.join("..", "json", "game_data.json")
+
+    return send_file(
+        game_path,
+        as_attachment=True,
+        download_name="game_data.json"
+    )
+
+
+@app.route("/upload/game", methods=["POST"])
+def upload_game():
+
+    url_token = request.form.get("token")
+
+    if url_token != ADMIN_TOKEN:
+        return jsonify({"error": "invalid token"}), 403
+
+    if "file" not in request.files:
+        return jsonify({"error": "no file"}), 400
+
+    file = request.files["file"]
+
+    game_path = "./json/game_data.json"
+
+    file.save(game_path)
+
+    return jsonify({"status": "uploaded"})
+
+@app.route("/upload/profile_picture", methods=["POST"])
+def upload_profile_picture():
+
+    url_token = request.form.get("token")
+    
+    if url_token != ADMIN_TOKEN:
+        return jsonify({"error": "invalid token"}), 403
+
+    if "file" not in request.files:
+        return jsonify({"error": "no file"}), 400
+
+    file = request.files["file"]
+
+    name = request.form.get("name")
+    name = os.path.basename(name)
+
+    img_path = f"./img/characters/{name}"
+
+    file.save(img_path)
+
+    return jsonify({"status": "uploaded"})
+
+@app.route("/update/player", methods=["POST"])
+def update_player():
+    data = request.json
+
+    url_player_id = int(data.get("player_id"))
+    url_token = data.get("token")
+    url_action = data.get("action")
+    url_value = int(data.get("value"))
+    url_key = data.get("key")
+    url_stat_id = int(data.get("stat_id"))
+    url_description = data.get("description")
+
+    player_data, original_file_path = find_player_by_id(url_player_id)
+
+    if not player_data:
+        return jsonify({"error": "player not found"}), 404
+
+    if ADMIN_TOKEN != url_token:
+        return jsonify({"error": "invalid token"}), 403
+
+    def update_morality(player_data, stat_id, description):
+        for morality in player_data["moralityes"]:
+            if int(morality["id"]) == stat_id:
+                morality["description"] = description
+                return True
+            
+        return False
+
+    def update_stat(player_data, key, stat_id, value):
+        valid_keys = [
+            "atributes",
+            "knowledges",
+            "precedents",
+            "expertises",
+            "talents"
+        ]
+
+        if key not in valid_keys:
+            return False
+
+        for item in player_data[key]:
+            if int(item["id"]) == stat_id:
+                item["value"] += value
+                return True
+
+        return False
+
+    def add_xp(player_data, value):
+        xp = int(player_data.get("xp"))
+
+        if xp + value < 0:
+            return False
+
+        player_data["xp"] = xp + value
         return True
 
-    return data and data.get("token") == player_token
+    def add_discipline(player_data, stat_id, value):
+        for discipline in player_data["disciplines"]:
+            if int(discipline["id"]) == stat_id:
+                player_data["disciplines"].remove(discipline)
+                return True
+            
+        player_data["disciplines"].append({
+            "id": int(stat_id),
+            "nivel": int(value),
+        })
+        return True
+
+    def add_ritual(player_data, stat_id):
+        for ritual in player_data["rituals"]:
+            if int(ritual["id"]) == stat_id:
+                player_data["rituals"].remove(ritual)
+                return True
+            
+        player_data["rituals"].append({
+            "id": int(stat_id)
+        })
+        return True
+
+    def add_caracteristic(player_data, stat_id):
+        for caracteristic in player_data["caracteristics"]:
+            if int(caracteristic["id"]) == stat_id:
+                player_data["caracteristics"].remove(caracteristic)
+                return True
+            
+        player_data["caracteristics"].append({
+            "id": int(stat_id)
+        })
+        return True
+
+    if url_action == "update_stat":
+        update_stat(player_data, url_key, url_stat_id, url_value)
+
+    elif url_action == "add_xp":
+        add_xp(player_data, url_value)
+
+    elif url_action == "add_discipline":
+        add_discipline(player_data, url_stat_id, url_value)
+
+    elif url_action == "add_ritual":
+        add_ritual(player_data, url_stat_id)
+    
+    elif url_action == "add_caracteristic":
+        add_caracteristic(player_data, url_stat_id)
+
+    elif url_action == "update_morality":
+        update_morality(player_data, url_stat_id, url_description)
+
+    else:
+        return jsonify({"error": "invalid action"}), 400
+
+    with open(original_file_path, "w", encoding="utf-8") as f:
+        json.dump(player_data, f, indent=4, ensure_ascii=False)
+
+    return jsonify({"status": "ok", "player": player_data})
 
 
-def update_player(pid, player_token, admin_token, updater):
-    path, data = find_char_by_id(pid)
-
-    if not data:
-        return None, ("personagem nao encontrado", 404)
-
-    if not auth(data, player_token, admin_token):
-        return None, ("token invalido", 401)
-
-    updater(data)
-    save_json(path, data)
-
-    return data, None
-
-
-# ----------------------------
-# XP (FIX DO SEU BUG)
-# ----------------------------
-
-@app.route("/addxp", methods=["POST"])
-def add_xp():
-    body = request.get_json()
-
-    pid = body.get("id")
-    xp = body.get("xp")
-
-    # aceita os DOIS nomes sem quebrar client antigo
-    token = body.get("token") or body.get("admin_token")
-
-    if pid is None or xp is None:
-        return jsonify({"erro": "faltando parametros"}), 400
-
-    xp = int(xp)
-
-    def updater(d):
-        d["xp"] = d.get("xp", 0) + xp
-
-    _, err = update_player(pid, token, token, updater)
-
-    if err:
-        return jsonify({"erro": err[0]}), err[1]
-
-    return jsonify({"msg": "xp atualizado"}), 200
-
-
-# ----------------------------
-# MONEY
-# ----------------------------
-
-@app.route("/addmoney", methods=["POST"])
-def add_money():
-    body = request.get_json()
-
-    pid = body.get("id")
-    amount = int(body.get("amount", 0))
-    token = body.get("token") or body.get("admin_token")
-
-    def updater(d):
-        d["money"] = d.get("money", 0) + amount
-
-    _, err = update_player(pid, token, token, updater)
-
-    if err:
-        return jsonify({"erro": err[0]}), err[1]
-
-    return jsonify({"msg": "money atualizado"}), 200
-
-
-# ----------------------------
-# DISCIPLINE
-# ----------------------------
-
-@app.route("/adddiscipline", methods=["POST"])
-def add_discipline():
-    body = request.get_json()
-
-    pid = body.get("id")
-    disc_id = body.get("discipline_id")
-    nivel = int(body.get("nivel", 1))
-    token = body.get("token") or body.get("admin_token")
-
-    def updater(d):
-        if "disciplines" not in d:
-            d["disciplines"] = []
-
-        found = next((x for x in d["disciplines"] if x["id"] == disc_id), None)
-
-        if found:
-            found["nivel"] = max(found["nivel"], nivel)
-        else:
-            d["disciplines"].append({"id": disc_id, "nivel": nivel})
-
-    _, err = update_player(pid, token, token, updater)
-
-    if err:
-        return jsonify({"erro": err[0]}), err[1]
-
-    return jsonify({"msg": "disciplina ok"}), 200
-
-
-# ----------------------------
-# RITUAL
-# ----------------------------
-
-@app.route("/addritual", methods=["POST"])
-def add_ritual():
-    body = request.get_json()
-
-    pid = body.get("id")
-    ritual_id = body.get("ritual")
-    token = body.get("token") or body.get("admin_token")
-
-    def updater(d):
-        if "rituals" not in d:
-            d["rituals"] = []
-
-        if ritual_id not in [r.get("id") for r in d["rituals"]]:
-            d["rituals"].append({"id": ritual_id})
-
-    _, err = update_player(pid, token, token, updater)
-
-    if err:
-        return jsonify({"erro": err[0]}), err[1]
-
-    return jsonify({"msg": "ritual ok"}), 200
-
-
-# ----------------------------
-# CHARACTERISTICS
-# ----------------------------
-
-@app.route("/addcharacteristic", methods=["POST"])
-def add_characteristic():
-    body = request.get_json()
-
-    pid = body.get("id")
-    cid = body.get("characteristic_id")
-    token = body.get("token") or body.get("admin_token")
-
-    def updater(d):
-        if "caracteristics" not in d:
-            d["caracteristics"] = []
-
-        if cid not in [c.get("id") for c in d["caracteristics"]]:
-            d["caracteristics"].append({"id": cid})
-
-    _, err = update_player(pid, token, token, updater)
-
-    if err:
-        return jsonify({"erro": err[0]}), err[1]
-
-    return jsonify({"msg": "characteristic ok"}), 200
-
-
-# ----------------------------
-# RUN
-# ----------------------------
 
 if __name__ == "__main__":
-    import os
-
-    port = int(os.environ.get("PORT", 5000))
-
-    print("SERVER ONLINE 🔥")
-
-    app.run(
-        host="0.0.0.0",
-        port=port,
-        debug=False
-    )
-    print("SERVER READY 🔥 (compatível com client antigo)")
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

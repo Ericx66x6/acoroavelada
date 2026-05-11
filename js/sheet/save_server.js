@@ -4,7 +4,7 @@ import { base_url } from "./main.js";
 export async function saveJson() {
     const player_data = getPlayerData()
 
-    const res = await fetch(`${base_url}/save`, {
+    const res = await fetch(`${base_url}/save/player_data`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

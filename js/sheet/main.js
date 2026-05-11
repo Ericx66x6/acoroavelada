@@ -45,22 +45,20 @@ let player_data = null;
 let game_data = null;
 
 export const base_url = "https://acoroavelada.onrender.com"
-//export const base_url = "127.0.0.1:5500"
+//export const base_url = "http://localhost:5000"
 
 const params = new URLSearchParams(window.location.search)
 const playerId = params.get("id")
 const playerToken = params.get("token")
 
 Promise.all([
-    fetch(`${base_url}/game`).then(r => r.json()),
-    fetch(`${base_url}/get?id=${playerId}&token=${playerToken}`)
+    fetch(`${base_url}/get/game_data`).then(r => r.json()),
+    fetch(`${base_url}/get/player_data?id=${playerId}&token=${playerToken}`)
         .then(r => r.json())
 ]).then(([gData, pData]) => {
 
     player_data = new Player(pData)
     game_data = new GameData(gData)
-
-    window.player_data = player_data
 
     startSheet(player_data, game_data);
     changeStatusEvents()
