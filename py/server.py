@@ -8,8 +8,8 @@ app = Flask(__name__)
 CORS(app)
 
 ADMIN_TOKEN = "2755Eric!"
-CHAR_PATH = ".\json\characters"
-GAME_PATH = ".\json"
+CHAR_PATH = "./json/characters"
+GAME_PATH = "./json"
 
 def find_player_by_id(player_id):
     for filename in os.listdir(CHAR_PATH):
@@ -97,8 +97,7 @@ def save_player():
 def download_player(player_id):
     url_token = request.args.get("token")
 
-    player_data,_ = find_player_by_id(player_id)
-    path = os.path.join("..",_)
+    player_data,path = find_player_by_id(player_id)
 
     if not player_data:
         return jsonify({"error": "player not found"}), 404
@@ -154,7 +153,7 @@ def download_game():
     if url_token != ADMIN_TOKEN:
         return jsonify({"error": "invalid token"}), 403
 
-    game_path = os.path.join("..", "json", "game_data.json")
+    game_path = "./json/game_data.json"
 
     return send_file(
         game_path,
