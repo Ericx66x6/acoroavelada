@@ -8,8 +8,11 @@ app = Flask(__name__)
 CORS(app)
 
 ADMIN_TOKEN = "2755Eric!"
-CHAR_PATH = "./json/characters"
-GAME_PATH = "./json"
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+CHAR_PATH = os.path.join(BASE_DIR, "json", "characters")
+GAME_PATH = os.path.join(BASE_DIR, "json")
 
 def find_player_by_id(player_id):
     for filename in os.listdir(CHAR_PATH):
