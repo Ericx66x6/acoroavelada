@@ -452,32 +452,32 @@
         {
             "id": 12,
             "name": "METAMORFOSE",
-            "description": "",
+            "description": "Domínio sobre a própria natureza monstruosa, permitindo alterar o corpo em formas bestiais e sobrenaturais, despertando sentidos predatórios e habilidades ligadas à sobrevivência, caça e adaptação.",
             "nivels": [
                 {
-                    "subname": "",
+                    "subname": "OLHOS DA BESTA",
                     "nivel": 1,
-                    "description": ""
+                    "description": "(Rouse Check: Não | Teste: Nenhum) O vampiro desperta sentidos predatórios sobrenaturais e passa a enxergar perfeitamente até na escuridão total. Seus olhos ficam vermelhos e animalescos, revelando a presença da Besta e causando desconforto ou medo em mortais."
                 },
                 {
-                    "subname": "",
+                    "subname": "GARRAS DA BESTA",
                     "nivel": 2,
-                    "description": ""
+                    "description": "(Rouse Check: Não | Teste: Nenhum) As unhas do vampiro se transformam em garras monstruosas capazes de cortar carne, pedra e metal. Elas aumentam o dano de ataques em +1 e causam dano agravado, tornando o vampiro extremamente perigoso até contra outros seres sobrenaturais."
                 },
                 {
-                    "subname": "",
+                    "subname": "FUSÃO COM A TERRA",
                     "nivel": 3,
-                    "description": ""
+                    "description": "(Rouse Check: Não | Teste: Nenhum) O vampiro literalmente afunda no solo e se mistura à terra, entrando em um estado quase espiritual. Enquanto estiver enterrado, fica protegido do sol, difícil de detectar e praticamente impossível de atingir sem arrancá-lo de lá."
                 },
                 {
-                    "subname": "",
+                    "subname": "FORMA DA BESTA",
                     "nivel": 4,
-                    "description": ""
+                    "description": "(Rouse Check: Sim | Teste: Nenhum) O vampiro assume a forma de um animal predatório, normalmente um lobo, morcego ou um outro animal a escolha do jogador (com permissão do Narrador). O personagem só pode se transformar em um único animal, definido durante a criação de seu personagem. O vampiro recebe bônus de acordo com as habilidades naturais do animal escolhido."
                 },
                 {
-                    "subname": "",
+                    "subname": "FORMA DE NÉVOA",
                     "nivel": 5,
-                    "description": ""
+                    "description": "(Rouse Check: Não | Teste: Nenhum) O corpo do vampiro se desfaz em uma névoa consciente, capaz de atravessar frestas, canos e pequenas aberturas. Nesse estado ele se torna imune à maioria dos ataques físicos, mas perde a capacidade de atacar fisicamente outras pessoas."
                 },
                 {
                     "subname": "",
@@ -1553,6 +1553,20 @@
             "type": "QUALIDADE",
             "description": "Você consegue separar bem fatos de emoção e percebe quando alguém está distorcendo a realidade por sentimentos. Reduz em 1 a dificuldade de testes para detectar dissimulação e intenções ocultas.",
             "value": 1
+        },
+        {
+            "id": 7,
+            "name": "RUBOR DE SAÚDE",
+            "type": "QUALIDADE",
+            "description": "A sua aparência é mais natural e saudável do que a dos outros vampiros, o que lhe permite misturar-se aos humanos com mais facilidade. Você ainda conserva a cor de um mortal vivo e sua pele é apenas um pouco mais fria ao contato.",
+            "value": 2
+        },
+        {
+            "id": 8,
+            "name": "VICIO (ÁLCOOL)",
+            "type": "DEFEITO",
+            "description": "Você é viciado em alguma substância que agora precisa estar presente no sangue que você bebe. tanto pode ser álcool, nicotina, drogas pesadas ou simplesmente adrenalina. Esta substância sempre o enfraquece de alguma maneira",
+            "value": 3
         }
     ]
 }

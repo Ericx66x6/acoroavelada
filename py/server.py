@@ -205,7 +205,7 @@ def upload_profile_picture():
     name = request.form.get("name")
     name = os.path.basename(name)
 
-    img_path = f"./img/characters/{name}"
+    img_path = os.path.join(BASE_DIR, "img", "characters", name)
 
     file.save(img_path)
 
