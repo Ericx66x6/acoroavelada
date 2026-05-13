@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 from datetime import datetime
 import json
@@ -233,6 +233,13 @@ def upload_profile_picture():
         "path": img_path,
         "exists": os.path.exists(img_path)
     })
+
+@app.route("/img/characters/<filename>")
+def get_character_image(filename):
+    return send_from_directory(
+        os.path.join(BASE_DIR, "img", "characters"),
+        filename
+    )
 
 @app.route("/update/player", methods=["POST"])
 def update_player():

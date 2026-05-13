@@ -86,7 +86,7 @@
         {
         "id": 2,
         "name": "DOMINAÇÃO",
-        "description": "[ Rouse Check: Não || Teste: Nenhum ] Permite ao vampiro influenciar, comandar e reescrever o comportamento mental de humanos através do contato visual, impondo sua vontade sobre a mente do alvo.",
+        "description": "Permite ao vampiro influenciar, comandar e reescrever o comportamento mental de humanos através do contato visual, impondo sua vontade sobre a mente do alvo.",
         "nivels": [
             {
             "subname": "O COMANDO",
@@ -123,7 +123,7 @@
         {
         "id": 3,
         "name": "FORTITUDE",
-        "description": "[ Rouse Check: Não || Teste: Nenhum ] Aumenta drasticamente a resistência física do vampiro, tornando seu corpo capaz de suportar e reduzir danos que seriam letais para outros seres.",
+        "description": "Aumenta drasticamente a resistência física do vampiro, tornando seu corpo capaz de suportar e reduzir danos que seriam letais para outros seres.",
         "nivels": [
             {
             "subname": "NÍVEL 1",
@@ -160,7 +160,7 @@
         {
         "id": 4,
         "name": "OFUSCAÇÃO",
-        "description": "[ Rouse Check: Não || Teste: Nenhum ] Permite ao vampiro ocultar sua presença, tornando-se imperceptível aos sentidos e apagando sua existência da percepção alheia.",
+        "description": "Permite ao vampiro ocultar sua presença, tornando-se imperceptível aos sentidos e apagando sua existência da percepção alheia.",
         "nivels": [
             {
             "subname": "MANTO DAS SOMBRAS",
@@ -197,7 +197,7 @@
         {
         "id": 5,
         "name": "POTÊNCIA",
-        "description": "[ Rouse Check: Não || Teste: Nenhum ] Aumenta drasticamente a força física do vampiro, somando seu nível de Potência à Força do vampiro, permitindo feitos acima dos limites mortais.",
+        "description": "Aumenta drasticamente a força física do vampiro, somando seu nível de Potência à Força do vampiro, permitindo feitos acima dos limites mortais.",
         "nivels": [
             {
             "subname": "NÍVEL 1",
