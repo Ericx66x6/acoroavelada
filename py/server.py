@@ -203,13 +203,36 @@ def upload_profile_picture():
     file = request.files["file"]
 
     name = request.form.get("name")
+
+    if not name:
+        return jsonify({"error": "missing name"}), 400
+
     name = os.path.basename(name)
 
-    img_path = os.path.join(BASE_DIR, "img", "characters", name)
+    print("FILE:", file)
+    print("NAME:", name)
+    print("__FILE__:", __file__)
+    print("BASE_DIR:", BASE_DIR)
+
+    img_dir = os.path.join(BASE_DIR, "img", "characters")
+
+    print("IMG_DIR:", img_dir)
+
+    os.makedirs(img_dir, exist_ok=True)
+
+    img_path = os.path.join(img_dir, name)
+
+    print("FINAL PATH:", img_path)
 
     file.save(img_path)
 
-    return jsonify({"status": "uploaded"})
+    print("EXISTS AFTER SAVE:", os.path.exists(img_path))
+
+    return jsonify({
+        "status": "uploaded",
+        "path": img_path,
+        "exists": os.path.exists(img_path)
+    })
 
 @app.route("/update/player", methods=["POST"])
 def update_player():
