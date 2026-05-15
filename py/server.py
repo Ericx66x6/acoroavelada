@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, send_file, send_from_directory, Respo
 from flask_cors import CORS
 from supabase import create_client
 
+import uuid
 import json
 import os
 
@@ -248,7 +249,7 @@ def upload_game():
 def upload_profile_picture():
 
     url_token = request.form.get("token")
-    
+
     if url_token != ADMIN_TOKEN:
         return jsonify({"error": "invalid token"}), 403
 
@@ -257,36 +258,37 @@ def upload_profile_picture():
 
     file = request.files["file"]
 
-    name = request.form.get("name")
+    if file.filename == "":
+        return jsonify({"error": "empty filename"}), 400
 
-    if not name:
+    if not file.content_type.startswith("image/"):
+        return jsonify({"error": "invalid file"}), 400
+
+    original_name = request.form.get("name")
+
+    if not original_name:
         return jsonify({"error": "missing name"}), 400
 
-    name = os.path.basename(name)
+    ext = original_name.split(".")[-1].lower()
 
-    print("FILE:", file)
-    print("NAME:", name)
-    print("__FILE__:", __file__)
-    print("BASE_DIR:", BASE_DIR)
+    filename = f"characters/{uuid.uuid4()}.{ext}"
 
-    img_dir = os.path.join(BASE_DIR, "img", "characters")
+    file_bytes = file.read()
 
-    print("IMG_DIR:", img_dir)
+    supabase.storage.from_("imagens").upload(
+        path=filename,
+        file=file_bytes,
+        file_options={
+            "content-type": file.content_type,
+            "upsert": "true"
+        }
+    )
 
-    os.makedirs(img_dir, exist_ok=True)
-
-    img_path = os.path.join(img_dir, name)
-
-    print("FINAL PATH:", img_path)
-
-    file.save(img_path)
-
-    print("EXISTS AFTER SAVE:", os.path.exists(img_path))
+    public_url = supabase.storage.from_("imagens").get_public_url(filename)
 
     return jsonify({
         "status": "uploaded",
-        "path": img_path,
-        "exists": os.path.exists(img_path)
+        "url": public_url
     })
 
 @app.route("/test")
@@ -301,13 +303,6 @@ def test():
     loaded = get_json("test.json")
 
     return loaded
-
-@app.route("/img/characters/<filename>")
-def get_character_image(filename):
-    return send_from_directory(
-        os.path.join(BASE_DIR, "img", "characters"),
-        filename
-    )
 
 @app.route("/update/player", methods=["POST"])
 def update_player():
