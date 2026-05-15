@@ -1,8 +1,15 @@
-from flask import Flask, request, jsonify, send_file, send_from_directory
+from flask import Flask, request, jsonify, send_file, send_from_directory, Response
 from flask_cors import CORS
 from datetime import datetime
+
 import json
 import os
+from storage import (
+    get_json,
+    save_json,
+    delete_json,
+    list_files
+)
 
 app = Flask(__name__)
 CORS(app)
@@ -11,23 +18,24 @@ ADMIN_TOKEN = "2755Eric!"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-CHAR_PATH = os.path.join(BASE_DIR, "json", "characters")
-GAME_PATH = os.path.join(BASE_DIR, "json")
-
 def find_player_by_id(player_id):
-    for filename in os.listdir(CHAR_PATH):
+
+    files = list_files("characters")
+
+    for file in files:
+
+        filename = file["name"]
 
         if not filename.endswith(".json"):
             continue
 
-        path = os.path.join(CHAR_PATH, filename)
-
         try:
-            with open(path, "r", encoding="utf-8") as f:
-                player_data = json.load(f)
+            player_data = get_json(
+                f"characters/{filename}"
+            )
 
             if str(player_data.get("id")) == str(player_id):
-                return player_data, path
+                return player_data, filename
 
         except Exception as e:
             print(f"Erro ao ler {filename}: {e}")
@@ -40,13 +48,12 @@ def main():
 
 @app.route("/get/game_data", methods=["GET"])
 def get_game_data():
-    path = os.path.join(GAME_PATH, "game_data.json")
-    
+
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            game_data = json.load(f)  
-            print("Game Get Sucefully")          
-            return game_data
+        game_data = get_json("game_data.json")
+
+        print("Game Get Successfully")
+        return game_data
 
     except Exception as e:
         return f"Erro ao obter o Game_Data: {e}"
@@ -90,17 +97,17 @@ def save_player():
     if player_data.get("token") != url_token and ADMIN_TOKEN != url_token:
         return jsonify({"error": "invalid token"}), 403
     
-    with open(original_file_path, "w", encoding="utf-8") as f:
-        json.dump(url_player_data, f, indent=4, ensure_ascii=False)
+    save_json(f"characters/{original_file_path}",url_player_data)
 
     print ("Salvo com Sucesso !")
     return jsonify({"status": "saved"})
 
 @app.route("/download/player/<int:player_id>")
 def download_player(player_id):
+
     url_token = request.args.get("token")
 
-    player_data,path = find_player_by_id(player_id)
+    player_data, filename = find_player_by_id(player_id)
 
     if not player_data:
         return jsonify({"error": "player not found"}), 404
@@ -108,12 +115,13 @@ def download_player(player_id):
     if ADMIN_TOKEN != url_token:
         return jsonify({"error": "invalid token"}), 403
 
-    print("PATH:", path)
-    print("EXISTS:", os.path.exists(path))
-
-    return send_file(
-        os.path.abspath(path),
-        as_attachment=True
+    return Response(
+        json.dumps(player_data, indent=4, ensure_ascii=False),
+        mimetype="application/json",
+        headers={
+            "Content-Disposition":
+            f"attachment; filename={filename}"
+        }
     )
 
 @app.route("/upload/player", methods=["POST"])
@@ -128,9 +136,9 @@ def upload_player():
 
     file = request.files["file"]
 
-    save_path = os.path.join(CHAR_PATH, file.filename)
+    content = json.load(file)
 
-    file.save(save_path)
+    save_json(f"characters/{file.filename}",content)
 
     return jsonify({"status": "uploaded"})
 
@@ -147,7 +155,7 @@ def delete_player(player_id):
     if url_token != ADMIN_TOKEN:
         return jsonify({"error": "invalid token"}), 403
 
-    os.remove(original_file_path)
+    delete_json(f"characters/{original_file_path}")
 
     return jsonify({"status": "deleted"})
 
@@ -159,14 +167,15 @@ def download_game():
     if url_token != ADMIN_TOKEN:
         return jsonify({"error": "invalid token"}), 403
 
-    game_path = "./json/game_data.json"
+    game_data = get_json("game_data.json")
 
-    print("PATH:", game_path)
-    print("EXISTS:", os.path.exists(game_path))
-
-    return send_file(
-        os.path.abspath(game_path),
-        as_attachment=True
+    return Response(
+        json.dumps(game_data, indent=4, ensure_ascii=False),
+        mimetype="application/json",
+        headers={
+            "Content-Disposition":
+            "attachment; filename=game_data.json"
+        }
     )
 
 
@@ -183,9 +192,9 @@ def upload_game():
 
     file = request.files["file"]
 
-    game_path = "./json/game_data.json"
+    content = json.load(file)
 
-    file.save(game_path)
+    save_json("game_data.json",content)
 
     return jsonify({"status": "uploaded"})
 
@@ -233,6 +242,19 @@ def upload_profile_picture():
         "path": img_path,
         "exists": os.path.exists(img_path)
     })
+
+@app.route("/test")
+def test():
+
+    data = {
+        "hello": "world"
+    }
+
+    save_json("test.json", data)
+
+    loaded = get_json("test.json")
+
+    return loaded
 
 @app.route("/img/characters/<filename>")
 def get_character_image(filename):
@@ -352,8 +374,7 @@ def update_player():
     else:
         return jsonify({"error": "invalid action"}), 400
 
-    with open(original_file_path, "w", encoding="utf-8") as f:
-        json.dump(player_data, f, indent=4, ensure_ascii=False)
+    save_json(f"characters/{original_file_path}",player_data)
 
     return jsonify({"status": "ok", "player": player_data})
 

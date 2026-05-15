@@ -128,7 +128,7 @@
             {
             "subname": "NÍVEL 1",
             "nivel": 1,
-            "description": "[ Rouse Check: Não || Teste: Nenhum ] O vampiro utiliza Fortitude para aumentar sua resistência física, somando o nível da disciplina ao Vigor para absorver dano contusivo e letal, além de permitir absorção de dano agravado usando apenas Fortitude."
+            "description": "[ Rouse Check: Não || Teste: Nenhum ] O vampiro endurece o próprio corpo através da Fortitude. Para absorção de dano superficial e letal, cada ponto em Fortitude concede +2 dados de Vigor. Além disso, o vampiro pode absorver dano agravado utilizando apenas sua pontuação em Fortitude."
             },
             {
             "subname": "NÍVEL 2",
@@ -1567,6 +1567,27 @@
             "type": "DEFEITO",
             "description": "Você é viciado em alguma substância que agora precisa estar presente no sangue que você bebe. tanto pode ser álcool, nicotina, drogas pesadas ou simplesmente adrenalina. Esta substância sempre o enfraquece de alguma maneira",
             "value": 3
+        },
+        {
+            "id": 9,
+            "name": "FOBIA (ALTURA)",
+            "type": "DEFEITO",
+            "description": "Você sente um medo irracional de alguma coisa. Aranhas, cobras, multidões e alturas são exemplos de fobias comuns. Você deve fazer um teste de Coragem sempre que se deparar com o objeto de sua fobia. A dificuldade do teste é determinada pelo Narrador e se você fracassar, deverá afastar-se daquele objeto.",
+            "value": 2
+        },
+        {
+            "id": 10,
+            "name": "NOÇÃO EXATA DE TEMPO",
+            "type": "QUALIDADE",
+            "description": "Você tem uma noção de tempo inata e é capaz de estimar a passagem do tempo com exatidão, sem usar relógios ou outros instrumentos mecânicos.",
+            "value": 1
+        },
+        {
+            "id": 11,
+            "name": "CONCENTRAÇÃO",
+            "type": "QUALIDADE",
+            "description": "Você tem a habilidade de focalizar a sua mente e desligar-se de qualquer distração ou perturbação. Os personagens que têm esta Qualidade não são afetados por nenhuma das penalidades provenientes de circunstâncias que provocam distrações (como ruídos altos, luzes estroboscópicas, pendurar-se de ponta-cabeça etc)",
+            "value": 1
         }
     ]
 }
