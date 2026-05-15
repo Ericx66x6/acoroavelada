@@ -1,21 +1,67 @@
 from flask import Flask, request, jsonify, send_file, send_from_directory, Response
 from flask_cors import CORS
-from datetime import datetime
+from supabase import create_client
 
 import json
 import os
-from storage import (
-    get_json,
-    save_json,
-    delete_json,
-    list_files
-)
+
+#=========================
+#======= STORAGE
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+BUCKET = "fichas"
+
+
+def get_json(path):
+    response = supabase.storage.from_(BUCKET).download(path)
+
+    return json.loads(response.decode("utf-8"))
+
+
+def save_json(path, data):
+
+    json_string = json.dumps(
+        data,
+        indent=4,
+        ensure_ascii=False
+    )
+
+    try:
+        supabase.storage.from_(BUCKET).remove([path])
+    except:
+        pass
+
+    supabase.storage.from_(BUCKET).upload(
+        path,
+        json_string.encode("utf-8"),
+        file_options={
+            "content-type": "application/json"
+        }
+    )
+
+
+def delete_json(path):
+    supabase.storage.from_(BUCKET).remove([path])
+
+
+def list_files(folder=""):
+    response = supabase.storage.from_(BUCKET).list(folder)
+    return response
+
+
+
+#=========================
+
+
 
 app = Flask(__name__)
 CORS(app)
 
 ADMIN_TOKEN = "2755Eric!"
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def find_player_by_id(player_id):
