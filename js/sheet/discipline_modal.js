@@ -133,7 +133,7 @@ discipline_modal_unlock_button.addEventListener("click", () => {
             id: modal_data.id,
             act_nivel: modal_data.nivel,
             display_nivel: modal_data.display_nivel,
-            xp_cost: (modal_data.nivel + 1) * game_data.xp_cost["disciplines"],
+            xp_cost: (modal_data.nivel) * game_data.xp_cost["disciplines"],
             up_levels: 1,
         }
     }))
