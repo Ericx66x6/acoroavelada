@@ -21,6 +21,41 @@ def pause():
 # PLAYER
 # =====================================
 
+def list_players():
+
+    r = requests.get(
+        f"{BASE_URL}/get/players",
+        params={
+            "token": ADMIN_TOKEN
+        }
+    )
+
+    print(r.status_code)
+
+    try:
+
+        data = r.json()
+
+        print("\n==============================")
+        print("LISTA DE PLAYERS")
+        print("==============================\n")
+
+        for player in data:
+
+            print(
+                f'ID: {player["id"]} | '
+                f'Player: {player["player"]} | '
+                f'Char: {player["char"]}'
+            )
+
+    except Exception as e:
+
+        print("Erro ao ler resposta:")
+        print(e)
+        print(r.text)
+
+    pause()
+
 
 def get_player():
     player_id = input("Player ID: ")
@@ -460,6 +495,8 @@ while True:
 ==============================
 A COROA VELADA - ADMIN PANEL
 ==============================
+          
+0  - List Players
 
 1  - Get Player
 2  - Download Player
@@ -485,7 +522,10 @@ A COROA VELADA - ADMIN PANEL
 
     option = input("> ")
 
-    if option == "1":
+    if option == "0":
+        list_players()
+
+    elif option == "1":
         get_player()
 
     elif option == "2":

@@ -1,8 +1,0 @@
-POST http://127.0.0.1:5000/xp
-Content-Type: application/json
-
-{
-    "char": "Eric",
-    "token": "acoroavelada2026",
-    "xp": 100
-}

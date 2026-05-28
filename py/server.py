@@ -304,6 +304,44 @@ def test():
 
     return loaded
 
+@app.route("/get/players", methods=["GET"])
+def get_players():
+
+    url_token = request.args.get("token")
+
+    if url_token != ADMIN_TOKEN:
+        return jsonify({"error": "invalid token"}), 403
+
+    files = list_files("characters")
+
+    players = []
+
+    for file in files:
+
+        filename = file["name"]
+
+        if not filename.endswith(".json"):
+            continue
+
+        try:
+
+            player_data = get_json(
+                f"characters/{filename}"
+            )
+
+            players.append({
+                "id": player_data.get("id"),
+                "player": player_data.get("player"),
+                "char": player_data.get("char")
+            })
+
+        except Exception as e:
+            print(f"Erro ao ler {filename}: {e}")
+
+    players.sort(key=lambda p: p["id"])
+
+    return jsonify(players)
+
 @app.route("/update/player", methods=["POST"])
 def update_player():
     data = request.json
